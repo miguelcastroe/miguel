@@ -23,100 +23,665 @@
   <link rel="icon" href="letter-m_5944114.png" type="image/png">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RETHINKING THE INVISIBLE</title>
+  <title>Rethinking the Invisible | Miguel Castro</title>
   <style>
-    body {
-      font-family: 'Space Mono', monospace;
-      background-color: #f9f9f6;
-      color: #000;
-      font-size: 12px;
-      line-height: 2;
-      padding: 60px 20px;
-      margin: 0;
-    }
+  :root {
+    --background: #f9f9f6;
+    --text: #000000;
+    --accent: #807f7a;
+  }
 
-    nav {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      font-size: 10px;
-      z-index: 10;
-    }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-    nav a {
-      text-decoration: none;
-      color: #000;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+  html, body {
+    font-family: 'Space Mono', monospace;
+    background-color: var(--background);
+    color: var(--text);
+    font-size: 12px;
+    line-height: 2;
+    padding: 60px 20px;
+    letter-spacing: 0.02em;
+    scroll-behavior: smooth;
+  }
 
-    nav a:hover {
-      color: #807f7a;
-    }
+  header, section, footer {
+    max-width: 620px;
+    margin: 0 auto 120px auto;
+    position: relative;
+  }
 
-    .brand {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      font-weight: bold;
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      z-index: 10;
-    }
+  nav {
+  top: 20px;
+  right: 20px;
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 10;
+  }
 
-    footer {
-      text-align: center;
-      font-size: 10px;
-      opacity: 0.4;
-      margin-top: 100px;
-    }
-  </style>
+  nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  nav a:hover {
+    color: var(--accent);
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  h2.section-title {
+    font-size: 16px;
+    letter-spacing: 0.07em;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  h2.irregular-heading {
+    transform: rotate(-1.5deg);
+    margin-left: 5%;
+  }
+
+  p {
+    margin-bottom: 40px;
+  }
+
+  .manifesto-scatter {
+  margin-bottom: -8px;
+  white-space: pre-wrap;
+  display: block;
+  animation: inflateManifesto 4s ease-in-out;
+  animation-delay: 0s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+}
+
+  .chapter {
+    padding-top: 100px;
+  }
+
+  .centered {
+    text-align: center;
+  }
+
+  .classified {
+    height: 20px;
+    background: #000;
+    margin: 60px 0;
+    animation: flicker 1.4s infinite alternate;
+  }
+
+  @keyframes flicker {
+    0% { opacity: 1; transform: scaleX(1); }
+    100% { opacity: 0.8; transform: scaleX(1.03); }
+  }
+
+  .irregular {
+    display: block;
+    margin-left: calc(3% + (3% * var(--index)));
+    transform: rotate(calc(-1.5deg + var(--index) * 0.4deg));
+  }
+
+  .organic-breath {
+    animation: breathe 10s ease-in-out infinite;
+  }
+
+  @keyframes breathe {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(4px); }
+  }
+
+  .scroll-cue {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%) rotate(-180deg);
+    writing-mode: vertical-rl;
+    font-style: italic;
+    font-size: 10px;
+    padding-right: 8px;
+    opacity: 0.5;
+    z-index: 5;
+  }
+
+  .manifesto-scatter {
+  display: block;
+  animation: inflateManifesto 4s ease-in-out;
+  animation-delay: 0s;
+  animation-fill-mode: both;
+  animation-iteration-count: 1;
+}
+
+  
+
+    @keyframes inflateManifesto {
+  0%, 100% {
+    transform: scale(1);
+    letter-spacing: 0.02em;
+    filter: blur(0);
+  }
+  50% {
+    transform: scale(1.06);
+    letter-spacing: 0.08em;
+    filter: blur(0.6px);
+  }
+}
+ .accordion-header {
+  cursor: pointer;
+}
+
+.accordion-toggle {
+  display: inline-block;
+  font-size: 11px;
+  padding-left: 4px;
+}
+
+.accordion-header:hover .accordion-toggle {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--accent);
+}
+
+.accordion-content {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--background);
+  border: 1px dashed var(--text);
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+}
+
+.accordion-item:hover .accordion-header {
+  color: var(--accent);
+}
+
+  .video-wrapper {
+  margin: 20px auto;  /* Reduced margin around the video wrapper */
+  max-width: 640px;
+  padding: 8px;  /* Reduced padding */
+  background-color: transparent;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.video-caption {
+  font-size: 10px;
+  font-style: normal;
+  text-align: left;
+  margin-top: 4px;  /* Reduced margin between the video and caption */
+  opacity: 0.6;
+}
+
+
+  .project-block { margin-bottom: 100px; }
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+    .typewriter-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid var(--text);
+  width: 0;
+  animation: typing 4s steps(40, end) 1s forwards, blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  50% { border-color: transparent; }
+}
+
+.dynamic-spacing {
+  letter-spacing: 0.02em;
+  word-spacing: 0.04em;
+  transition: all 0.3s ease;
+}
+
+.dynamic-spacing:hover {
+  letter-spacing: 0.08em;
+  word-spacing: 0.2em;
+}
+
+.blur-effect {
+  transition: filter 0.4s ease;
+}
+
+.blur-effect:hover {
+  filter: blur(2px);
+}
+
+.fluid-text {
+  font-size: clamp(16px, 4vw, 30px);
+}
+.margin-note {
+  position: absolute;
+  right: -180px;
+  top: 0;
+  width: 160px;
+  font-size: 10px;
+  font-style: italic;
+  color: var(--accent);
+  opacity: 0.6;
+  line-height: 1.4;
+}
+
+.data-loading {
+  font-style: italic;
+  font-size: 10px;
+  text-align: center;
+  margin-bottom: 40px;
+  opacity: 0.5;
+  animation: fadeIn 1.4s ease-in-out;
+}
+
+.revision-ghost {
+  position: relative;
+}
+
+.revision-ghost::after {
+  content: "I used to think making was enough.";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 10px;
+  color: var(--text);
+  opacity: 0.2;
+  font-style: italic;
+  transform: translateY(4px);
+}
+
+.paratext-fake {
+  font-size: 9px;
+  text-align: right;
+  opacity: 0.4;
+  font-style: italic;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+.revision-ghost-2::after {
+  content: "Maybe it was always invisible.";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 10px;
+  color: var(--text);
+  opacity: 0.2;
+  font-style: italic;
+  transform: translateY(4px);
+}
+
+.revision-ghost-3::after {
+  content: "Noise can be a form of clarity.";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 10px;
+  color: var(--text);
+  opacity: 0.2;
+  font-style: italic;
+  transform: translateY(4px);
+}
+
+.margin-note-note {
+  position: absolute;
+  right: -160px;
+  font-size: 10px;
+  font-style: italic;
+  opacity: 0.5;
+  max-width: 140px;
+}
+
+@keyframes idleDrift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+.idle-motion {
+  animation: idleDrift 6s ease-in-out infinite;
+}
+.idle-motion {
+  animation: idleDrift 6s ease-in-out infinite;
+}
+
+.idle-slow {
+  animation: idleDrift 10s ease-in-out infinite;
+}
+
+.idle-floating {
+  animation: idleFloat 12s ease-in-out infinite;
+}
+
+@keyframes idleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.revision-ghost-4::after {
+  content: "The answer is rarely where you expect.";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 10px;
+  color: var(--text);
+  opacity: 0.2;
+  font-style: italic;
+  transform: translateY(4px);
+}
+.margin-note-note {
+  position: absolute;
+  font-size: 10px;
+  font-style: italic;
+  opacity: 0;
+  max-width: 140px;
+  transition: all 1.4s ease;
+  animation: noteFadeIn 1.2s ease forwards;
+}
+
+@keyframes noteFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+}
+
+.video-wrapper::before {
+  content: "Decrypting motion…";
+  font-size: 10px;
+  font-style: italic;
+  display: block;
+  text-align: center;
+  opacity: 0.4;
+  margin-bottom: 6px;
+  animation: blinkSignal 2s ease-in-out infinite;
+}
+@keyframes blinkSignal {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
+.contact-pulse {
+  animation: subtlePulse 4s ease-in-out infinite;
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.01);
+  }
+}
+.flicker-invisible {
+  animation: flickerInvisible 3s infinite;
+}
+
+@keyframes flickerInvisible {
+  0%, 100% { opacity: 1; }
+  40% { opacity: 0.2; }
+  60% { opacity: 1; }
+  70% { opacity: 0.1; }
+  80% { opacity: 0.8; }
+}
+@media (max-width: 768px) {
+  .margin-note-note {
+    display: none !important;
+  }
+  .scroll-cue {
+    display: none !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .typewriter-text {
+    white-space: normal;
+    width: auto;
+    display: block;
+    border-right: none;
+    animation: none;
+  }
+  .manifesto-scatter,
+  p,
+  .irregular,
+  .accordion-content p,
+  .video-caption,
+  .contact-pulse {
+    line-height: 1.6 !important;
+  }
+}
+</style>
 </head>
-<body>
 
-  <div class="brand">MIGUEL CASTRO</div>
+  <div style="position: fixed; top: 20px; left: 20px; z-index: 10; font-weight: bold; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;">MIGUEL CASTRO</div>
+<nav style="position: fixed; top: 20px; right: 20px; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; z-index: 10;">
+<a href="https://www.linkedin.com/in/miguelcastroe/" target="_blank">LinkedIn</a>
+<a href="#manifesto">Manifesto</a>
+<a href="#projects">Projects</a>
+<a href="#thinking">Thinking</a>
+<a href="#collab">Collaborate</a>
+</nav>
+  <header>
+    <h2 class="section-title" style="text-align: center;">
+  RETHINKING THE <span class="flicker-invisible">INVISIBLE</span>
+</h2>
+    <div>
+      <p class="irregular organic-breath typewriter-text" style="--index: 1">Not a portfolio. A living system of award-winning reframed possibilities.</p>
+      <p class="irregular revision-ghost" style="--index: 2">I don’t create things just to be seen. I create the kind of ideas that hide in plain sight.</p>
+      <p class="irregular dynamic-spacing revision-ghost-3 idle-motion" style="--index: 3; line-height: 1">Where others see noise, I find the unexpected signal.</p>
+<span class="margin-note-note" style="top: 160px; right: -220px;">(Clarity often begins in static.)</span>
+      <p class="irregular blur-effect revision-ghost-2 idle-motion" style="--index: 4; line-height: 1">Where the world sees friction, I search for potential.</p>
+<span class="margin-note-note" style="top: 880px; right: -260px;">(Friction is often the first form of energy.)</span>
+      <p class="irregular idle-motion revision-ghost-4" style="--index: 5; line-height: 1">And where most don’t look, I build the next question.</p>
+<span class="margin-note-note" style="top: 1540px; right: -240px;">(Questions reveal more than answers.)</span>
+    </div>
+  </header>
 
-  <nav>
-    <a href="https://www.linkedin.com/in/miguelcastroe/" target="_blank">LinkedIn</a>
-    <a href="#manifesto">Manifesto</a>
-    <a href="#projects">Projects</a>
-    <a href="#thinking">Thinking</a>
-    <a href="#collab">Collaborate</a>
-  </nav>
+  <section id="manifesto" class="chapter idle-slow">
+  <h2 class="irregular-heading section-title">A LIVING MANIFESTO</h2>
+    <p class="manifesto-scatter">
+      <span>I</span> <span>believe</span> <span>the</span> <span>best</span> <span>ideas</span> <span>don’t</span> <span>shout.</span>
+      <span>They</span> <span>reveal.</span>
+    </p>
+    <p class="manifesto-scatter">
+      <span>I</span> <span>don’t</span> <span>create</span> <span>to</span> <span>fill</span> <span>space.</span>
+      <span>I</span> <span>create</span> <span>to</span> <span>make</span> <span>space—</span>
+      <span>mental,</span> <span>cultural,</span> <span>digital.</span>
+    </p>
+    <p class="manifesto-scatter">
+      <span>I</span> <span>start</span> <span>with</span> <span>what’s</span> <span>missing.</span>
+      <span>A</span> <span>question</span> <span>left</span> <span>unasked.</span>
+      <span>A</span> <span>signal</span> <span>buried</span> <span>in</span> <span>noise.</span>
+      <span>A</span> <span>behavior</span> <span>no</span> <span>one</span> <span>challenged.</span>
+    </p>
+    <p class="manifesto-scatter">
+      <span>I</span> <span>work</span> <span>where</span> <span>others</span> <span>stop</span> <span>looking.</span>
+      <span>Where</span> <span>systems</span> <span>feel</span> <span>fixed.</span>
+      <span>Where</span> <span>default</span> <span>settings</span> <span>go</span> <span>unquestioned.</span>
+    </p>
+    
+    <p class="manifesto-scatter">
+      <span>Ideas</span> <span>should</span> <span>move.</span>
+      <span>Uncover.</span> <span>Disappear</span> <span>when</span> <span>they’ve</span> <span>done</span> <span>their</span> <span>job.</span>
+    </p>
+    <p class="manifesto-scatter">
+      <span>That’s</span> <span>why</span> <span>my</span> <span>portfolio</span> <span>isn’t</span> <span>just</span> <span>work.</span>
+      <span>It’s</span> <span>a</span> <span>map</span> <span>of</span> <span>reframed</span> <span>problems.</span>
+      <span>Of</span> <span>invisible</span> <span>things</span> <span>made</span> <span>felt.</span>
+    </p>
+    <p class="manifesto-scatter">
+      <span>This</span> <span>manifesto</span> <span>will</span> <span>shift</span> <span>again.</span>
+      <span>Because</span> <span>if</span> <span>ideas</span> <span>live,</span>
+      <span>their</span> <span>frameworks</span> <span>should</span> <span>too.</span>
+    </p>
+  </section>
 
-  <main>
-    <section id="manifesto">
-      <h2>RETHINKING THE INVISIBLE</h2>
-      <p>Not a portfolio. A living system of award-winning reframed possibilities.</p>
-      <p>I don’t create things just to be seen. I create the kind of ideas that hide in plain sight.</p>
-      <p>Where others see noise, I find the unexpected signal.</p>
-      <p>Where the world sees friction, I search for potential.</p>
-      <p>And where most don’t look, I build the next question.</p>
-    </section>
+<section class="chapter idle-motion" id="projects">
 
-    <section id="projects">
-      <h2>Thematic Projects</h2>
-      <!-- Project summaries and videos can go here -->
-    </section>
+<h2 class="irregular-heading section-title">Thematic Projects</h2>
 
-    <section id="thinking">
-      <h2>Thinking Out Loud (If You’re Still Listening)</h2>
-      <!-- Accordion or speculative concepts can go here -->
-    </section>
 
-    <section id="collab">
-      <h2>Invitation to Collaborate</h2>
-      <p>Some of these ideas are already in motion. Others are waiting for the right collaborators to take shape.</p>
-      <p>If you believe in reframing what the world overlooks—let’s connect.</p>
-      <p>You can reach me at <a href="mailto:miguel@miguelcastro.cc">miguel@miguelcastro.cc</a> or call <a href="tel:+51936646947">+51 936 646 947</a>.</p>
-    </section>
-  </main>
 
-  <footer>MIGUEL CASTRO (C) 2025</footer>
+<h2 class="irregular-heading">Human Interaction Beyond the Obvious</h2>
+<p class="irregular" style="--index: 1"><strong>Project:</strong> MouthPad^</p>
+<p class="irregular" style="--index: 2"><strong>Challenge:</strong> Assistive tech often reinforces separation—devices for “them,” not “us.”</p>
+<p class="irregular" style="--index: 3"><strong>Creative Direction:</strong> Positioned the tongue—precise, discreet—as a next-gen interface. Framed MouthPad^ not as a medical device, but as a human augmentation.</p>
+<p class="irregular" style="--index: 4"><strong>Breakthrough:</strong> Shifted the narrative from disability to design evolution.</p>
+
+  <div class="video-wrapper fade-in">
+  <iframe width="100%" height="480" style="border: none;" src="https://player.vimeo.com/video/951744690" frameborder="0" allowfullscreen></iframe>
+  <div class="video-caption" style="margin-top: 2px;">Figure 1. Redefining the interface through the tongue</div>
+</div>
+
+  <span class="margin-note-note" style="top: 2250px; right: -240px;">(Absence can be the most meaningful design.)</span>
+
+<h2 class="irregular-heading">Designing for What’s Ignored</h2>
+<p class="irregular" style="--index: 1"><strong>Project:</strong> Vanishing Emails</p>
+<p class="irregular" style="--index: 2"><strong>Challenge:</strong> Digital waste is invisible. Expired emails pile up, draining resources.</p>
+<p class="irregular" style="--index: 3"><strong>Creative Direction:</strong> Reframed deletion as design. Gave promotional emails a natural expiration to reduce noise and emissions.</p>
+<p class="irregular" style="--index: 4"><strong>Breakthrough:</strong> Turned absence into value. Pushed sustainability from infrastructure to interface.</p>
+
+  <div class="video-wrapper fade-in">
+  <iframe width="100%" height="480" style="border: none;" src="https://player.vimeo.com/video/951723906" frameborder="0" allowfullscreen></iframe>
+  <div class="video-caption">Figure 2. Designing email as biodegradable experience</div>
+</div>
+
+
+  <span class="margin-note-note" style="top: 2750px; left: -200px;">(Sometimes the medium hides the message.)</span>
+
+<h2 class="irregular-heading">Making the Unseen Visible</h2>
+<p class="irregular" style="--index: 1"><strong>Project:</strong> Hidden Messages</p>
+<p class="irregular" style="--index: 2"><strong>Challenge:</strong> Violence often hides behind everyday language—emails, chats, smiles.</p>
+<p class="irregular" style="--index: 3"><strong>Creative Direction:</strong> What if we used the overlooked structure of emails (meta tags) to reflect how abuse hides in plain sight?</p>
+<p class="irregular" style="--index: 4"><strong>Breakthrough:</strong> The project didn’t just tell people violence hides—it made them uncover it.</p>
+
+  <div class="video-wrapper fade-in">
+  <iframe width="100%" height="480" style="border: none;" src="https://player.vimeo.com/video/1035621612" frameborder="0" allowfullscreen></iframe>
+  <div class="video-caption">Figure 3. Uncovering what's hidden in everyday emails</div>
+</div>
+  
+
+</section>
+
+
+  <section class="chapter idle-motion" id="thinking">
+
+  <h2 class="irregular-heading section-title">Thinking Out Loud (If You’re Still Listening)</h2>
+  <div style="margin-bottom: 30px;">
+    <p class="irregular" style="--index: 1; margin-bottom: 20px;">This space isn’t for polish. It’s for provocation.</p>
+    <p class="irregular" style="--index: 2; margin-bottom: 20px;">Here live the early signals, speculative builds, and conceptual tools that shape how I create.</p>
+    <p class="irregular" style="--index: 3; margin-bottom: 20px;">Ideas that challenge utility. Tools that test perspective. Experiments still sparking.</p>
+  </div>
+
+  <div class="accordion-section">
+    <div class="accordion-item">
+<h3 class="accordion-header">Ethical Emotional Infrastructure<span class="accordion-toggle">↓</span></h3>
+      <div class="accordion-content">
+        <p><strong>Challenge:</strong> Emotion-sensing tech is often intrusive, using high-res surveillance that risks privacy and reinforces bias.</p>
+        <p><strong>Creative Direction:</strong> Develop ethical affective sensing using privacy-preserving low-resolution data—focusing on movement and patterns, not individual identification.</p>
+        <p><strong>Breakthrough:</strong> Shift from surveillance to ethical care, safeguarding privacy and minimizing bias by capturing only broad signals.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+<h3 class="accordion-header">Temples of Knowledge<span class="accordion-toggle">↓</span></h3>
+      <div class="accordion-content">
+        <p><strong>Challenge:</strong> Education often depends on internet access or formal infrastructures that many can’t reach.</p>
+        <p><strong>Creative Direction:</strong> Deliver education to underserved communities using Raspberry Pi devices powered by offline LLMs—built to speak Quechua, Aymara, and Spanish—merging STEM with local knowledge.</p>
+        <p><strong>Breakthrough:</strong> Create offline, culturally-relevant learning experiences more akin to oral tradition than online curricula.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+<h3 class="accordion-header">Peruvian Declassified Art<span class="accordion-toggle">↓</span></h3>
+      <div class="accordion-content">
+        <p><strong>Challenge:</strong> “Open data” can still alienate communities if cultural and linguistic nuances are ignored.</p>
+        <p><strong>Creative Direction:</strong> Curate artifacts in Quechua, Aymara, and Spanish, activating The Met’s API for meaningful engagement.</p>
+        <p><strong>Breakthrough:</strong> Transform archives into accessible experiences through multilingual storytelling and local activation.</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+<h3 class="accordion-header">Idea Sparring AI<span class="accordion-toggle">↓</span></h3>
+      <div class="accordion-content">
+        <p><strong>Challenge:</strong> Many AI tools optimize convenience, not critical thinking.</p>
+        <p><strong>Creative Direction:</strong> Program a GPT to ask provocative questions and reveal hidden assumptions in creative briefs.</p>
+        <p><strong>Breakthrough:</strong> A tool that doesn’t finish ideas, but challenges them—trained through live sparring sessions and designed to push deeper insight.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="chapter idle-floating" id="collab">
+  <h2 class="irregular-heading section-title">Invitation to Collaborate</h2>
+  <p class="irregular" style="--index: 1">Some of these ideas are already in motion. Others are waiting for the right collaborators to take shape.</p>
+  <p class="irregular" style="--index: 2">If you believe in reframing what the world overlooks—let’s connect.</p>
+  <p class="irregular contact-pulse" style="--index: 3">You can reach me at <a href="mailto:miguel@miguelcastro.cc" style="color: grey;">miguel@miguelcastro.cc</a> or call <a href="tel:+51936646947" style="color: grey;">+51 936 646 947</a>.</p>
+</section>
+
+<footer style="text-align: center; font-size: 10px; opacity: 0.4; margin-bottom: 40px;">MIGUEL CASTRO (C) 2025</footer>
+
+<script>
+  setInterval(() => {
+    document.querySelectorAll('.manifesto-scatter').forEach(el => {
+      el.style.animation = 'none';
+      void el.offsetWidth; // trigger reflow
+      el.style.animation = 'inflateManifesto 4s ease-in-out';
+    });
+  }, 12000);
+</script>
+  <script>
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      item.classList.toggle('active');
+    });
+  });
+</script>
 
 </body>
+
 </html>
