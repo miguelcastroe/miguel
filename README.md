@@ -1,25 +1,11 @@
-# Rethinking the Invisible – Miguel Castro
+# Rethinking the Invisible | Miguel Castro
 
-A poetry-chapbook–style portfolio that reveals reframed problems and invisible signals.
+**Rethinking the Invisible** is a portfolio site designed as a poetry-style chapbook of reframed problems, built by Creative Director Miguel Castro. It explores themes of cultural insight, hidden systems, and alternative storytelling.
 
-This isn’t just a website. It’s a living system—where design, technology, and storytelling converge to challenge assumptions and surface blind spots.
+- **URL:** https://miguelcastroe.github.io/rethinking-invisible-site/
+- **Author:** [Miguel Castro](https://www.linkedin.com/in/miguelcastroe/)
 
-## ✨ About
-
-**Miguel Castro** is a two-time Cannes Lions Innovation winner, including a **Grand Prix in Innovation**. His work operates at the intersection of creativity, systems thinking, and speculative design—framing what’s overlooked and giving form to the invisible.
-
-This site is a living manifesto. It breathes. It fades. It questions.
-
-Each section is treated like a poem. Every project is a reframed problem. Nothing is here just to be seen—it’s here to be felt.
-
-## 🔧 Built With
-
-- HTML/CSS (no frameworks)
-- Mobile-first responsive layout
-- Custom poetic interactions:
-  - Margin notes
-  - Breathing manifesto
-  - Progressive disclosure via accordions
-  - Soft fade-in videos
-  - Animated scroll cue and typewriter effects
-
+## Files
+- `.nojekyll`: Enables custom static site behavior
+- `robots.txt`: Guides search engine indexing
+- `sitemap.xml`: Supports search engine discovery and visibility
