@@ -7,7 +7,7 @@
 <!-- Primary SEO -->
 <title>Miguel Castro | Creative Director</title>
 <meta name="title" content="Miguel Castro | Creative Director">
-<meta name="description" content="Miguel Castro is a Creative Director working across creative direction, creative strategy, culture, tech, and execution — turning hidden friction into ideas and carrying them all the way to reality.">
+<meta name="description" content="Miguel Castro is a Creative Director working across creative direction, creative strategy, culture, tech, and execution - creating ideas from overlooked tensions and staying with them until they become real.">
 <meta name="keywords" content="Miguel Castro, Creative Director, Creative Strategy, Creative Direction, Culture, Tech, Advertising, Innovation, Cannes Lions, Effie, Portfolio">
 <meta name="author" content="Miguel Castro">
 <meta name="robots" content="index, follow">
@@ -15,10 +15,12 @@
 
 <!-- Open Graph / Facebook / LinkedIn -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://miguelcastroe.github.io/miguel/">
+<meta property="og:url" content="https://miguelcastroe.github.io/miguel/?v=2026">
 <meta property="og:title" content="Miguel Castro | Creative Director">
-<meta property="og:description" content="Creative direction, creative strategy, culture, tech, and execution. Turning hidden friction into ideas — then carrying them all the way to reality.">
+<meta property="og:description" content="Creative direction, creative strategy, culture, tech, and execution. The best ideas should not walk alone. Selected work and thinking from Miguel Castro.">
 <meta property="og:image" content="https://miguelcastroe.github.io/miguel/og-image.jpg">
+<meta property="og:image:secure_url" content="https://miguelcastroe.github.io/miguel/og-image.jpg">
+<meta property="og:image:alt" content="Miguel Castro | Creative Director portfolio preview">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Miguel Castro | Creative Director">
@@ -26,16 +28,16 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://miguelcastroe.github.io/miguel/">
+<meta name="twitter:url" content="https://miguelcastroe.github.io/miguel/?v=2026">
 <meta name="twitter:title" content="Miguel Castro | Creative Director">
-<meta name="twitter:description" content="Creative direction, creative strategy, culture, tech, and execution. Turning hidden friction into ideas — then carrying them all the way to reality.">
+<meta name="twitter:description" content="The best ideas should not walk alone. Selected work and thinking from Miguel Castro.">
 <meta name="twitter:image" content="https://miguelcastroe.github.io/miguel/og-image.jpg">
+<meta name="twitter:image:alt" content="Miguel Castro | Creative Director portfolio preview">
 
 <!-- Theme / Browser -->
 <meta name="theme-color" content="#fbfbf8">
 <link rel="icon" type="image/png" href="./favicon.png">
 <link rel="apple-touch-icon" href="./favicon.png">
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;450;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
@@ -56,16 +58,8 @@
   --sans: 'Inter', sans-serif;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
 
 body {
   background: var(--white);
@@ -76,17 +70,12 @@ body {
   overflow-x: hidden;
 }
 
-::selection {
-  background: var(--green);
-  color: var(--black);
-}
+::selection { background: var(--green); color: var(--black); }
 
-/* NAV */
+/* ─── NAV ─── */
 nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 100;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -96,7 +85,6 @@ nav {
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
-
 .site-title {
   font-family: var(--sans);
   font-size: 14px;
@@ -107,13 +95,11 @@ nav {
   font-weight: 500;
   align-self: center;
 }
-
 .nav-links {
   display: flex;
   gap: 28px;
   list-style: none;
 }
-
 .nav-links a {
   font-family: var(--sans);
   font-size: 13px;
@@ -124,12 +110,9 @@ nav {
   font-weight: 500;
   transition: color 0.15s;
 }
+.nav-links a:hover { color: var(--black); }
 
-.nav-links a:hover {
-  color: var(--black);
-}
-
-/* HERO */
+/* ─── HERO ─── */
 #hero {
   min-height: 96vh;
   padding: 112px 40px 76px;
@@ -138,7 +121,6 @@ nav {
   grid-template-rows: auto auto auto;
   position: relative;
 }
-
 .hero-meta {
   grid-column: 1;
   grid-row: 1;
@@ -146,15 +128,12 @@ nav {
   align-items: center;
   gap: 8px;
 }
-
 .green-dot {
-  width: 5px;
-  height: 5px;
+  width: 5px; height: 5px;
   background: var(--green);
   border-radius: 50%;
   flex-shrink: 0;
 }
-
 .hero-meta span {
   font-family: var(--mono);
   font-size: 9.5px;
@@ -162,7 +141,6 @@ nav {
   text-transform: uppercase;
   color: var(--gray);
 }
-
 .hero-index {
   grid-column: 2;
   grid-row: 1;
@@ -173,13 +151,11 @@ nav {
   letter-spacing: 0.08em;
   line-height: 1.7;
 }
-
 .hero-headlines {
   grid-column: 1 / -1;
   grid-row: 2;
   padding-top: 54px;
 }
-
 .hero-h1 {
   font-family: var(--sans);
   font-weight: 800;
@@ -191,18 +167,15 @@ nav {
   margin-bottom: 24px;
   max-width: 1160px;
 }
-
 .hero-h1 em {
   font-style: normal;
   color: var(--black);
   position: static;
   display: inline;
 }
-
 .hero-h1 em::after {
   content: none;
 }
-
 .hero-h2 {
   font-family: var(--sans);
   font-weight: 650;
@@ -214,7 +187,6 @@ nav {
   opacity: 0.82;
   max-width: 720px;
 }
-
 .hero-bottom {
   grid-column: 1 / -1;
   grid-row: 3;
@@ -226,7 +198,6 @@ nav {
   border-top: 1px solid var(--line);
   margin: 76px -40px 0;
 }
-
 .hero-copy {
   font-size: 15px;
   line-height: 1.72;
@@ -235,7 +206,6 @@ nav {
   max-width: 480px;
   letter-spacing: -0.005em;
 }
-
 .hero-proof {
   font-family: var(--sans);
   font-size: 13.5px;
@@ -245,14 +215,12 @@ nav {
   margin-top: 18px;
   max-width: 360px;
 }
-
 .hero-ctas {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 13px;
 }
-
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -268,9 +236,8 @@ nav {
   font-weight: 700;
   border-bottom: 2px solid var(--green);
   cursor: pointer;
-  transition: border-color 0.15s, transform 0.12s, background 0.15s, padding 0.15s;
+  transition: border-color 0.15s, transform 0.12s;
 }
-
 .btn-primary:hover {
   border-color: var(--black);
   background: var(--green);
@@ -279,7 +246,7 @@ nav {
   transform: translateX(2px);
 }
 
-/* SECTION HEADER */
+/* ─── SECTION HEADER ─── */
 .sec-header {
   padding: 118px 40px 48px;
   display: grid;
@@ -287,7 +254,6 @@ nav {
   gap: 80px;
   border-top: 1px solid var(--line);
 }
-
 .sec-num {
   font-family: var(--mono);
   font-size: 9.5px;
@@ -296,7 +262,6 @@ nav {
   display: block;
   margin-bottom: 14px;
 }
-
 .sec-badge {
   display: flex;
   align-items: center;
@@ -304,7 +269,6 @@ nav {
   color: var(--black);
   line-height: 1;
 }
-
 .sec-badge span {
   display: inline-flex;
   align-items: center;
@@ -312,12 +276,10 @@ nav {
   background: var(--green);
   padding: 5px 8px 4px;
 }
-
 .sec-badge i {
   font-style: normal;
   color: var(--gray);
 }
-
 .sec-title {
   font-family: var(--sans);
   font-weight: 800;
@@ -327,40 +289,38 @@ nav {
   text-transform: uppercase;
   color: var(--black);
 }
-
 .sec-intro {
   font-size: 15px;
   line-height: 1.72;
   color: var(--secondary-color);
   font-weight: 400;
   align-self: end;
-  max-width: 420px;
+  max-width: 520px;
+}
+#work .sec-intro {
+  white-space: nowrap;
+  max-width: none;
 }
 
-/* EXPANDABLE ROWS */
-.rows-wrap {
-  border-top: 1px solid var(--line-strong);
-}
-
+/* ─── EXPANDABLE ROWS ─── */
+.rows-wrap { border-top: 1px solid var(--line-strong); }
 .xrow {
   border-bottom: 1px solid var(--line-strong);
   overflow: hidden;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, box-shadow 0.15s;
+  transition: background 0.15s, border-color 0.15s;
   user-select: none;
   background: rgba(251, 251, 248, 0.62);
+  position: relative;
 }
-
 .xrow:hover {
   background: var(--green-pale);
   box-shadow: inset 6px 0 0 var(--green);
 }
-
 .xrow.open {
   background: rgba(251, 251, 248, 0.92);
   box-shadow: inset 6px 0 0 var(--green);
 }
-
 .xrow-head {
   display: grid;
   grid-template-columns: minmax(240px, 1fr) minmax(200px, 340px) auto;
@@ -368,7 +328,6 @@ nav {
   gap: 40px;
   padding: 25px 40px;
 }
-
 .xrow-name {
   font-family: var(--sans);
   font-weight: 750;
@@ -378,7 +337,6 @@ nav {
   text-transform: uppercase;
   color: var(--black);
 }
-
 .xrow-teaser {
   font-family: var(--sans);
   font-size: 13.5px;
@@ -388,83 +346,62 @@ nav {
   font-weight: 400;
   letter-spacing: -0.004em;
 }
-
 .xrow-arrow {
-  width: 28px;
-  height: 28px;
-  border: 1px solid var(--line-strong);
+  width: 28px; height: 28px;
+  border: 1px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--mono);
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 400;
   color: var(--black);
   flex-shrink: 0;
   transition: transform 0.22s, border-color 0.15s, background 0.15s;
   background: rgba(251, 251, 248, 0.7);
+  position: relative;
 }
-
+.xrow::after {
+  content: "Click to see video";
+  position: absolute;
+  right: 40px;
+  bottom: 10px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--green);
+  padding: 5px 7px 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.xrow:hover::after {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+.xrow.open::after {
+  content: "Click to close";
+}
 .xrow:hover .xrow-arrow {
   border-color: var(--green);
   background: var(--green);
 }
-
-.xrow.open .xrow-arrow {
-  transform: rotate(90deg);
-  background: var(--green);
-  border-color: var(--green);
-}
-
+.xrow.open .xrow-arrow { transform: rotate(180deg); background: var(--green); border-color: var(--green); }
 .xrow-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: max-height 0.42s cubic-bezier(0.4,0,0.2,1);
 }
-
-.xrow.open .xrow-body {
-  max-height: 1400px;
-}
-
+.xrow.open .xrow-body { max-height: 1400px; }
 .xrow-inner {
   padding: 8px 40px 48px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 34px;
 }
-
-.xrow-inner.two-col {
-  grid-template-columns: 1fr 1fr;
-}
-
-.xrow-inner.one-col {
-  grid-template-columns: 1fr;
-}
-
 .xrow-inner .video-placeholder {
-  grid-column: 1 / -1;
-  order: -1;
-}
-
-.xfield-label {
-  font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--gray-light);
-  display: block;
-  margin-bottom: 9px;
-}
-
-.xfield-text {
-  font-size: 13.5px;
-  line-height: 1.72;
-  color: var(--body-color);
-  font-weight: 400;
-}
-
-/* VIDEO */
-.video-placeholder {
   grid-column: 1 / -1;
   background:
     linear-gradient(135deg, rgba(10,10,10,0.035) 25%, transparent 25%) -12px 0/24px 24px,
@@ -484,7 +421,6 @@ nav {
   position: relative;
   overflow: hidden;
 }
-
 .video-placeholder::before {
   content: '';
   position: absolute;
@@ -492,17 +428,12 @@ nav {
   border: 1px solid rgba(10,10,10,0.08);
   pointer-events: none;
 }
-
 .video-embed {
   padding: 0;
   background: var(--black) !important;
   cursor: default;
 }
-
-.video-embed::before {
-  display: none;
-}
-
+.video-embed::before { display: none; }
 .video-embed iframe {
   position: absolute;
   inset: 0;
@@ -512,10 +443,8 @@ nav {
   display: block;
   background: var(--black);
 }
-
 .play-icon {
-  width: 58px;
-  height: 58px;
+  width: 58px; height: 58px;
   border: 1px solid rgba(10,10,10,0.5);
   border-radius: 50%;
   display: flex;
@@ -523,7 +452,6 @@ nav {
   justify-content: center;
   background: rgba(251,251,248,0.52);
 }
-
 .play-icon::after {
   content: '';
   border-style: solid;
@@ -531,7 +459,6 @@ nav {
   border-color: transparent transparent transparent rgba(10,10,10,0.72);
   margin-left: 3px;
 }
-
 .video-label {
   font-family: var(--mono);
   font-size: 10px;
@@ -540,7 +467,6 @@ nav {
   color: var(--gray);
   text-align: center;
 }
-
 .video-label strong {
   display: block;
   color: var(--black);
@@ -549,7 +475,7 @@ nav {
   font-size: 10px;
 }
 
-/* RECOGNITION TAG */
+/* ─── WORK ROW RECOGNITION TAG ─── */
 .recognition-tag {
   display: inline-flex;
   align-items: center;
@@ -565,13 +491,12 @@ nav {
   background: rgba(251,251,248,0.45);
 }
 
-/* PART II */
+/* ─── PART II WRAPPER ─── */
 .part-ii {
   background: var(--part-ii-bg);
   border-top: 0;
   border-bottom: 0;
 }
-
 .part-ii .chapter-break,
 .part-ii #manifesto,
 .part-ii #method,
@@ -580,44 +505,37 @@ nav {
 .part-ii .gmod {
   background: transparent;
 }
-
 .part-ii #method .sec-header {
   border-top: 1px solid var(--line-strong);
 }
-
 .part-ii .xrow,
 .part-ii .gmod {
   background: rgba(247, 246, 241, 0.74);
 }
-
 .part-ii .xrow:hover,
 .part-ii .gmod:hover {
   background: rgba(184, 255, 0, 0.32);
 }
-
 .part-ii .xrow.open,
 .part-ii .gmod.open {
   background: rgba(247, 246, 241, 0.98);
 }
-
 .part-ii .grid-modules {
   border-bottom: 1px solid var(--line-strong);
 }
-
 .part-ii .grid-modules .gmod {
   border-bottom: 0;
 }
 
-/* CHAPTER BREAK */
+/* ─── CHAPTER BREAK ─── */
 .chapter-break {
   padding: 118px 40px 96px;
-  border-top: 1px solid var(--line-strong);
+  border-top: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 96px;
   background: var(--white);
 }
-
 .chapter-title {
   font-family: var(--sans);
   font-weight: 800;
@@ -627,37 +545,32 @@ nav {
   text-transform: uppercase;
   color: var(--black);
 }
-
 .chapter-copy {
   align-self: end;
   max-width: 520px;
 }
-
 .chapter-copy p {
   font-size: 16px;
   line-height: 1.72;
   color: var(--secondary-color);
   margin-bottom: 16px;
 }
-
 .chapter-copy p:first-child {
   color: var(--black);
   font-weight: 600;
 }
 
-/* MISSING FUNCTION */
+/* ─── MISSING FUNCTION ─── */
 #manifesto {
   padding: 146px 40px 128px;
   border-top: 1px solid var(--line-strong);
 }
-
 .manifesto-grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 96px;
   align-items: start;
 }
-
 .manifesto-hl {
   font-family: var(--sans);
   font-weight: 800;
@@ -667,11 +580,7 @@ nav {
   text-transform: uppercase;
   color: var(--black);
 }
-
-.manifesto-body {
-  padding-top: 4px;
-}
-
+.manifesto-body { padding-top: 4px; }
 .manifesto-lead {
   font-size: 17px;
   font-weight: 600;
@@ -680,7 +589,6 @@ nav {
   line-height: 1.42;
   letter-spacing: -0.015em;
 }
-
 .manifesto-copy {
   font-size: 15px;
   line-height: 1.78;
@@ -689,18 +597,13 @@ nav {
   margin-bottom: 21px;
   max-width: 560px;
 }
-
-.manifesto-copy:last-of-type {
-  margin-bottom: 0;
-}
-
+.manifesto-copy:last-of-type { margin-bottom: 0; }
 .role-note {
   margin-top: 36px;
   padding-top: 28px;
   border-top: 1px solid var(--line-strong);
   max-width: 560px;
 }
-
 .role-title {
   font-family: var(--sans);
   font-weight: 700;
@@ -711,7 +614,6 @@ nav {
   color: var(--black);
   margin-bottom: 14px;
 }
-
 .role-copy {
   font-size: 15px;
   line-height: 1.76;
@@ -719,32 +621,40 @@ nav {
   font-weight: 400;
   margin-bottom: 14px;
 }
-
-.role-copy strong {
-  color: var(--black);
-  font-weight: 600;
-}
-
+.role-copy strong { color: var(--black); font-weight: 600; }
 .role-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  text-decoration: none;
   color: var(--black);
+  background: transparent;
+  padding: 10px 0;
+  font-weight: 700;
   border-bottom: 2px solid var(--green);
-  display: inline-block;
-  padding-bottom: 7px;
-  margin-top: 6px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: border-color 0.15s, transform 0.12s, background 0.15s, padding 0.15s;
+}
+.role-link:hover {
+  border-color: var(--black);
+  background: var(--green);
+  padding-left: 8px;
+  padding-right: 8px;
+  transform: translateX(2px);
 }
 
-/* JOURNEY MODULES */
+/* ─── GRID MODULES ─── */
 .grid-modules {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   border-left: 1px solid var(--line-strong);
   border-top: 1px solid var(--line-strong);
 }
-
 .gmod {
   border-right: 1px solid var(--line-strong);
   border-bottom: 1px solid var(--line-strong);
@@ -757,17 +667,14 @@ nav {
   min-height: 260px;
   background: rgba(251,251,248,0.72);
 }
-
 .gmod:hover {
   background: var(--green-pale);
   box-shadow: inset 0 6px 0 var(--green);
 }
-
 .gmod.open {
   background: rgba(251,251,248,0.95);
   box-shadow: inset 0 6px 0 var(--green);
 }
-
 .gmod-num {
   font-family: var(--mono);
   font-size: 9.5px;
@@ -776,7 +683,6 @@ nav {
   margin-bottom: 34px;
   display: block;
 }
-
 .gmod-title {
   font-family: var(--sans);
   font-weight: 700;
@@ -787,14 +693,12 @@ nav {
   color: var(--black);
   margin-bottom: 14px;
 }
-
 .gmod-closed {
   font-size: 12.5px;
   line-height: 1.65;
   color: var(--secondary-color);
   font-weight: 400;
 }
-
 .gmod-open {
   font-size: 12.5px;
   line-height: 1.72;
@@ -805,39 +709,71 @@ nav {
   transition: max-height 0.35s ease, opacity 0.25s ease;
   opacity: 0;
 }
-
-.gmod.open .gmod-open {
-  max-height: 420px;
-  opacity: 1;
-  margin-top: 14px;
-}
-
+.gmod.open .gmod-open { max-height: 420px; opacity: 1; margin-top: 14px; }
 .gmod-arrow {
   position: absolute;
-  bottom: 16px;
-  right: 16px;
+  bottom: 16px; right: 16px;
   font-family: var(--mono);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 400;
   color: var(--gray-light);
   transition: transform 0.2s, color 0.15s;
 }
+.gmod.open .gmod-arrow { transform: rotate(180deg); color: var(--black); }
 
-.gmod.open .gmod-arrow {
-  transform: rotate(180deg);
+/* ─── ONE MORE THING ─── */
+#one-more-thing {
+  padding: 118px 40px;
+  border-top: 0;
+  border-bottom: 1px solid var(--line-strong);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 96px;
+  align-items: start;
+}
+.one-more-title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: clamp(38px, 5.8vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.044em;
+  text-transform: uppercase;
   color: var(--black);
 }
+.one-more-copy {
+  max-width: 560px;
+  align-self: end;
+}
+.one-more-lead {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(20px, 2vw, 30px);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 18px;
+}
+.one-more-copy p {
+  font-size: 15px;
+  line-height: 1.76;
+  color: var(--secondary-color);
+  margin-bottom: 16px;
+}
+.one-more-copy strong {
+  color: var(--black);
+  font-weight: 600;
+}
 
-/* CONTACT */
+/* ─── CONTACT ─── */
 #contact {
   padding: 146px 40px;
-  border-top: 1px solid var(--line);
+  border-top: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 96px;
   align-items: end;
 }
-
 .contact-hl {
   font-family: var(--sans);
   font-weight: 800;
@@ -847,7 +783,6 @@ nav {
   text-transform: uppercase;
   color: var(--black);
 }
-
 .contact-copy {
   font-size: 15px;
   line-height: 1.78;
@@ -856,7 +791,6 @@ nav {
   margin-bottom: 22px;
   max-width: 560px;
 }
-
 .contact-note {
   font-family: var(--sans);
   font-size: clamp(18px, 1.8vw, 26px);
@@ -867,24 +801,21 @@ nav {
   font-weight: 650;
   max-width: 420px;
 }
-
 .contact-note span {
   display: block;
   padding: 10px 0;
   border-top: 1px solid var(--line-strong);
 }
-
 .contact-note span:last-child {
   color: var(--black);
   border-bottom: 1px solid var(--line-strong);
 }
-
 .contact-note em {
   font-style: normal;
   box-shadow: inset 0 -0.28em 0 var(--green-soft);
 }
 
-/* FOOTER */
+/* ─── FOOTER ─── */
 footer {
   padding: 28px 40px;
   border-top: 1px solid var(--line);
@@ -892,9 +823,7 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
-
-.footer-l,
-.footer-r {
+.footer-l, .footer-r {
   font-family: var(--mono);
   font-size: 9px;
   letter-spacing: 0.08em;
@@ -902,95 +831,56 @@ footer {
   color: var(--gray-light);
 }
 
-/* ANIMATION */
+/* ─── ENTRANCE ANIMATION ─── */
 .reveal {
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.55s ease, transform 0.55s ease;
 }
+.reveal.in { opacity: 1; transform: translateY(0); }
 
-.reveal.in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* MOBILE */
+/* ─── MOBILE ─── */
 @media (max-width: 768px) {
-  nav {
-    padding: 14px 20px;
-  }
-
-  .site-title {
-    font-size: 13px;
-  }
-
-  .nav-links {
-    display: none;
-  }
+  nav { padding: 14px 20px; }
+  .site-title { font-size: 13px; }
+  .nav-links { display: none; }
 
   #hero {
     padding: 78px 20px 58px;
     grid-template-columns: 1fr;
     min-height: auto;
   }
-
-  .hero-index {
-    display: none;
+  .hero-index { display: none; }
+  .hero-meta span {
+    line-height: 1.45;
+    overflow-wrap: anywhere;
   }
-
-  .hero-headlines {
-    padding-top: 30px;
-  }
-
-  .hero-h1 {
-    font-size: clamp(48px, 14vw, 78px);
-    line-height: 0.94;
-  }
-
-  .hero-h2 {
-    font-size: clamp(24px, 7vw, 40px);
-    line-height: 1;
-    max-width: 92%;
-  }
-
+  .hero-headlines { padding-top: 30px; }
+  .hero-h1 { font-size: clamp(48px, 14vw, 78px); line-height: 0.94; }
+  .hero-h2 { font-size: clamp(24px, 7vw, 40px); line-height: 1; max-width: 92%; }
   .hero-bottom {
     grid-template-columns: 1fr;
     gap: 28px;
     padding: 34px 20px 0;
     margin: 42px -20px 0;
   }
+  .hero-copy { font-size: 14px; line-height: 1.68; }
+  .hero-proof { font-size: 10px; line-height: 1.65; }
+  .hero-ctas { align-items: flex-start; }
 
-  .hero-copy {
-    font-size: 14px;
-    line-height: 1.68;
-  }
-
-  .hero-proof {
-    font-size: 10px;
-    line-height: 1.65;
-  }
-
-  .hero-ctas {
-    align-items: flex-start;
-  }
-
-  .sec-header {
+  .sec-header, .dir-header {
     padding: 70px 20px 30px;
     grid-template-columns: 1fr;
     gap: 18px;
   }
-
-  .sec-intro {
-    max-width: 100%;
-    font-size: 14px;
-  }
+  .sec-intro { max-width: 100%; font-size: 14px; }
+  #work .sec-intro { white-space: normal; }
 
   .xrow-head {
     padding: 20px;
     grid-template-columns: 1fr auto;
     gap: 18px;
   }
-
   .xrow-teaser {
     display: block;
     grid-column: 1 / -1;
@@ -998,22 +888,17 @@ footer {
     font-size: 13px;
     order: 3;
   }
-
-  .xrow-arrow {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
+  .xrow-arrow { grid-column: 2; grid-row: 1; }
+  .xrow::after { display: none; }
   .xrow-inner {
     padding: 4px 20px 32px;
     grid-template-columns: 1fr;
     gap: 22px;
   }
-
   .video-placeholder {
     grid-column: span 1;
     min-height: auto;
-    aspect-ratio: 16/10;
+    aspect-ratio: 16/9;
   }
 
   .chapter-break {
@@ -1021,38 +906,14 @@ footer {
     grid-template-columns: 1fr;
     gap: 30px;
   }
+  .chapter-copy p { font-size: 14px; line-height: 1.68; }
 
-  .chapter-copy p {
-    font-size: 14px;
-    line-height: 1.68;
-  }
+  #manifesto { padding: 72px 20px 64px; }
+  .manifesto-grid { grid-template-columns: 1fr; gap: 38px; }
+  .manifesto-copy, .manifesto-lead, .role-note { max-width: 100%; }
+  .role-note { margin-top: 30px; padding-top: 24px; }
 
-  #manifesto {
-    padding: 72px 20px 64px;
-  }
-
-  .manifesto-grid {
-    grid-template-columns: 1fr;
-    gap: 38px;
-  }
-
-  .manifesto-copy,
-  .manifesto-lead,
-  .role-note {
-    max-width: 100%;
-  }
-
-  .role-note {
-    margin-top: 30px;
-    padding-top: 24px;
-  }
-
-  .grid-modules {
-    grid-template-columns: 1fr;
-    border-left: none;
-    border-top: 1px solid var(--line-strong);
-  }
-
+  .grid-modules { grid-template-columns: 1fr; border-left: none; border-top: 1px solid var(--line-strong); }
   .gmod {
     min-height: auto;
     padding: 24px 20px 44px;
@@ -1060,25 +921,25 @@ footer {
     border-right: none;
     border-bottom: 1px solid var(--line-strong);
   }
+  .part-ii .grid-modules .gmod { border-bottom: 1px solid var(--line-strong); }
+  .part-ii .grid-modules .gmod:last-child { border-bottom: 0; }
+  .gmod-num { margin-bottom: 22px; }
+  .gmod.open .gmod-open { max-height: none; }
 
-  .part-ii .grid-modules .gmod {
-    border-bottom: 1px solid var(--line-strong);
-  }
 
-  .part-ii .grid-modules .gmod:last-child {
-    border-bottom: 0;
+  #one-more-thing {
+    padding: 72px 20px;
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
-
-  .gmod-num {
-    margin-bottom: 22px;
-  }
+  .one-more-copy { max-width: 100%; }
+  .one-more-copy p { font-size: 14px; line-height: 1.68; }
 
   #contact {
     padding: 72px 20px;
     grid-template-columns: 1fr;
     gap: 38px;
   }
-
   footer {
     padding: 22px 20px;
     flex-direction: column;
@@ -1088,7 +949,6 @@ footer {
 }
 </style>
 </head>
-
 <body>
 
 <nav>
@@ -1105,24 +965,23 @@ footer {
     <span class="green-dot"></span>
     <span>creative direction / creative strategy / culture / tech / execution</span>
   </div>
-
   <div class="hero-index">001 / MIGUEL CASTRO<br>PORTFOLIO 2026</div>
 
   <div class="hero-headlines">
-    <h1 class="hero-h1">I TURN HIDDEN<br><em>FRICTION</em><br>INTO IDEAS</h1>
-    <h2 class="hero-h2">AND CARRY THEM<br>ALL THE WAY<br>TO REALITY.</h2>
+    <h1 class="hero-h1">THE BEST IDEAS<br>SHOULD NOT<br>WALK ALONE</h1>
+    <h2 class="hero-h2">FROM TENSION<br>TO BELIEF<br>TO REALITY.</h2>
   </div>
 
   <div class="hero-bottom">
     <div>
-      <p class="hero-copy">I work between creative strategy, culture, tech, and execution to reveal what people overlook and turn it into ideas with human value.</p>
+      <p class="hero-copy">I create ideas from overlooked tensions and stay with them through belief, path, and execution until they become real.</p>
       <p class="hero-proof">Selected work includes Cannes Lions and Effie-recognized projects.</p>
     </div>
-
     <div class="hero-ctas">
       <a href="#work" class="btn-primary">View the work ↓</a>
     </div>
   </div>
+
 </section>
 
 <section id="work">
@@ -1131,11 +990,10 @@ footer {
       <div class="sec-num sec-badge"><span>PART I</span><i>/</i><span>WORK</span></div>
       <h2 class="sec-title">SELECTED<br>WORK</h2>
     </div>
-    <p class="sec-intro">Ideas that turned overlooked tensions into real-world value.</p>
+    <p class="sec-intro">Ideas that moved from overlooked tension to real-world value.</p>
   </div>
 
   <div class="rows-wrap">
-
     <div class="xrow" onclick="toggleRow(this)">
       <div class="xrow-head">
         <div>
@@ -1143,26 +1001,22 @@ footer {
           <div class="recognition-tag">★ Cannes Lions Grand Prix</div>
         </div>
         <span class="xrow-teaser">Disability was not the limitation. The interface was.</span>
-        <span class="xrow-arrow">→</span>
+        <span class="xrow-arrow">↓</span>
       </div>
-
       <div class="xrow-body">
         <div class="xrow-inner">
           <div>
-            <span class="xfield-label">Hidden friction</span>
-            <p class="xfield-text">Most interfaces still assume a narrow idea of the body: hands, screens, gestures, and devices designed for a default user.</p>
+            <span class="xfield-label">Tension</span>
+            <p class="xfield-text">Most interfaces still assume a narrow idea of the body.</p>
           </div>
-
           <div>
             <span class="xfield-label">Idea</span>
             <p class="xfield-text">Reframe the tongue as a discreet, powerful human interface.</p>
           </div>
-
           <div>
             <span class="xfield-label">Human value</span>
-            <p class="xfield-text">MouthPad^ turns accessibility into interface evolution. It expands what technology can recognize as human input.</p>
+            <p class="xfield-text">Accessibility becomes interface evolution.</p>
           </div>
-
           <div class="video-placeholder video-embed" onclick="event.stopPropagation()">
             <iframe src="https://player.vimeo.com/video/951744690?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="MouthPadˆ - Augmental" allowfullscreen webkitallowfullscreen mozallowfullscreen loading="lazy"></iframe>
           </div>
@@ -1177,26 +1031,22 @@ footer {
           <div class="recognition-tag">★ Cannes Lions Innovation</div>
         </div>
         <span class="xrow-teaser">Digital waste was hiding in the habit of keeping everything.</span>
-        <span class="xrow-arrow">→</span>
+        <span class="xrow-arrow">↓</span>
       </div>
-
       <div class="xrow-body">
         <div class="xrow-inner">
           <div>
-            <span class="xfield-label">Hidden friction</span>
-            <p class="xfield-text">People do not experience email storage as pollution. Digital waste feels invisible because it has no physical form.</p>
+            <span class="xfield-label">Tension</span>
+            <p class="xfield-text">Digital waste feels invisible because it has no physical form.</p>
           </div>
-
           <div>
             <span class="xfield-label">Idea</span>
             <p class="xfield-text">Turn email deletion into a sustainability action.</p>
           </div>
-
           <div>
             <span class="xfield-label">Human value</span>
-            <p class="xfield-text">The project made absence useful. Less storage became less waste, and deleting became a small but tangible environmental behavior.</p>
+            <p class="xfield-text">Less becomes useful.</p>
           </div>
-
           <div class="video-placeholder video-embed" onclick="event.stopPropagation()">
             <iframe src="https://player.vimeo.com/video/951723906?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Vanishing Emails - Amazon Web Services" allowfullscreen webkitallowfullscreen mozallowfullscreen loading="lazy"></iframe>
           </div>
@@ -1211,26 +1061,22 @@ footer {
           <div class="recognition-tag">★ Cannes Lions Shortlist</div>
         </div>
         <span class="xrow-teaser">Violence was hidden inside communication people thought they understood.</span>
-        <span class="xrow-arrow">→</span>
+        <span class="xrow-arrow">↓</span>
       </div>
-
       <div class="xrow-body">
         <div class="xrow-inner">
           <div>
-            <span class="xfield-label">Hidden friction</span>
-            <p class="xfield-text">Abuse often hides in plain sight, behind ordinary messages, patterns, and digital traces people overlook.</p>
+            <span class="xfield-label">Tension</span>
+            <p class="xfield-text">Abuse often hides in ordinary digital traces.</p>
           </div>
-
           <div>
             <span class="xfield-label">Idea</span>
             <p class="xfield-text">Use the invisible structure of email to make hidden violence discoverable.</p>
           </div>
-
           <div>
             <span class="xfield-label">Human value</span>
-            <p class="xfield-text">People did not just receive a message about hidden violence. They had to uncover it themselves. Discovery was the emotional mechanism.</p>
+            <p class="xfield-text">People do not just hear the issue. They uncover it.</p>
           </div>
-
           <div class="video-placeholder video-embed" onclick="event.stopPropagation()">
             <iframe src="https://player.vimeo.com/video/1035621612?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Behind The Fear - DEMUS" allowfullscreen webkitallowfullscreen mozallowfullscreen loading="lazy"></iframe>
           </div>
@@ -1245,47 +1091,40 @@ footer {
           <div class="recognition-tag">★ Latin American EFFIE</div>
         </div>
         <span class="xrow-teaser">For micro-merchants, payment speed is not convenience. It is trust.</span>
-        <span class="xrow-arrow">→</span>
+        <span class="xrow-arrow">↓</span>
       </div>
-
       <div class="xrow-body">
         <div class="xrow-inner">
           <div>
-            <span class="xfield-label">Hidden friction</span>
-            <p class="xfield-text">Delayed payments create uncertainty for people whose business depends on daily cash flow.</p>
+            <span class="xfield-label">Tension</span>
+            <p class="xfield-text">Delayed payments create uncertainty for daily businesses.</p>
           </div>
-
           <div>
             <span class="xfield-label">Idea</span>
             <p class="xfield-text">Turn speed into a cultural promise.</p>
           </div>
-
           <div>
             <span class="xfield-label">Human value</span>
-            <p class="xfield-text">Fast payment became more than a feature; it became a reason to trust. Immediacy was made familiar, local, and credible.</p>
+            <p class="xfield-text">A technical benefit becomes a reason to trust.</p>
           </div>
-
           <div class="video-placeholder video-embed" onclick="event.stopPropagation()">
             <iframe src="https://player.vimeo.com/video/1071593465?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="En One - Izipay" allowfullscreen webkitallowfullscreen mozallowfullscreen loading="lazy"></iframe>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
 <div class="part-ii">
-
 <section id="thinking" class="chapter-break">
   <div>
     <div class="sec-num sec-badge"><span>PART II</span><i>/</i><span>THINKING</span></div>
-    <h2 class="chapter-title">HOW THE WORK<br>GETS MADE REAL.</h2>
+    <h2 class="chapter-title">THE IDEA IS<br>ONLY THE START.</h2>
   </div>
-
   <div class="chapter-copy">
     <p>The work above is the proof.</p>
-    <p>What follows is the operating logic behind it: the role I am building toward, and the full journey I carry to move an idea from hidden friction to reality.</p>
+    <p>What follows is what usually goes unseen: the decisions, pressure, belief, and persistence that determine whether an idea survives reality.</p>
   </div>
 </section>
 
@@ -1294,18 +1133,18 @@ footer {
     <div class="reveal">
       <h2 class="manifesto-hl">CREATIVE AGENCIES AND NETWORKS ARE NOT SHORT ON TALENT OR IDEAS.</h2>
     </div>
-
     <div class="manifesto-body reveal">
-      <p class="manifesto-lead">The gap is ownership of the full creative journey.</p>
-      <p class="manifesto-copy">Too many ideas disappear not because they are weak, but because the journey gets fragmented: someone thinks, someone sells, someone produces, someone protects, someone pushes.</p>
-      <p class="manifesto-copy">But the best ideas need continuity.</p>
+      <p class="manifesto-lead">The gap is continuity.</p>
+      <p class="manifesto-copy">Good ideas rarely die because they are weak.</p>
+      <p class="manifesto-copy">They get lost in the handoffs: thinking, selling, producing, protecting, pushing.</p>
+      <p class="manifesto-copy">The best ideas need someone to stay with them.</p>
 
       <div class="role-note">
-        <h3 class="role-title">A role built for continuity</h3>
-        <p class="role-copy">This is the function I am building toward: not another layer, not a handoff role, not a connector standing between people.</p>
-        <p class="role-copy"><strong>A creative function that creates, sharpens, argues, structures, and executes as one continuous chain.</strong></p>
-        <p class="role-copy">The full journey below is how that role behaves in practice.</p>
-        <span class="role-link">Continue to the full journey ↓</span>
+        <h3 class="role-title">A practice built for follow-through</h3>
+        <p class="role-copy">Not another layer. Not a handoff. Not someone standing between people.</p>
+        <p class="role-copy"><strong>It keeps the idea intact when the journey starts to fragment.</strong></p>
+        <p class="role-copy">The full journey below shows why it matters.</p>
+        <a class="role-link" href="#method">Continue to the full journey ↓</a>
       </div>
     </div>
   </div>
@@ -1316,9 +1155,8 @@ footer {
     <div>
       <h2 class="sec-title">THE FULL<br>JOURNEY</h2>
     </div>
-
     <div style="align-self:end">
-      <p class="sec-intro">From friction to idea, from idea to case, from case to path, from path to execution.</p>
+      <p class="sec-intro">From tension to idea. From idea to belief. From belief to path. From path to reality.</p>
       <p class="sec-intro" style="margin-top:12px">Not as separate tasks. As one continuous creative responsibility.</p>
     </div>
   </div>
@@ -1326,69 +1164,74 @@ footer {
   <div class="grid-modules">
     <div class="gmod" onclick="toggleMod(this)">
       <span class="gmod-num">01</span>
-      <h3 class="gmod-title">FIND THE FRICTION</h3>
-      <p class="gmod-closed">I look for the thing people feel but have stopped questioning.</p>
-      <p class="gmod-open">Before there is an idea, there is usually a tension hiding inside the situation.<br><br>A behavior that feels normal. A system people no longer notice. A contradiction the brief has not named. A problem people feel but cannot articulate.<br><br>That is where the work begins.</p>
+      <h3 class="gmod-title">FIND THE TENSION</h3>
+      <p class="gmod-closed">I look for the contradiction people feel but have stopped questioning.</p>
+      <p class="gmod-open">Something is usually pulling in two directions.<br><br>A behavior feels normal, but wrong. A system works, but excludes. A brief asks for output, but hides the real problem.<br><br>That tension is where the idea starts.</p>
       <span class="gmod-arrow">↓</span>
     </div>
-
     <div class="gmod" onclick="toggleMod(this)">
       <span class="gmod-num">02</span>
       <h3 class="gmod-title">CREATE THE IDEA</h3>
-      <p class="gmod-closed">I turn that friction into a clear creative proposition.</p>
-      <p class="gmod-open">The idea is not a decoration added after the strategy.<br><br>It is the sharpest possible way to make the friction visible, useful, emotional, or impossible to ignore.<br><br>A strong idea should be simple enough to repeat and strong enough to change how people see the problem.</p>
+      <p class="gmod-closed">I turn that tension into a creative proposition people can understand.</p>
+      <p class="gmod-open">The idea is not decoration.<br><br>It is the clearest way to make the tension visible, useful, emotional, or impossible to ignore.<br><br>If it needs too much explanation, it is not ready.</p>
       <span class="gmod-arrow">↓</span>
     </div>
-
     <div class="gmod" onclick="toggleMod(this)">
       <span class="gmod-num">03</span>
-      <h3 class="gmod-title">BUILD THE CASE</h3>
-      <p class="gmod-closed">I give the idea the language, logic, and evidence it needs to be believed.</p>
-      <p class="gmod-open">Ideas rarely move on potential alone.<br><br>They need a case: why this matters, why now, why this brand has the right to do it, why people should care, and why the idea can survive reality.<br><br>The case is not a presentation layer. It is part of making the idea real.</p>
+      <h3 class="gmod-title">BUILD BELIEF</h3>
+      <p class="gmod-closed">I give the idea the language and logic it needs to be believed.</p>
+      <p class="gmod-open">Ideas rarely die because they lack potential.<br><br>They die because belief was never built around them.<br><br>Why this matters. Why now. Why us. Why people should care. Why it can survive reality.<br><br>This is how an idea becomes undeniable.</p>
       <span class="gmod-arrow">↓</span>
     </div>
-
     <div class="gmod" onclick="toggleMod(this)">
       <span class="gmod-num">04</span>
       <h3 class="gmod-title">SHAPE THE PATH</h3>
-      <p class="gmod-closed">I define how the idea can move through reality.</p>
-      <p class="gmod-open">Every idea faces constraints: time, budget, approvals, production, politics, technology, timing, fear, and doubt.<br><br>The work is not to ignore those constraints. The work is to use them to shape the path.</p>
+      <p class="gmod-closed">I define how the idea can survive the real world.</p>
+      <p class="gmod-open">Every idea meets pressure: time, budget, approvals, doubt, politics, production.<br><br>The path is not the plan.<br><br>It is the set of decisions that protect what cannot be lost.</p>
       <span class="gmod-arrow">↓</span>
     </div>
-
     <div class="gmod" onclick="toggleMod(this)">
       <span class="gmod-num">05</span>
-      <h3 class="gmod-title">MAKE IT LAND</h3>
-      <p class="gmod-closed">I stay with the idea until it becomes real.</p>
-      <p class="gmod-open">The hardest part is rarely having the idea.<br><br>It is keeping the idea alive through decisions, pressure, ambiguity, and execution.<br><br>Making it land means carrying the same intention from the first tension to the final output.</p>
+      <h3 class="gmod-title">MAKE IT REAL</h3>
+      <p class="gmod-closed">I stay with the idea until people can see it, use it, feel it, or trust it.</p>
+      <p class="gmod-open">The hardest part is rarely having the idea.<br><br>It is keeping its force alive through every decision that tries to make it smaller.<br><br>Making it real means carrying the intention all the way through.</p>
       <span class="gmod-arrow">↓</span>
     </div>
   </div>
 </section>
-
 </div>
+
+<section id="one-more-thing">
+  <div class="reveal">
+    <div class="sec-num sec-badge"><span>ONE MORE THING</span></div>
+    <h2 class="one-more-title">AI TOOLS WITH<br>A POINT<br>OF VIEW.</h2>
+  </div>
+  <div class="one-more-copy reveal">
+    <p class="one-more-lead">Built for sharper thinking.</p>
+    <p>Private AI thinking tools shaped by questions, constraints, tensions, and behavioral rules.</p>
+    <p>Not to generate more. To protect judgment, challenge weak logic, and keep ideas from becoming generic.</p>
+    <p><strong>The tools change. The discipline is the work.</strong></p>
+  </div>
+</section>
 
 <section id="contact">
   <div class="reveal">
     <div class="sec-num sec-badge"><span>CONTACT</span></div>
-    <h2 class="contact-hl">FOR IDEAS<br>THAT SHOULD<br>NOT GO ALONE.</h2>
+    <h2 class="contact-hl">FOR IDEAS<br>THAT SHOULD<br>NOT WALK ALONE.</h2>
   </div>
-
   <div class="reveal">
-    <p class="contact-copy">Miguel works best with agencies, networks, brands, and teams that have strong creative potential but need continuity from friction to idea, from idea to case, and from case to reality.</p>
-
+    <p class="contact-copy">I work best with agencies, networks, brands, and teams with strong creative potential that need someone to stay with the idea until it becomes real.</p>
     <div class="contact-note">
       <span>Not just thought.</span>
       <span>Not just execution.</span>
       <span><em>The whole journey.</em></span>
     </div>
-
     <a href="mailto:miguel@miguelcastro.cc" class="btn-primary">LET'S TALK →</a>
   </div>
 </section>
 
 <footer>
-  <span class="footer-l">Miguel Castro — Creative Director</span>
+  <span class="footer-l">Miguel Castro - Creative Director</span>
   <span class="footer-r">Creative Direction / Creative Strategy / Culture / Tech / Execution</span>
 </footer>
 
@@ -1406,18 +1249,13 @@ function toggleMod(el) {
 }
 
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('in');
-  });
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.08 });
-
-document.querySelectorAll('.reveal, .sec-header, .gmod, .xrow').forEach(el => {
+document.querySelectorAll('.reveal, .sec-header, .dir-header, .gmod, .xrow').forEach(el => {
   if (!el.classList.contains('reveal')) el.classList.add('reveal');
   obs.observe(el);
 });
 </script>
-
 <script src="https://player.vimeo.com/api/player.js"></script>
-
 </body>
 </html>
