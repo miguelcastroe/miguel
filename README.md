@@ -1,45 +1,30 @@
-# Miguel Castro | Creative Director
+# Miguel Castro — Creative Director Portfolio
 
-Personal portfolio site for Miguel Castro.
+A static portfolio website for Miguel Castro, Creative Director working across creative direction, creative strategy, culture, technology and execution.
 
-A minimal editorial portfolio built to present selected creative work, a point of view on how ideas move from hidden friction to reality, and a clear contact path.
+The site presents selected work, creative thinking, and a broader point of view on how ideas move from overlooked tensions to real-world value.
 
-## Live site
+---
 
-[https://miguelcastroe.github.io/miguel/](https://miguelcastroe.github.io/miguel/)
+## Concept
 
-## Positioning
+**The best ideas should not walk alone.**
 
-I turn hidden friction into ideas — then carry them all the way to reality.
+This portfolio is built around a simple belief: strong ideas need more than creation. They need continuity, belief, protection, direction and execution.
 
-The site is structured around two main parts:
+The site is structured as a journey:
 
-- **Part I / Work** — selected projects and case videos.
-- **Part II / Thinking** — the operating logic behind how ideas are created, shaped, and made real.
+1. Selected Work
+2. Thinking
+3. The Full Journey
+4. AI Tools With a Point of View
+5. Contact
 
-## Selected work
+---
 
-- **MouthPad^** — Cannes Lions Grand Prix
-- **Vanishing Emails** — Cannes Lions Innovation
-- **Behind The Fear** — Cannes Lions Shortlist
-- **En One** — Latin American EFFIE
-
-## Tech
-
-This is a static site built with:
-
-- HTML
-- CSS
-- Vanilla JavaScript
-- Vimeo embeds
-- GitHub Pages
-
-No framework or build step is required.
-
-## Files
+## Structure
 
 ```text
 index.html
 favicon.png
 og-image.jpg
-README.md
