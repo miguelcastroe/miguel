@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-29HHTM40HS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-29HHTM40HS');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MLM: Judgment Before Output - Miguel Castro</title>
+<meta name="description" content="MLM: Judgment Before Output. An essay by Miguel Castro on judgment, AI and creative work.">
+<meta name="author" content="Miguel Castro">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="MLM: Judgment Before Output - Miguel Castro">
+<meta property="og:description" content="An essay by Miguel Castro on judgment, AI and creative work.">
+<meta property="og:url" content="https://global.miguelcastro.works/essay/">
+<meta property="og:image" content="https://global.miguelcastro.works/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MLM: Judgment Before Output - Miguel Castro">
+<meta name="twitter:description" content="An essay by Miguel Castro on judgment, AI and creative work.">
+<meta name="twitter:image" content="https://global.miguelcastro.works/og-image.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #fff;
+    color: #111;
+    font-family: 'Inter', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: #111; color: #fff; }
+
+  .site-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid #e8e8e8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: box-shadow 0.25s, background 0.25s;
+  }
+  .site-nav.scrolled { box-shadow: 0 8px 24px rgba(0,0,0,0.035); }
+  .nav-ticker {
+    display: inline-flex; align-items: center; overflow: hidden;
+    width: 200px; height: 44px; cursor: pointer; text-decoration: none; flex-shrink: 0;
+  }
+  .nav-ticker-track { display: flex; white-space: nowrap; animation: ticker 6s linear infinite; }
+  .nav-ticker:hover .nav-ticker-track { animation-play-state: paused; }
+  .nav-ticker-track span {
+    font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #111; padding-right: 32px; display: inline-flex; align-items: center; gap: 7px;
+  }
+  .nav-ticker-track span svg { width: 12px; height: 9px; flex-shrink: 0; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  .hamburger {
+    background: none; border: none; cursor: pointer; display: flex; flex-direction: column;
+    justify-content: center; gap: 5px; width: 24px; height: 24px; padding: 0; flex-shrink: 0; margin-left: 24px;
+  }
+  .hamburger span { display: block; width: 20px; height: 1px; background: #111; transition: transform 0.3s, opacity 0.3s; transform-origin: center; }
+  .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  .nav-panel {
+    position: fixed; top: 44px; right: 0; bottom: 0; width: 280px; z-index: 190;
+    background: #fff; border-left: 1px solid #e8e8e8;
+    display: flex; flex-direction: column; padding: 40px 32px;
+    transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .nav-panel.open { transform: translateX(0); }
+  .nav-panel a {
+    font-size: 28px; font-weight: 500; letter-spacing: -0.02em; color: #111; text-decoration: none;
+    line-height: 1.3; margin-bottom: 8px; opacity: 0; transform: translateX(14px);
+    transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.15s;
+  }
+  .nav-panel.open a { opacity: 1; transform: translateX(0); }
+  .nav-panel.open a:nth-child(1) { transition-delay: 40ms; }
+  .nav-panel.open a:nth-child(2) { transition-delay: 80ms; }
+  .nav-panel.open a:nth-child(3) { transition-delay: 120ms; }
+  .nav-panel.open a:nth-child(4) { transition-delay: 160ms; }
+  .nav-panel.open a:nth-child(5) { transition-delay: 200ms; }
+  .nav-panel a:hover { color: #888; }
+  .nav-panel .nav-linkedin {
+    margin-top: auto; padding-top: 20px; border-top: 1px solid #e8e8e8;
+    font-size: 12px; font-weight: 400; letter-spacing: 0.06em; color: #888;
+  }
+  .nav-overlay { display: none; position: fixed; inset: 0; z-index: 180; }
+  .nav-overlay.open { display: block; }
+
+  .reading-progress {
+    position: fixed; top: 44px; left: 0; height: 1px; width: 0%; z-index: 210;
+    background: #111; transform-origin: left center;
+  }
+
+  .essay-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 22px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #888;
+  }
+  .essay-breadcrumb a {
+    color: #111;
+    text-decoration: none;
+    transition: color 0.16s ease;
+  }
+  .essay-breadcrumb a:hover,
+  .essay-breadcrumb a:focus-visible {
+    color: #888;
+    outline: none;
+  }
+  .essay-breadcrumb span {
+    color: #aaa;
+  }
+
+  .essay-page { padding-top: 44px; }
+  .essay-cover {
+    padding: 96px 24px 64px;
+    display: grid;
+    grid-template-columns: minmax(180px, 220px) minmax(0, 720px);
+    column-gap: 48px;
+    align-items: start;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .essay-cover-main {
+    grid-column: 2;
+    max-width: 720px;
+    width: 100%;
+  }
+  .essay-cover-main h1,
+  .essay-cover-main .essay-meta-line,
+  .essay-cover-main .essay-breadcrumb,
+  .essay-cover-main .essay-abstract {
+    margin-left: 0;
+  }
+  .essay-kicker {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #888;
+    writing-mode: vertical-rl; transform: rotate(180deg); align-self: stretch;
+  }
+  .essay-cover h1 {
+    max-width: 14ch;
+    font-size: clamp(42px, 7.4vw, 92px);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    line-height: 0.96;
+    color: #111;
+  }
+  .essay-meta-line {
+    margin-top: 24px; font-size: 12px; color: #777; letter-spacing: 0.02em;
+  }
+
+  .essay-abstract {
+    margin-top: 30px;
+    max-width: 100%;
+    border-top: 1px solid #e8e8e8;
+    padding-top: 18px;
+  }
+  .essay-abstract-label {
+    margin-bottom: 10px;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #888;
+  }
+  .essay-abstract-text {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(16px, 1.35vw, 19px);
+    line-height: 1.62;
+    letter-spacing: -0.006em;
+    color: #222;
+  }
+
+  .essay-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr) 160px;
+    gap: 48px;
+    padding: 72px 24px 96px;
+    max-width: 1380px;
+    margin: 0 auto;
+  }
+  .essay-aside { position: sticky; top: 88px; align-self: start; }
+  .essay-aside-label {
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #888;
+    margin-bottom: 16px;
+  }
+  .essay-toc {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-height: calc(100vh - 150px);
+    overflow: auto;
+    padding-right: 12px;
+    border-top: 1px solid #e8e8e8;
+  }
+  .essay-toc a {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 14px;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid #e8e8e8;
+    color: #777;
+    text-decoration: none;
+    font-size: 11px;
+    line-height: 1.35;
+    transition: color 0.18s, padding-left 0.18s;
+  }
+  .essay-toc a:hover,
+  .essay-toc a:focus-visible {
+    color: #111;
+    padding-left: 3px;
+    outline: none;
+  }
+  .essay-toc-number {
+    font-variant-numeric: tabular-nums;
+    color: #aaa;
+  }
+  .essay-toc-title {
+    color: inherit;
+  }
+  .essay-reader {
+    max-width: 680px;
+    margin: 0 auto;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(18px, 1.42vw, 20px);
+    line-height: 1.78;
+    letter-spacing: -0.005em;
+    color: #171717;
+  }
+  .essay-reader p { margin: 0 0 1.15em; }
+  .essay-reader em { font-style: italic; }
+  .essay-reader strong { font-weight: 600; }
+  .essay-reader h2 {
+    font-family: 'Inter', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: clamp(24px, 3vw, 40px);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    font-weight: 500;
+    margin: 5.4rem 0 1.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e8e8e8;
+    scroll-margin-top: 88px;
+  }
+  .essay-reader h2:first-child { margin-top: 0; }
+  .essay-reader hr { border: none; border-top: 1px solid #e8e8e8; margin: 4.5rem 0; }
+  .essay-reader a { color: #111; text-decoration-thickness: 1px; text-underline-offset: 0.14em; }
+  .essay-reader sup.footnote-ref {
+    font-family: 'Inter', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.68em;
+    line-height: 1;
+    vertical-align: super;
+    margin-left: 0.12em;
+  }
+  .essay-reader sup.footnote-ref a {
+    color: #111;
+    text-decoration: none;
+    border-bottom: none;
+    font-weight: 500;
+    opacity: 0.72;
+    transition: opacity 0.15s ease, border-color 0.15s ease;
+  }
+  .essay-reader sup.footnote-ref a:hover,
+  .essay-reader sup.footnote-ref a:focus-visible {
+    opacity: 1;
+    outline: none;
+    border-bottom: 1px solid currentColor;
+  }
+  .footnotes li:target {
+    background: linear-gradient(90deg, rgba(0,0,0,0.035), rgba(0,0,0,0));
+  }
+  .essay-reader h2#footnotes {
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    margin-top: 2.6rem;
+    padding-top: 0;
+    border-top: 0;
+  }
+  .footnotes {
+    font-family: 'Inter', -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 11.5px;
+    line-height: 1.65;
+    color: #555;
+    margin-top: 1.5rem;
+  }
+  .footnotes ol { padding-left: 18px; }
+  .footnotes li { margin-bottom: 0.95rem; padding-left: 4px; }
+  .footnotes p { margin-bottom: 0; }
+  .footnote { margin-left: 6px; text-decoration: none; color: #999; }
+
+  .essay-side-note {
+    position: sticky;
+    top: 88px;
+    align-self: start;
+    font-size: 10px;
+    line-height: 1.5;
+    color: #999;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  footer {
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+    border-top: 1px solid #e8e8e8;
+  }
+  footer span, footer a { font-size: 11px; color: #888; text-decoration: none; }
+  footer a:hover { color: #111; }
+
+  footer .back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: #888;
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    text-decoration: none;
+    line-height: 1;
+    transition: color 0.16s ease,
+                border-color 0.16s ease,
+                transform 0.16s ease;
+  }
+  footer .back-to-top svg {
+    width: 12px;
+    height: 12px;
+    display: block;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.16s ease;
+  }
+  footer .back-to-top:visited,
+  footer .back-to-top:hover,
+  footer .back-to-top:focus,
+  footer .back-to-top:focus-visible,
+  footer .back-to-top:active {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+  footer .back-to-top:hover,
+  footer .back-to-top:focus-visible {
+    color: #111;
+    border-color: #111;
+    outline: none;
+    transform: translateY(-1px);
+  }
+  footer .back-to-top:hover svg,
+  footer .back-to-top:focus-visible svg {
+    transform: translateY(-2px);
+  }
+
+  .reveal { opacity: 1; transform: none; transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 980px) {
+    .essay-layout { grid-template-columns: 1fr; gap: 0; padding: 52px 24px 80px; }
+    .essay-aside, .essay-side-note { display: none; }
+    .essay-reader { max-width: 680px; }
+  }
+  @media (max-width: 680px) {
+    .site-nav { padding: 0 20px; }
+    .essay-home-button {
+      left: 20px;
+      bottom: 20px;
+      padding: 7px 10px;
+      font-size: 10px;
+    }
+
+    .nav-panel { width: 100%; border-left: none; }
+    .essay-cover { grid-template-columns: 1fr; min-height: 54vh; padding: 72px 20px 32px; }
+    .essay-kicker { writing-mode: horizontal-tb; transform: none; align-self: auto; margin-bottom: 28px; }
+    .essay-cover h1 { max-width: 12ch; font-size: clamp(42px, 14vw, 72px); }
+    .essay-layout { padding: 40px 20px 72px; }
+    .essay-reader { font-size: 18px; line-height: 1.72; }
+    .essay-reader h2 { margin-top: 4.2rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  @media (max-width: 860px) {
+    .essay-cover {
+      grid-template-columns: 1fr;
+      padding: 76px 20px 52px;
+    }
+    .essay-cover-main {
+      grid-column: 1;
+      max-width: 720px;
+    }
+  }
+
+</style>
+</head>
+<body id="top">
+
+<header class="header-section" aria-label="Header">
+<nav class="site-nav" id="siteNav">
+  <a class="nav-ticker" href="mailto:miguel@miguelcastro.cc">
+    <div class="nav-ticker-track">
+      <span>Get in touch <svg viewBox="0 0 12 9" fill="none" stroke="#111" stroke-width="1"><rect x="0.5" y="0.5" width="11" height="8" rx="0.5"/><polyline points="0.5,0.5 6,5.5 11.5,0.5"/></svg></span>
+      <span>Get in touch <svg viewBox="0 0 12 9" fill="none" stroke="#111" stroke-width="1"><rect x="0.5" y="0.5" width="11" height="8" rx="0.5"/><polyline points="0.5,0.5 6,5.5 11.5,0.5"/></svg></span>
+      <span>Get in touch <svg viewBox="0 0 12 9" fill="none" stroke="#111" stroke-width="1"><rect x="0.5" y="0.5" width="11" height="8" rx="0.5"/><polyline points="0.5,0.5 6,5.5 11.5,0.5"/></svg></span>
+      <span>Get in touch <svg viewBox="0 0 12 9" fill="none" stroke="#111" stroke-width="1"><rect x="0.5" y="0.5" width="11" height="8" rx="0.5"/><polyline points="0.5,0.5 6,5.5 11.5,0.5"/></svg></span>
+    </div>
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-overlay" id="navOverlay"></div>
+<div class="nav-panel" id="navPanel">
+  <a href="/" class="nav-link">Home</a>
+  <a href="#01-the-object" class="nav-link">Contents</a>
+  <a href="#footnotes" class="nav-link">Footnotes</a>
+  <a href="mailto:miguel@miguelcastro.cc" class="nav-link">Contact</a>
+  <a href="https://www.linkedin.com/in/miguelcastroe/" target="_blank" rel="noopener" class="nav-linkedin nav-link">LinkedIn ↗</a>
+</div>
+</header>
+
+
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<main class="essay-page">
+  <section class="essay-cover" aria-label="Essay title">
+    <div class="essay-cover-main">
+      <nav class="essay-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>Essay on AI</span>
+      </nav>
+      <h1>MLM: Judgment Before Output</h1>
+      <p class="essay-meta-line">Miguel Castro · 2026</p>
+      <div class="essay-abstract" aria-label="Abstract">
+        <p class="essay-abstract-label">Abstract</p>
+        <p class="essay-abstract-text">Generative AI changes creative work not only by writing drafts, answers, decks and cases, but by making unfinished thinking look finished. This essay argues for protecting the interval before any output is accepted: the moment where judgment should form. MLM, Miguel's Language Model, is a human framework for using AI without surrendering the friction, resistance and pressure that make ideas worth making.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="essay-layout">
+    <aside class="essay-aside" aria-label="Essay contents">
+      <p class="essay-aside-label">Contents</p>
+      <nav class="essay-toc">
+            <a href="#01-the-object"><span class="essay-toc-number">01</span><span class="essay-toc-title">The Object</span></a>
+            <a href="#02-the-shift"><span class="essay-toc-number">02</span><span class="essay-toc-title">The Shift</span></a>
+            <a href="#03-automation"><span class="essay-toc-number">03</span><span class="essay-toc-title">Automation</span></a>
+            <a href="#04-fluency"><span class="essay-toc-number">04</span><span class="essay-toc-title">Fluency</span></a>
+            <a href="#05-practice"><span class="essay-toc-number">05</span><span class="essay-toc-title">Practice</span></a>
+            <a href="#06-friction"><span class="essay-toc-number">06</span><span class="essay-toc-title">Friction</span></a>
+            <a href="#07-skill"><span class="essay-toc-number">07</span><span class="essay-toc-title">Skill</span></a>
+            <a href="#08-miguel-s-language-model"><span class="essay-toc-number">08</span><span class="essay-toc-title">Miguel’s Language Model</span></a>
+            <a href="#09-signal"><span class="essay-toc-number">09</span><span class="essay-toc-title">Signal</span></a>
+            <a href="#10-invisible"><span class="essay-toc-number">10</span><span class="essay-toc-title">Invisible</span></a>
+            <a href="#11-insight"><span class="essay-toc-number">11</span><span class="essay-toc-title">Insight</span></a>
+            <a href="#12-tension"><span class="essay-toc-number">12</span><span class="essay-toc-title">Tension</span></a>
+            <a href="#13-idea"><span class="essay-toc-number">13</span><span class="essay-toc-title">IDEA</span></a>
+            <a href="#14-deck"><span class="essay-toc-number">14</span><span class="essay-toc-title">Deck</span></a>
+            <a href="#15-case"><span class="essay-toc-number">15</span><span class="essay-toc-title">Case</span></a>
+            <a href="#16-the-sequence"><span class="essay-toc-number">16</span><span class="essay-toc-title">The Sequence</span></a>
+            <a href="#17-what-it-is-not"><span class="essay-toc-number">17</span><span class="essay-toc-title">What It Is Not</span></a>
+            <a href="#18-stakes"><span class="essay-toc-number">18</span><span class="essay-toc-title">Stakes</span></a>
+      </nav>
+    </aside>
+
+    <article class="essay-reader">
+<p>There is a new object in creative work, and we haven’t named it yet.</p>
+<p>It is the thing that looks finished before anyone has finished thinking about it. A paragraph with the cadence of a conclusion. A deck whose structure implies an argument that was not actually made. A case that makes an idea seem inevitable after the result is already known. A polished answer that arrives before judgment has had enough time to form.</p>
+<p>These are not failures of the machine.</p>
+<p>They are, almost exactly, what the machine was built to produce.</p>
+<p>The failure, if there is one, happens earlier.</p>
+<p>In the moment before output.</p>
+<p>That is where judgment should form, and where it has less and less time to do so.</p>
+<p>MLM, Miguel’s Language Model, begins there: in the fragile interval before output convinces you.</p>
+<p>Not as a prompt system.<br />
+Not as a rejection of AI.<br />
+Not as nostalgia for slower work.</p>
+<p>But as a way of protecting the human operations that make an idea worth making.</p>
+<p>Because the real risk is not that machines will produce language.</p>
+<p>The risk is that finished form will arrive before judgment does, and we will mistake the presence of form for the presence of thought.<sup class="footnote-ref" id="fnref-1"><a href="#fn-1">1</a></sup></p>
+<h2 id="01-the-object">01 / The Object</h2>
+<p>The new object is not just an AI output.</p>
+<p>It is an output that arrives with the social behavior of finished work.</p>
+<p>It has structure. It has tone. It has rhythm. It has enough coherence to be passed around, discussed, revised, presented or approved. It may even be useful.</p>
+<p>That usefulness is part of the problem.</p>
+<p>Useful outputs are much harder to distrust.</p>
+<p>The object does not ask to be understood from the beginning. It asks to be improved from where it already stands.</p>
+<p>That small shift matters.</p>
+<p>When we begin from an output, we inherit its assumptions. We react to its frame. We make edits inside its architecture. We correct, polish, compress, expand, adjust. But the deeper operation - deciding whether the thing deserved to exist in that form at all - has already been displaced.<sup class="footnote-ref" id="fnref-2"><a href="#fn-2">2</a></sup></p>
+<p>This is how judgment disappears without drama.</p>
+<p>Not because people stop thinking.</p>
+<p>Because the work arrives looking ready enough for thinking to begin too late.</p>
+<p>A paragraph can sound like a conclusion before the conclusion has been earned. A deck can feel like an argument because it has order. A case can make a project seem inevitable because the ending is already known.</p>
+<p>The object is persuasive before it is responsible.</p>
+<p>That is the condition MLM is built to resist.</p>
+<h2 id="02-the-shift">02 / The Shift</h2>
+<p>When a tool gives finished form to unfinished thinking, the human role moves without us noticing.</p>
+<p>We go from forming judgment before output to evaluating output after it appears.</p>
+<p>The shift is quiet because the output is usually useful. The work seems to advance. There is language. There is structure. There is direction.</p>
+<p>But the operations that normally precede those forms - attention, rejection, recognition, doubt, friction, the slow accumulation of unease that points toward refusal or discovery - may have been compressed, skipped or displaced onto an artifact that no longer invites them.</p>
+<p>This is not the replacement of thought.</p>
+<p>It is the relocation of thought.</p>
+<p>The effort moves from formation to verification.</p>
+<p>And verification is harder once form has already arrived.</p>
+<p>A blank page asks you to decide.</p>
+<p>A fluent draft asks you to react.</p>
+<p>That difference is not cosmetic.</p>
+<p>It changes the cognitive posture of the person working.</p>
+<p>The practitioner becomes less author than monitor: someone asked to detect what the system let through, in a medium whose fluency makes detection harder.<sup class="footnote-ref" id="fnref-3"><a href="#fn-3">3</a></sup></p>
+<h2 id="03-automation">03 / Automation</h2>
+<p>Bainbridge saw a version of this forty years ago, without knowing she was also describing the future of knowledge work.</p>
+<p>She was writing about factories. Her argument was that the more advanced a control system becomes, the harder the human role that remains becomes. The operator must monitor a process they no longer execute, intervene in situations the system could not handle, and maintain a skill that the system itself erodes through disuse.<sup class="footnote-ref" id="fnref-3-2"><a href="#fn-3">3</a></sup></p>
+<p>Ironies of automation, she called it.</p>
+<p>The irony generalizes.</p>
+<p>Someone editing machine drafts is, in Bainbridge’s sense, a monitor.</p>
+<p>They are asked to catch subtle errors, weak assumptions, false confidence, missing logic, unearned conclusions and hallucinated coherence inside a medium designed to feel coherent.</p>
+<p>Parasuraman and Manzey gave names to what follows: automation complacency and automation bias.<sup class="footnote-ref" id="fnref-4"><a href="#fn-4">4</a></sup></p>
+<p>Complacency appears when attention slackens around a system that seems reliable. Bias appears when automated output weighs more than evidence that contradicts it. Neither requires the system to be bad.</p>
+<p>Both follow from what a good system feels like.</p>
+<p>A draft that reads well is, by reading well, harder to reject.</p>
+<p>The cost of disagreeing goes up.<br />
+The cost of accepting goes down.<br />
+Across many small interactions, the weight of judgment tilts.</p>
+<p>That is not a collapse of intelligence.</p>
+<p>It is a redistribution of effort.</p>
+<p>And the human part often receives the hardest task at the worst possible moment: after fluency has already made the output feel plausible.</p>
+<h2 id="04-fluency">04 / Fluency</h2>
+<p>Fluency is not neutral.</p>
+<p>What is easy to process tends to be judged as more true, more familiar and more trustworthy, regardless of content. The mind does not only evaluate what something says. It also responds to how easy it is to receive.<sup class="footnote-ref" id="fnref-5"><a href="#fn-5">5</a></sup></p>
+<p>That makes generative output unusually seductive.</p>
+<p>It can arrive fluent before it is grounded.<br />
+It can sound coherent before it has earned coherence.<br />
+It can give the feeling of explanation before the work of explanation has happened.</p>
+<p>Rozenblit and Keil described a related illusion: people often believe they understand systems more deeply than they actually do, until they are asked to explain them.<sup class="footnote-ref" id="fnref-6"><a href="#fn-6">6</a></sup></p>
+<p>A fluent draft can become a borrowed illusion of explanatory depth.</p>
+<p>The surface of understanding without the work that would have produced it.</p>
+<p>This matters because many AI outputs do not only answer. They imply a chain of reasoning. They make cause and effect appear connected. They present conclusions as if the intermediate steps had been walked.</p>
+<p>But often those steps are hidden.</p>
+<p>The answer becomes an explanatory black box with good typography.<sup class="footnote-ref" id="fnref-6-2"><a href="#fn-6">6</a></sup></p>
+<p>A polished output can seal the gap it should have exposed.</p>
+<p>That is why fluency becomes dangerous.</p>
+<p>Not because it is false.</p>
+<p>Because it removes the visible need to keep thinking.</p>
+<h2 id="05-practice">05 / Practice</h2>
+<p>Judgment is not an opinion that appears at the end.</p>
+<p>It is a capacity formed during contact with material.</p>
+<p>For Schön, professional work is not simply applying knowledge to a case. It is a conversation with the materials of the situation. The practitioner makes a move, the material talks back, and the situation is reframed.<sup class="footnote-ref" id="fnref-7"><a href="#fn-7">7</a></sup></p>
+<p>That talkback matters.</p>
+<p>It is where the work resists you.</p>
+<p>It is where the brief reveals that it was not the brief.<br />
+Where the paragraph shows that the idea is weaker than the sentence.<br />
+Where the deck exposes that the order was pretending to be logic.<br />
+Where the case reveals that the result has started to rewrite the thinking.</p>
+<p>When generative tools instantly produce a polished draft, they can absorb that talkback before the practitioner meets it.</p>
+<p>The resistance disappears.</p>
+<p>The work still appears.</p>
+<p>But the person who would have been formed by struggling with it may not.</p>
+<h2 id="06-friction">06 / Friction</h2>
+<p>For Klein, insight begins when someone realizes that something they took for granted does not hold.<sup class="footnote-ref" id="fnref-8"><a href="#fn-8">8</a></sup></p>
+<p>It depends on friction: small irritations, evidence that does not quite fit, framings that almost work but not entirely.</p>
+<p>The almost matters.</p>
+<p>It is often where the real work begins.</p>
+<p>Generative tools, by their nature, tend to polish the almost away. They produce the framing that almost works. They make the awkward part smoother. They close the gap before the practitioner has fully understood what the gap was trying to reveal.</p>
+<p>But the gap is not a defect.</p>
+<p>Sometimes the gap is the idea trying to appear.</p>
+<p>Breakthroughs often come from connections, desperation or contradictions. Not from explaining anomalies away, but from staying with them long enough for the underlying assumption to break.<sup class="footnote-ref" id="fnref-8-2"><a href="#fn-8">8</a></sup></p>
+<p>A system optimized for coherence will usually reduce contradiction.</p>
+<p>But contradiction is often the entrance.</p>
+<p>This is the deeper risk.</p>
+<p>Not that people will stop producing.</p>
+<p>That production will continue while the conditions that form judgment quietly weaken.</p>
+<h2 id="07-skill">07 / Skill</h2>
+<p>This is not only a moment problem.</p>
+<p>It is developmental.</p>
+<p>Dreyfus and Dreyfus described how people move from rule-following to intuitive expertise through repeated contact with real situations.<sup class="footnote-ref" id="fnref-9"><a href="#fn-9">9</a></sup> Ericsson showed that expertise develops through deliberate practice at the edge of current competence.<sup class="footnote-ref" id="fnref-10"><a href="#fn-10">10</a></sup></p>
+<p>That edge is uncomfortable.</p>
+<p>It is also where the practitioner is formed.</p>
+<p>A tool that removes the edge does not only change the artifact in front of you.</p>
+<p>It changes the person who would have been formed by struggling with it.</p>
+<p>Sennett makes the same argument from the side of craft. Making is thinking. Skill grows through resistance, detours, repair, play and contact with material ambiguity.<sup class="footnote-ref" id="fnref-11"><a href="#fn-11">11</a></sup></p>
+<p>A tool can extend the worker.</p>
+<p>A machine can also separate the worker from the conditions that make skill possible.</p>
+<p>The distinction is not whether technology is present.</p>
+<p>The distinction is whether the human remains in contact with resistance.</p>
+<p>MLM exists to protect that contact.</p>
+<h2 id="08-miguel-s-language-model">08 / Miguel’s Language Model</h2>
+<p>This is where MLM comes in.</p>
+<p>The idea is simple:</p>
+<p>Name operations, not prompts.</p>
+<p>A prompt asks the machine to produce.<br />
+An operation asks the mind to stay longer.</p>
+<p>They are not opposed. An operation can use prompts. But they point in different directions.</p>
+<p>A prompt is satisfied by output.</p>
+<p>An operation is satisfied by what happens before output is accepted.</p>
+<p>MLM is a human language model for that before.</p>
+<p>It protects the moments where judgment can disappear too early: before material becomes meaning, before assumption becomes truth, before language becomes decoration, before tension becomes direction, before pressure becomes form, before structure pretends to be argument, and before results rewrite the story.</p>
+<p>The newer literature on AI overreliance, metacognitive demand and critical thinking supports the need for structured moments of human monitoring before outputs are accepted as valid.<sup class="footnote-ref" id="fnref-12"><a href="#fn-12">12</a></sup><sup class="footnote-ref" id="fnref-13"><a href="#fn-13">13</a></sup><sup class="footnote-ref" id="fnref-14"><a href="#fn-14">14</a></sup></p>
+<p>The sequence is not a production pipeline.</p>
+<p>It is a set of protections.</p>
+<p>Each one guards an interval that can be lost when output arrives too soon.</p>
+<h2 id="09-signal">09 / Signal</h2>
+<p>Signal sits before interpretation.</p>
+<p>It is the raw thing before someone decides what it means.</p>
+<p>A document, a brief, a report, a conversation, a dataset, a behavior, a cultural symptom, a contradiction.</p>
+<p>Signal asks for attention before summary.</p>
+<p>It protects the weak, strange or important details that disappear when the material is asked to become an answer too quickly.</p>
+<p>Summary can be useful.</p>
+<p>It can also be violent.</p>
+<p>It can erase what has not yet become legible.</p>
+<p>The Signal operation asks:</p>
+<p>What is present?<br />
+What is repeated?<br />
+What is missing?<br />
+What contradicts itself?<br />
+What remains unresolved?<br />
+What keeps appearing without being named?</p>
+<p>Signal is not the answer.</p>
+<p>It is the discipline of not accepting the first frame that makes the material easier to handle.</p>
+<h2 id="10-invisible">10 / Invisible</h2>
+<p>Invisible sits before normalization.</p>
+<p>It looks for what stopped looking like a problem because people learned to live with it.</p>
+<p>Some problems are not hidden because they are unseen.</p>
+<p>They are hidden because they are tolerated.</p>
+<p>Visible, but absorbed.<br />
+Visible, but personalized.<br />
+Visible, but renamed as normal.</p>
+<p>The invisible is often not beneath the surface.</p>
+<p>It is on the surface, protected by habit.</p>
+<p>This is where Unseen begins.</p>
+<p>Unseen is not a peer-reviewed scientific model, and it does not need to pretend to be one.<sup class="footnote-ref" id="fnref-15"><a href="#fn-15">15</a></sup></p>
+<p>It is a conceptual model for creative work.</p>
+<p>Its role is precise: to find latent pressure.</p>
+<p>It asks what the material is not saying, what the category has learned to ignore, what the audience has adapted to, what the brand has accepted as given, what culture has normalized too efficiently.</p>
+<p>Unseen does not create pressure.</p>
+<p>It reveals where pressure was already living without language.</p>
+<p>That distinction matters.</p>
+<p>Because weak ideas often invent tension.</p>
+<p>Strong ideas uncover it.</p>
+<h2 id="11-insight">11 / Insight</h2>
+<p>Insight sits before language.</p>
+<p>It protects recognition from becoming style too early.</p>
+<p>An insight is not a sharper sentence. It is not a line that sounds human. It is not a clever inversion or a beautifully phrased observation.</p>
+<p>It is a shift in understanding that survives contact with the material.</p>
+<p>Language can arrive polished but empty.</p>
+<p>It can make recognition look like craft.</p>
+<p>The Insight operation asks:</p>
+<p>What changed in our understanding?<br />
+What do we now see differently?<br />
+What was obvious only after it was named?<br />
+What would be lost if the sentence were removed?</p>
+<p>If nothing changes, there is no insight.</p>
+<p>There may be phrasing.<br />
+There may be tone.<br />
+There may be elegance.</p>
+<p>But there is no movement in understanding.</p>
+<p>MLM protects the insight before language makes it too easy to like.</p>
+<h2 id="12-tension">12 / Tension</h2>
+<p>Tension sits before direction.</p>
+<p>It begins when an insight stops being comfortable.</p>
+<p>A tension is not a clean opposition. Not a balanced contrast. Not two ideas placed against each other because contrast looks strategic.</p>
+<p>A real tension appears when a truth meets real life through an action, a habit, an omission or a consequence.</p>
+<p>It creates pressure because something has to give.</p>
+<p>The Tension operation asks:</p>
+<p>What are the forces?<br />
+What makes them incompatible?<br />
+Where does this contradiction live in behavior, culture, business or daily life?<br />
+What decision does it create?<br />
+What becomes harder to ignore because of it?</p>
+<p>This is the point where the work starts to gain force.</p>
+<p>But force is not yet form.</p>
+<p>Pressure has been found.</p>
+<p>It still needs to become an idea.</p>
+<h2 id="13-idea">13 / IDEA</h2>
+<p>IDEA is not another ordinary node.</p>
+<p>It is a threshold.</p>
+<p>The moment where protected judgment becomes creative consequence.</p>
+<p>Before IDEA, the system is reading, revealing, recognizing and pressurizing.</p>
+<p>After IDEA, the work must begin to act.</p>
+<p>It must become something that can move through the world: a product, a service, a campaign, a tool, a gesture, an intervention, a platform, a proof, a new behavior, a new way of seeing.</p>
+<p>IDEA is where pressure becomes form.</p>
+<p>This is where three internal models live:</p>
+<p>Unseen finds what others missed.<br />
+Gravity tests whether it has weight.<br />
+The Composition Model gives it form.</p>
+<p>These are not scientific claims disguised as science.<sup class="footnote-ref" id="fnref-15-2"><a href="#fn-15">15</a></sup></p>
+<p>They are conceptual instruments.</p>
+<p>Unseen is the search for latent pressure.<br />
+Gravity is the evaluation of conceptual weight.<br />
+The Composition Model is the arrangement that turns pressure into something communicable, felt and usable.</p>
+<p>They are different responsibilities inside the act of making an idea.</p>
+<p>Unseen asks: Is there something here that others have not seen clearly enough?</p>
+<p>Gravity asks: Does it have enough weight to matter beyond the sentence?</p>
+<p>The Composition Model asks: What shape allows this pressure to be understood, felt and carried?</p>
+<p>IDEA is not “the idea” as a spark.</p>
+<p>It is the threshold where the work stops being only understood and begins to become consequential.</p>
+<p>A weak idea summarizes the tension.</p>
+<p>A strong idea gives the tension somewhere to go.</p>
+<p>That is the difference.</p>
+<h2 id="14-deck">14 / Deck</h2>
+<p>Deck comes after IDEA.</p>
+<p>Because a deck is not where the idea is discovered.</p>
+<p>It is where the idea is argued before it exists publicly.</p>
+<p>Deck protects the argument.</p>
+<p>A deck can look rigorous because it has structure. It can look strategic because it has sections. It can look inevitable because each slide follows another.</p>
+<p>But order is not argument.</p>
+<p>A clean sequence can make a weak idea look disciplined.</p>
+<p>The Deck operation asks:</p>
+<p>What must be believed for this idea to feel necessary?<br />
+Where is the doubt?<br />
+What does each part remove, open, clarify or intensify?<br />
+Does the structure carry thought, or only confidence?<br />
+Is the next slide necessary, or merely next?</p>
+<p>Deck is the difference between arranging information and building conviction.</p>
+<p>It should not decorate the idea.</p>
+<p>It should make the idea harder to dismiss.</p>
+<p>Before the work exists in reality, it must survive the argument for why it should exist at all.</p>
+<h2 id="15-case">15 / Case</h2>
+<p>Case comes after Deck.</p>
+<p>More precisely, Case comes after reality has touched the idea.</p>
+<p>It is retrospective.</p>
+<p>That makes it dangerous.</p>
+<p>Because results rewrite stories.</p>
+<p>Awards, numbers, impact, press, adoption, recognition and success can make an idea look obvious after the fact. They can clean the struggle away. They can make every wrong turn seem like a step in a plan. They can make uncertainty disappear.</p>
+<p>A case is supposed to explain what happened.</p>
+<p>But it often edits the past until the outcome feels inevitable.</p>
+<p>The Case operation protects the idea from being rewritten by its result.</p>
+<p>It asks:</p>
+<p>What was seen before the outcome existed?<br />
+What was the real pressure?<br />
+What changed in the understanding of the problem?<br />
+What made the idea necessary?<br />
+What had to be built?<br />
+What did reality do to it?<br />
+What did the result prove, and what did it not prove?</p>
+<p>A good case does not pretend the idea was always obvious.</p>
+<p>It reconstructs why it mattered.</p>
+<p>Case is not the place where the idea becomes impressive.</p>
+<p>It is the place where the idea becomes accountable to what actually happened.</p>
+<h2 id="16-the-sequence">16 / The Sequence</h2>
+<p>The full sequence now reads:</p>
+<p>Signal.<br />
+Before someone decides what it means.</p>
+<p>Invisible.<br />
+Before the assumption becomes the truth.</p>
+<p>Insight.<br />
+Before language becomes decoration.</p>
+<p>Tension.<br />
+Before contrast becomes direction.</p>
+<p>IDEA.<br />
+Before pressure becomes form.</p>
+<p>Deck.<br />
+Before structure pretends to be argument.</p>
+<p>Case.<br />
+Before results rewrite the story.</p>
+<p>The logic is simple:</p>
+<p>Signal reads the material.<br />
+Invisible reveals what was normalized.<br />
+Insight changes understanding.<br />
+Tension creates pressure.<br />
+IDEA turns pressure into creative consequence.<br />
+Deck argues why it should exist.<br />
+Case reconstructs why it mattered.</p>
+<p>This is not a sequence for producing more.</p>
+<p>It is a sequence for protecting the moments where the work becomes vulnerable to premature certainty.</p>
+<p>Each step asks the same deeper question in a different form:</p>
+<p>Are we still thinking, or are we only accepting the shape of thought?</p>
+<h2 id="17-what-it-is-not">17 / What It Is Not</h2>
+<p>MLM is not anti-AI.</p>
+<p>There are situations where acceleration is exactly what the work needs. There are forms of judgment that benefit from being externalized into a draft you can react to.</p>
+<p>The problem is not speed itself.</p>
+<p>The problem is speed before the right human operation has happened.</p>
+<p>Some things should not be accelerated too early.</p>
+<p>And the discipline of knowing when to move and when to stay with what is not yet clear is itself a practiced operation.</p>
+<p>This is a question of timing.</p>
+<p>Not whether machines should help.</p>
+<p>But when they should enter.</p>
+<h2 id="18-stakes">18 / Stakes</h2>
+<p>What is at stake is not only the quality of the work.</p>
+<p>It is authorship.</p>
+<p>Arendt distinguished labour, work and action. Labour maintains life. Work makes durable objects. Action reveals someone through commitment in public.<sup class="footnote-ref" id="fnref-16"><a href="#fn-16">16</a></sup></p>
+<p>The artifact in front of us belongs to work.</p>
+<p>The judgment by which someone stands behind that artifact belongs to action.</p>
+<p>The quiet worry of this moment is that the second is being absorbed into the first.</p>
+<p>We keep the artifact.</p>
+<p>We lose the act of standing behind it.</p>
+<p>There is another danger here: the laborization of thought.<sup class="footnote-ref" id="fnref-17"><a href="#fn-17">17</a></sup></p>
+<p>Work that should create durable meaning begins to behave like labor: fast, cyclical, consumed almost as quickly as it is produced. The output appears, circulates, expires and is replaced by another output.</p>
+<p>The human part becomes a maintenance function.</p>
+<p>Keep producing.<br />
+Keep approving.<br />
+Keep circulating.<br />
+Keep moving.</p>
+<p>But action - the act of beginning something, committing to it, revealing oneself through it - becomes harder to locate.</p>
+<p>That is why MLM is not a system for making AI outputs better.</p>
+<p>That would be too small.</p>
+<p>MLM is a system for keeping judgment present before output becomes persuasive enough to trust with something.</p>
+<p>Its ambition is modest.</p>
+<p>It will not prevent any particular piece of work from going wrong.</p>
+<p>It gives the wrongness somewhere to be noticed before the artifact has the authority of finished form.</p>
+<p>And this essay is not exempt.</p>
+<p>It reads fluently, which by its own argument is a reason for suspicion, not trust. Somewhere in it I have almost certainly smoothed an almost that deserved to stay rough, made a reference carry more than it can, let a sentence close before the thought had earned it.</p>
+<p>I cannot see those places from inside the writing.</p>
+<p>That is the point.</p>
+<p>So the operation applies here too.</p>
+<p>Check the references against what I claim they say. Find where the prose moved faster than the thinking. Notice where the sequence becomes too neat. Question whether IDEA has been clarified enough, or only named well enough.</p>
+<p>An argument about judgment that asks for your trust has already lost.</p>
+<p>Machines have language models.</p>
+<p>This is mine, in human.</p>
+<p>A way of protecting judgment, finding pressure and turning it into ideas with enough gravity to survive reality.</p>
+<hr />
+<h2 id="footnotes">Footnotes</h2>
+<section class="footnotes" aria-label="Footnotes">
+<ol>
+<li id="fn-1"><p>Daniel Kahneman, <em>Thinking, Fast and Slow</em> (New York: Farrar, Straus and Giroux, 2011). Publisher page: <a href="https://us.macmillan.com/books/9780374533557/thinkingfastandslow/">Macmillan</a>.<a href="#fnref-1" class="footnote">&#8617;</a></p></li>
+<li id="fn-2"><p>Lev Tankelevitch, Viktor Kewenig, Auste Simkute, Ava Elizabeth Scott, Advait Sarkar, Abigail Sellen and Sean Rintel, “The Metacognitive Demands and Opportunities of Generative AI,” <em>Proceedings of the CHI Conference on Human Factors in Computing Systems</em> (2024). ACM: <a href="https://doi.org/10.1145/3613904.3642902">https://doi.org/10.1145/3613904.3642902</a>.<a href="#fnref-2" class="footnote">&#8617;</a></p></li>
+<li id="fn-3"><p>Lisanne Bainbridge, “Ironies of Automation,” <em>Automatica</em> 19, no. 6 (1983): 775–779. ScienceDirect: <a href="https://doi.org/10.1016/0005-1098(83)90046-8">https://doi.org/10.1016/0005-1098(83)90046-8</a>.<a href="#fnref-3" class="footnote">&#8617;</a></p></li>
+<li id="fn-4"><p>Raja Parasuraman and Dietrich H. Manzey, “Complacency and Bias in Human Use of Automation: An Attentional Integration,” <em>Human Factors</em> 52, no. 3 (2010): 381–410. DOI: <a href="https://doi.org/10.1177/0018720810376055">https://doi.org/10.1177/0018720810376055</a>. PubMed: <a href="https://pubmed.ncbi.nlm.nih.gov/21077562/">https://pubmed.ncbi.nlm.nih.gov/21077562/</a>.<a href="#fnref-4" class="footnote">&#8617;</a></p></li>
+<li id="fn-5"><p>Adam L. Alter and Daniel M. Oppenheimer, “Uniting the Tribes of Fluency to Form a Metacognitive Nation,” <em>Personality and Social Psychology Review</em> 13, no. 3 (2009): 219–235. DOI: <a href="https://doi.org/10.1177/1088868309341564">https://doi.org/10.1177/1088868309341564</a>. See also Rolf Reber, Norbert Schwarz and Piotr Winkielman, “Processing Fluency and Aesthetic Pleasure: Is Beauty in the Perceiver’s Processing Experience?” <em>Personality and Social Psychology Review</em> 8, no. 4 (2004): 364–382. DOI: <a href="https://doi.org/10.1207/s15327957pspr0804_3">https://doi.org/10.1207/s15327957pspr0804_3</a>.<a href="#fnref-5" class="footnote">&#8617;</a></p></li>
+<li id="fn-6"><p>Leonid Rozenblit and Frank Keil, “The Misunderstood Limits of Folk Science: An Illusion of Explanatory Depth,” <em>Cognitive Science</em> 26, no. 5 (2002): 521–562. ScienceDirect: <a href="https://doi.org/10.1207/s15516709cog2605_1">https://doi.org/10.1207/s15516709cog2605_1</a>. Full text: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3062901/">PMC</a>.<a href="#fnref-6" class="footnote">&#8617;</a></p></li>
+<li id="fn-7"><p>Donald A. Schön, <em>The Reflective Practitioner: How Professionals Think in Action</em> (Basic Books, 1983). Publisher page: <a href="https://www.basicbooks.com/titles/donald-a-schon/the-reflective-practitioner/9780786725366/">Basic Books</a>.<a href="#fnref-7" class="footnote">&#8617;</a></p></li>
+<li id="fn-8"><p>Gary Klein, <em>Seeing What Others Don’t: The Remarkable Ways We Gain Insights</em> (PublicAffairs, 2013). Publisher page: <a href="https://www.publicaffairsbooks.com/titles/gary-klein/seeing-what-others-dont/9781610393829/">PublicAffairs</a>.<a href="#fnref-8" class="footnote">&#8617;</a></p></li>
+<li id="fn-9"><p>Hubert L. Dreyfus and Stuart E. Dreyfus, <em>Mind Over Machine: The Power of Human Intuition and Expertise in the Era of the Computer</em> (Free Press, 1986). ACM record: <a href="https://dl.acm.org/doi/10.5555/7916">https://dl.acm.org/doi/10.5555/7916</a>.<a href="#fnref-9" class="footnote">&#8617;</a></p></li>
+<li id="fn-10"><p>K. Anders Ericsson, Ralf T. Krampe and Clemens Tesch-Römer, “The Role of Deliberate Practice in the Acquisition of Expert Performance,” <em>Psychological Review</em> 100, no. 3 (1993): 363–406. DOI: <a href="https://doi.org/10.1037/0033-295X.100.3.363">https://doi.org/10.1037/0033-295X.100.3.363</a>.<a href="#fnref-10" class="footnote">&#8617;</a></p></li>
+<li id="fn-11"><p>Richard Sennett, <em>The Craftsman</em> (New Haven: Yale University Press, 2008). Publisher page: <a href="https://yalebooks.yale.edu/book/9780300151190/the-craftsman/">Yale University Press</a>.<a href="#fnref-11" class="footnote">&#8617;</a></p></li>
+<li id="fn-12"><p>Samir Passi and Mihaela Vorvoreanu, <em>Overreliance on AI: Literature Review</em>, Microsoft Research Technical Report MSR-TR-2022-12 (2022). Microsoft Research: <a href="https://www.microsoft.com/en-us/research/publication/overreliance-on-ai-literature-review/">https://www.microsoft.com/en-us/research/publication/overreliance-on-ai-literature-review/</a>.<a href="#fnref-12" class="footnote">&#8617;</a></p></li>
+<li id="fn-13"><p>Lev Tankelevitch et al., “The Metacognitive Demands and Opportunities of Generative AI,” <em>Proceedings of the CHI Conference on Human Factors in Computing Systems</em> (2024). ACM: <a href="https://doi.org/10.1145/3613904.3642902">https://doi.org/10.1145/3613904.3642902</a>. Microsoft Research: <a href="https://www.microsoft.com/en-us/research/publication/the-metacognitive-demands-and-opportunities-of-generative-ai/">https://www.microsoft.com/en-us/research/publication/the-metacognitive-demands-and-opportunities-of-generative-ai/</a>.<a href="#fnref-13" class="footnote">&#8617;</a></p></li>
+<li id="fn-14"><p>Hao-Ping Lee, Advait Sarkar, Lev Tankelevitch, Ian Drosos, Sean Rintel, Richard Banks and Nicholas Wilson, “The Impact of Generative AI on Critical Thinking: Self-Reported Reductions in Cognitive Effort and Confidence Effects From a Survey of Knowledge Workers,” <em>Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems</em> (2025). ACM: <a href="https://doi.org/10.1145/3706598.3713778">https://doi.org/10.1145/3706598.3713778</a>. Microsoft Research: <a href="https://www.microsoft.com/en-us/research/publication/the-impact-of-generative-ai-on-critical-thinking-self-reported-reductions-in-cognitive-effort-and-confidence-effects-from-a-survey-of-knowledge-workers/">https://www.microsoft.com/en-us/research/publication/the-impact-of-generative-ai-on-critical-thinking-self-reported-reductions-in-cognitive-effort-and-confidence-effects-from-a-survey-of-knowledge-workers/</a>.<a href="#fnref-14" class="footnote">&#8617;</a></p></li>
+<li id="fn-15"><p>“Unseen,” “Gravity” and “The Composition Model” are author-defined conceptual instruments within Miguel Castro’s applied creative framework. They are used here as internal models for finding latent pressure, testing conceptual weight and giving form to an idea, not as peer-reviewed scientific models. The attached validation analysis supports keeping this distinction explicit.<a href="#fnref-15" class="footnote">&#8617;</a></p></li>
+<li id="fn-16"><p>Hannah Arendt, <em>The Human Condition</em> (Chicago: University of Chicago Press, 1958). Publisher page: <a href="https://press.uchicago.edu/ucp/books/book/chicago/H/bo29137972.html">University of Chicago Press</a>.<a href="#fnref-16" class="footnote">&#8617;</a></p></li>
+<li id="fn-17"><p>For additional context on Arendt’s distinction between labour, work and action, see the Stanford Encyclopedia of Philosophy entry on Hannah Arendt: <a href="https://plato.stanford.edu/entries/arendt/">https://plato.stanford.edu/entries/arendt/</a>.<a href="#fnref-17" class="footnote">&#8617;</a></p></li>
+</ol>
+</section>
+
+    </article>
+
+    <aside class="essay-side-note" aria-hidden="true">
+      Judgment<br>before<br>output
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <span>© 2026 Miguel Castro</span>
+  <a class="back-to-top" href="#top" aria-label="Back to top">
+    <span>Back to top</span>
+    <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+      <path d="M8 3.25L3.75 7.5M8 3.25L12.25 7.5M8 3.25V13" />
+    </svg>
+  </a>
+</footer>
+
+<script>
+  var hamburger = document.getElementById('hamburger');
+  var panel     = document.getElementById('navPanel');
+  var overlay   = document.getElementById('navOverlay');
+  var siteNav   = document.getElementById('siteNav');
+  var progress  = document.getElementById('readingProgress');
+
+  function closeNav() {
+    hamburger.classList.remove('open');
+    panel.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', function () {
+    var opening = !panel.classList.contains('open');
+    hamburger.classList.toggle('open', opening);
+    panel.classList.toggle('open', opening);
+    overlay.classList.toggle('open', opening);
+    document.body.style.overflow = opening ? 'hidden' : '';
+  });
+
+  overlay.addEventListener('click', closeNav);
+
+  document.querySelectorAll('.nav-link').forEach(function (l) {
+    l.addEventListener('click', closeNav);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeNav();
+  });
+
+  function updateScrollState() {
+    var y = window.scrollY || document.documentElement.scrollTop;
+    siteNav.classList.toggle('scrolled', y > 8);
+
+    var scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = scrollHeight > 0 ? (y / scrollHeight) * 100 : 0;
+    progress.style.width = pct + '%';
+  }
+
+  window.addEventListener('scroll', updateScrollState, { passive: true });
+  updateScrollState();
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
+  }
+</script>
+
+</body>
+</html>

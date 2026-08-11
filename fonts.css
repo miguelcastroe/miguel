@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("PPEditorialNew-Ultralight.otf") format("opentype");
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PP Editorial New";
+  src: url("PPEditorialNew-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+body .hero-line-primary {
+  font-weight: 200;
+}
