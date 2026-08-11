@@ -104,6 +104,10 @@
   max-width: 50ch;
 }
 
+.case-page .case-section-copy-wide {
+  max-width: 72ch;
+}
+
 .case-page .case-section-copy p {
   font-size: 13px;
   line-height: 1.72;
@@ -116,6 +120,75 @@
 
 .case-page .case-section-copy .muted {
   color: var(--muted);
+}
+
+.case-page .case-timeline {
+  border-top: 1px solid var(--line);
+}
+
+.case-page .case-timeline-row {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+
+.case-page .case-timeline-row .case-year {
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 200;
+  letter-spacing: -0.01em;
+}
+
+.case-page .case-timeline-row p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.case-page .case-timeline-row:last-child p,
+.case-page .case-timeline-row:first-child p {
+  color: var(--ink);
+}
+
+.case-page .case-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.case-page .case-metric {
+  min-height: 150px;
+  padding: 18px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.case-page .case-metric strong {
+  font-family: var(--serif);
+  font-size: clamp(34px, 5vw, 62px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  font-weight: 200;
+}
+
+.case-page .case-metric span {
+  max-width: 22ch;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.case-page .case-results-note {
+  margin-top: 16px;
+  font-size: 11px !important;
 }
 
 .case-page .case-awards-large {
@@ -194,6 +267,16 @@
 
   .case-page .case-film-wrap {
     padding-bottom: 40px;
+  }
+
+  .case-page .case-timeline-row {
+    grid-template-columns: 64px 1fr;
+    gap: 14px;
+  }
+
+  .case-page .case-metric {
+    min-height: 132px;
+    padding: 14px;
   }
 
   .case-page .case-footer {
