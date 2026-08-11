@@ -1,0 +1,81 @@
+name: Promote global portfolio
+
+on:
+  push:
+    paths:
+      - '.github/workflows/promote-global-portfolio.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  promote:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out root portfolio repository
+        uses: actions/checkout@v4
+
+      - name: Copy the last full global portfolio into the root domain
+        run: |
+          set -euo pipefail
+          ROOT="$GITHUB_WORKSPACE"
+          TMP="$(mktemp -d)"
+          git clone --quiet https://github.com/miguelcastroe/global.git "$TMP/global"
+          git -C "$TMP/global" checkout --quiet 337a0fccbae3c19e73639a3aa3e53176cb7c097b
+
+          find "$ROOT" -mindepth 1 -maxdepth 1 \
+            ! -name '.git' \
+            ! -name '.github' \
+            ! -name 'CNAME' \
+            -exec rm -rf {} +
+
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='CNAME' \
+            "$TMP/global/" "$ROOT/"
+
+          printf '%s\n' 'miguelcastro.works' > "$ROOT/CNAME"
+
+      - name: Update domain SEO and structured data
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace('https://global.miguelcastro.works/', 'https://miguelcastro.works/')
+          text = text.replace('https://global.miguelcastro.works', 'https://miguelcastro.works')
+
+          schema = '''\n<script type="application/ld+json">\n{\n  "@context": "https://schema.org",\n  "@type": "ProfilePage",\n  "@id": "https://miguelcastro.works/#profile-page",\n  "url": "https://miguelcastro.works/",\n  "name": "Miguel Castro | Creative Director",\n  "mainEntity": {\n    "@type": "Person",\n    "@id": "https://miguelcastro.works/#miguel-castro",\n    "name": "Miguel Castro",\n    "url": "https://miguelcastro.works/",\n    "jobTitle": "Creative Director",\n    "sameAs": [\n      "https://www.linkedin.com/in/miguelcastroe/"\n    ],\n    "award": [\n      "Cannes Lions Grand Prix — Innovation"\n    ],\n    "knowsAbout": [\n      "Creative Direction",\n      "Creative Strategy",\n      "Advertising",\n      "Innovation",\n      "Emerging Technology"\n    ]\n  }\n}\n</script>\n'''
+
+          if 'https://miguelcastro.works/#miguel-castro' not in text:
+              text = text.replace('</head>', schema + '</head>', 1)
+
+          path.write_text(text, encoding='utf-8')
+
+          Path('sitemap.xml').write_text('''<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url>\n    <loc>https://miguelcastro.works/</loc>\n    <changefreq>monthly</changefreq>\n    <priority>1.0</priority>\n  </url>\n</urlset>\n''', encoding='utf-8')
+
+          Path('robots.txt').write_text('''User-agent: *\nAllow: /\nSitemap: https://miguelcastro.works/sitemap.xml\n''', encoding='utf-8')
+          PY
+
+      - name: Validate promoted site
+        run: |
+          test -f index.html
+          test -f portfolio.css
+          test -f portfolio.js
+          test -f hero_boy.png
+          test -f og-image.png
+          grep -q '<link rel="canonical" href="https://miguelcastro.works/">' index.html
+          grep -q 'https://miguelcastro.works/#miguel-castro' index.html
+          ! grep -q 'global.miguelcastro.works' index.html
+          grep -q '^miguelcastro.works$' CNAME
+          git diff --check
+
+      - name: Commit corrected migration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Promote global portfolio to root domain"
+          git push
