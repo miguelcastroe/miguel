@@ -42,6 +42,25 @@
   outline-offset: 4px;
 }
 
+.method-page .movement-name,
+.method-page .movement-question,
+.method-page .movement-toggle {
+  transition: transform var(--motion-fast) var(--motion-ease), color var(--motion-fast) var(--motion-ease), opacity var(--motion-fast) var(--motion-ease);
+}
+
+.method-page .movement-item summary:hover .movement-name,
+.method-page .movement-item[open] summary .movement-name {
+  transform: translateX(3px);
+}
+
+.method-page .movement-item summary:hover .movement-question {
+  color: var(--muted);
+}
+
+.method-page .movement-item[open] .movement-toggle {
+  transform: rotate(180deg);
+}
+
 .method-page .movement-name {
   display: flex;
   align-items: baseline;
@@ -106,6 +125,21 @@
   padding: 1px 18px 20px 0;
 }
 
+.method-page .movement-item[open] .movement-panel {
+  animation: method-panel-in 280ms var(--motion-ease) both;
+}
+
+@keyframes method-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .method-page .movement-panel p {
   font-size: 13px;
   line-height: 1.72;
@@ -153,6 +187,11 @@
   text-decoration: none;
 }
 
+.method-page .method-actions a span:first-child,
+.method-page .method-actions a span:last-child {
+  transition: color var(--motion-fast) var(--motion-ease), transform var(--motion-fast) var(--motion-ease);
+}
+
 .method-page .method-actions a span:first-child {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
@@ -164,12 +203,15 @@
   font-size: 11px;
   line-height: 1.6;
   color: var(--muted);
-  transition: color var(--motion-fast) var(--motion-ease), transform var(--motion-fast) var(--motion-ease);
+}
+
+.method-page .method-actions a:hover span:first-child,
+.method-page .method-actions a:hover span:last-child {
+  transform: translateX(3px);
 }
 
 .method-page .method-actions a:hover span:last-child {
   color: var(--ink);
-  transform: translateX(2px);
 }
 
 /* ---- Colophon ---- */
@@ -214,9 +256,17 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .method-page .movement-name,
+  .method-page .movement-question,
+  .method-page .movement-toggle,
   .method-page .movement-toggle::before,
   .method-page .movement-toggle::after,
+  .method-page .method-actions a span:first-child,
   .method-page .method-actions a span:last-child {
     transition: none;
+  }
+
+  .method-page .movement-item[open] .movement-panel {
+    animation: none;
   }
 }
