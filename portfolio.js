@@ -24,6 +24,13 @@ var hamburger = document.getElementById("hamburger");
   document.querySelectorAll(".nav-link").forEach(function (l) { l.addEventListener("click", closeNav); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeNav(); });
 
+  /* On the portfolio home, Method in the menu points to the Method section first. */
+  (function () {
+    if (!document.getElementById("method")) return;
+    var methodNav = document.querySelector('.nav-panel a[href="/method/"]');
+    if (methodNav) methodNav.setAttribute("href", "#method");
+  })();
+
   (function () {
     var work = document.getElementById("work");
     if (!work) return;
