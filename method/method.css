@@ -1,5 +1,6 @@
 /* Method inherits the portfolio and case-study visual system.
-   Keep the page to the same core type hierarchy: display, section, body, utility. */
+   Keep the page to the same core type hierarchy: display, section, body, utility.
+   PP Editorial is reserved for the main identity moments and a few key statements. */
 
 .method-page .method-movements-copy {
   max-width: 50ch;
@@ -24,8 +25,8 @@
   display: grid;
   grid-template-columns: minmax(118px, 0.7fr) minmax(0, 1.3fr) 18px;
   gap: 14px;
-  align-items: baseline;
-  padding: 13px 0;
+  align-items: center;
+  padding: 14px 0;
 }
 
 .method-page .movement-item summary::-webkit-details-marker {
@@ -49,29 +50,26 @@
 }
 
 .method-page .movement-verb {
-  font-family: var(--serif);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  line-height: 1.4;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .method-page .movement-term {
   font-size: 11px;
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.5;
   color: var(--muted);
 }
 
 .method-page .movement-question {
-  font-family: var(--serif);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
-  font-weight: 200;
-  font-style: italic;
-  letter-spacing: -0.005em;
-  line-height: 1.45;
-  color: var(--muted);
-  max-width: 36ch;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--ink);
+  max-width: 38ch;
 }
 
 .method-page .movement-toggle {
@@ -79,7 +77,6 @@
   width: 14px;
   height: 14px;
   justify-self: end;
-  align-self: center;
 }
 
 .method-page .movement-toggle::before,
@@ -106,7 +103,7 @@
 .method-page .movement-panel {
   max-width: 50ch;
   margin-left: calc(35% + 14px);
-  padding: 0 18px 18px 0;
+  padding: 1px 18px 20px 0;
 }
 
 .method-page .movement-panel p {
@@ -119,7 +116,7 @@
   margin-bottom: 0;
 }
 
-/* ---- Emphasis without adding more type sizes ---- */
+/* ---- Editorial emphasis without introducing another scale ---- */
 .method-page .method-statement {
   margin-top: 18px;
   padding-top: 16px;
@@ -127,16 +124,16 @@
   font-family: var(--serif);
   font-size: 13px !important;
   font-weight: 400;
-  line-height: 1.55 !important;
+  line-height: 1.6 !important;
   max-width: 36ch;
 }
 
 .method-page .method-expression {
   margin-top: 18px;
-  font-family: var(--serif);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px !important;
-  font-weight: 400;
-  line-height: 1.55 !important;
+  font-weight: 500;
+  line-height: 1.65 !important;
   max-width: 38ch;
 }
 
@@ -151,20 +148,21 @@
   grid-template-columns: 0.9fr 1.1fr;
   gap: 16px;
   align-items: baseline;
-  padding: 11px 0;
+  padding: 12px 0;
   border-bottom: 1px solid var(--line);
   text-decoration: none;
 }
 
 .method-page .method-actions a span:first-child {
-  font-family: var(--serif);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .method-page .method-actions a span:last-child {
   font-size: 11px;
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--muted);
   transition: color var(--motion-fast) var(--motion-ease), transform var(--motion-fast) var(--motion-ease);
 }
@@ -189,12 +187,13 @@
   .method-page .movement-item summary {
     grid-template-columns: 1fr 18px;
     gap: 5px 12px;
-    padding: 13px 0;
+    padding: 14px 0;
   }
 
   .method-page .movement-question {
     grid-column: 1 / -1;
     grid-row: 2;
+    padding-right: 18px;
   }
 
   .method-page .movement-toggle {
@@ -205,12 +204,12 @@
   .method-page .movement-panel {
     max-width: 48ch;
     margin-left: 0;
-    padding: 0 0 18px;
+    padding: 2px 0 20px;
   }
 
   .method-page .method-actions a {
     grid-template-columns: 1fr;
-    gap: 2px;
+    gap: 3px;
   }
 }
 
