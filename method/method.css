@@ -1,13 +1,12 @@
-/* Method uses the same structural system as the case-study pages.
-   This file only adds the elements that are specific to Method. */
+/* Method inherits the portfolio and case-study visual system.
+   Keep the page to the same core type hierarchy: display, section, body, utility. */
 
 .method-page .method-movements-copy {
-  max-width: 72ch;
+  max-width: 50ch;
 }
 
 .method-page .method-movements-note {
-  max-width: 50ch;
-  margin-bottom: 24px !important;
+  margin-bottom: 18px !important;
 }
 
 /* ---- Movements accordion ---- */
@@ -23,10 +22,10 @@
   list-style: none;
   cursor: pointer;
   display: grid;
-  grid-template-columns: minmax(112px, 0.75fr) minmax(0, 1.5fr) 20px;
+  grid-template-columns: minmax(118px, 0.7fr) minmax(0, 1.3fr) 18px;
   gap: 14px;
-  align-items: center;
-  padding: 14px 0 15px;
+  align-items: baseline;
+  padding: 13px 0;
 }
 
 .method-page .movement-item summary::-webkit-details-marker {
@@ -37,44 +36,50 @@
   content: "";
 }
 
+.method-page .movement-item summary:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 4px;
+}
+
 .method-page .movement-name {
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: 7px;
   min-width: 0;
 }
 
 .method-page .movement-verb {
   font-family: var(--serif);
-  font-size: 20px;
-  font-weight: 200;
-  letter-spacing: -0.015em;
-  line-height: 1;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
 }
 
 .method-page .movement-term {
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.4;
   color: var(--muted);
 }
 
 .method-page .movement-question {
   font-family: var(--serif);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 200;
   font-style: italic;
-  letter-spacing: -0.01em;
-  line-height: 1.25;
-  max-width: 34ch;
+  letter-spacing: -0.005em;
+  line-height: 1.45;
+  color: var(--muted);
+  max-width: 36ch;
 }
 
 .method-page .movement-toggle {
   position: relative;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   justify-self: end;
+  align-self: center;
 }
 
 .method-page .movement-toggle::before,
@@ -83,11 +88,11 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 12px;
+  width: 10px;
   height: 1px;
   background: var(--ink);
   transform: translate(-50%, -50%);
-  transition: transform var(--motion-fast) var(--motion-ease), opacity var(--motion-fast) var(--motion-ease);
+  transition: opacity var(--motion-fast) var(--motion-ease);
 }
 
 .method-page .movement-toggle::after {
@@ -100,8 +105,8 @@
 
 .method-page .movement-panel {
   max-width: 50ch;
-  margin-left: 34%;
-  padding: 0 30px 20px 0;
+  margin-left: calc(35% + 14px);
+  padding: 0 18px 18px 0;
 }
 
 .method-page .movement-panel p {
@@ -114,30 +119,30 @@
   margin-bottom: 0;
 }
 
-/* ---- Editorial emphasis, kept within case-study scale ---- */
+/* ---- Emphasis without adding more type sizes ---- */
 .method-page .method-statement {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
   font-family: var(--serif);
-  font-size: 20px !important;
-  font-weight: 200;
-  letter-spacing: -0.015em;
-  line-height: 1.18 !important;
-  max-width: 30ch;
-  margin-top: 22px;
+  font-size: 13px !important;
+  font-weight: 400;
+  line-height: 1.55 !important;
+  max-width: 36ch;
 }
 
 .method-page .method-expression {
+  margin-top: 18px;
   font-family: var(--serif);
-  font-size: 18px !important;
-  font-weight: 200;
-  letter-spacing: -0.01em;
-  line-height: 1.3 !important;
-  max-width: 32ch;
-  margin-top: 22px;
+  font-size: 13px !important;
+  font-weight: 400;
+  line-height: 1.55 !important;
+  max-width: 38ch;
 }
 
 /* ---- Ways into Method ---- */
 .method-page .method-actions {
-  margin-top: 24px;
+  margin-top: 20px;
   border-top: 1px solid var(--line);
 }
 
@@ -146,16 +151,15 @@
   grid-template-columns: 0.9fr 1.1fr;
   gap: 16px;
   align-items: baseline;
-  padding: 12px 0;
+  padding: 11px 0;
   border-bottom: 1px solid var(--line);
   text-decoration: none;
 }
 
 .method-page .method-actions a span:first-child {
   font-family: var(--serif);
-  font-size: 16px;
-  font-weight: 200;
-  letter-spacing: -0.01em;
+  font-size: 13px;
+  font-weight: 400;
 }
 
 .method-page .method-actions a span:last-child {
@@ -176,10 +180,6 @@
   padding-bottom: 42px;
 }
 
-.method-page .method-note-section .case-section-label {
-  font-size: 17px;
-}
-
 .method-page .method-note-section .case-section-copy p {
   font-size: 11px;
   line-height: 1.7;
@@ -187,15 +187,14 @@
 
 @media (max-width: 720px) {
   .method-page .movement-item summary {
-    grid-template-columns: 1fr 20px;
-    gap: 8px 12px;
-    padding: 14px 0 15px;
+    grid-template-columns: 1fr 18px;
+    gap: 5px 12px;
+    padding: 13px 0;
   }
 
   .method-page .movement-question {
     grid-column: 1 / -1;
     grid-row: 2;
-    font-size: 14px;
   }
 
   .method-page .movement-toggle {
@@ -206,12 +205,12 @@
   .method-page .movement-panel {
     max-width: 48ch;
     margin-left: 0;
-    padding: 0 0 20px;
+    padding: 0 0 18px;
   }
 
   .method-page .method-actions a {
     grid-template-columns: 1fr;
-    gap: 3px;
+    gap: 2px;
   }
 }
 
