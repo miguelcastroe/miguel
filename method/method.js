@@ -41,6 +41,19 @@ if (hamburger && panel && overlay) {
   window.addEventListener("scroll", setNavState, { passive: true });
 })();
 
+/* Keep the movements as a simple native accordion: one open at a time. */
+(function () {
+  var movements = Array.prototype.slice.call(document.querySelectorAll(".movement-item"));
+  movements.forEach(function (item) {
+    item.addEventListener("toggle", function () {
+      if (!item.open) return;
+      movements.forEach(function (other) {
+        if (other !== item && other.open) other.removeAttribute("open");
+      });
+    });
+  });
+})();
+
 (function () {
   var items = document.querySelectorAll(".method-reveal");
   items.forEach(function (element, index) {
