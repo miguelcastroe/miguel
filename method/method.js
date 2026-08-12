@@ -32,6 +32,15 @@ if (hamburger && panel && overlay) {
   });
 }
 
+/* Replace the internal-page ticker with a quiet home control. */
+(function () {
+  var homeControl = document.querySelector(".nav-ticker");
+  if (!homeControl) return;
+  homeControl.setAttribute("href", "/");
+  homeControl.setAttribute("aria-label", "Back to home");
+  homeControl.classList.add("nav-home");
+})();
+
 (function () {
   var nav = document.querySelector(".site-nav");
   function setNavState() {
@@ -66,7 +75,7 @@ if (hamburger && panel && overlay) {
   var items = document.querySelectorAll(".method-reveal");
   items.forEach(function (element, index) {
     element.classList.add("reveal");
-    element.style.setProperty("--reveal-delay", Math.min(index * 16, 140) + "ms");
+    element.style.setProperty("--reveal-delay", Math.min(index * 14, 120) + "ms");
   });
 
   if ("IntersectionObserver" in window) {
@@ -77,7 +86,7 @@ if (hamburger && panel && overlay) {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.1, rootMargin: "0px 0px -4% 0px" });
 
     items.forEach(function (element) {
       observer.observe(element);
