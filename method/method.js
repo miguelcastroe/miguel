@@ -67,6 +67,9 @@ if (hamburger && panel && overlay) {
     if (label.textContent.trim() === "A note on the names") label.textContent = "*A note on the names";
   });
 
+  var actions = document.querySelectorAll(".method-actions a");
+  if (actions.length > 1) actions[1].remove();
+
   var style = document.createElement("style");
   style.textContent = [
     ".method-page .movement-name{display:flex;flex-direction:column;align-items:flex-start;gap:1px}",
