@@ -61,7 +61,6 @@ if (hamburger && panel && overlay) {
   var labels = Array.prototype.slice.call(document.querySelectorAll(".case-section-label"));
   labels.forEach(function (label) {
     if (label.textContent.trim() === "AI inside Method") {
-      label.classList.add("method-ai-label");
       var section = label.closest(".case-section");
       if (section) section.classList.add("method-ai-section");
     }
@@ -73,7 +72,6 @@ if (hamburger && panel && overlay) {
     ".method-page .movement-name{display:flex;flex-direction:column;align-items:flex-start;gap:1px}",
     ".method-page .movement-verb{line-height:1.35}",
     ".method-page .movement-term{line-height:1.35}",
-    ".method-page .method-ai-label{font-family:Inter,-apple-system,BlinkMacSystemFont,\"Helvetica Neue\",Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;line-height:1.5;letter-spacing:0}",
     ".method-page .method-ai-section .method-statement{font-family:Inter,-apple-system,BlinkMacSystemFont,\"Helvetica Neue\",Helvetica,Arial,sans-serif;font-weight:500}",
     ".method-page .method-note-section .case-section-copy p{font-size:13px;line-height:1.72}"
   ].join("");
