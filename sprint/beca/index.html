@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postula a una beca | Sprint de desarrollo de ideas</title>
+<meta name="description" content="Postula a una de las 4 becas del 50% para el Sprint de desarrollo de ideas de Miguel Castro.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://miguelcastro.works/sprint/beca/">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/fonts.css">
+<link rel="stylesheet" href="/portfolio.css">
+<link rel="stylesheet" href="/case-study.css">
+<link rel="stylesheet" href="/sprint/sprint.css?v=1">
+<link rel="stylesheet" href="/sprint/beca/beca.css?v=1">
+</head>
+<body>
+<header class="header-section">
+  <nav class="site-nav">
+    <a class="nav-ticker nav-home" href="/sprint/" aria-label="Volver al Sprint"></a>
+    <div class="nav-right"><button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="navPanel" type="button"><span></span><span></span><span></span></button></div>
+  </nav>
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+  <div class="nav-panel" id="navPanel" aria-hidden="true">
+    <a href="/" class="nav-link">Inicio</a>
+    <a href="/#work" class="nav-link">Trabajo</a>
+    <a href="/method/" class="nav-link">Method</a>
+    <a href="/sprint/" class="nav-link">Sprint</a>
+    <a href="/#contact" class="nav-link">Contacto</a>
+    <a href="https://www.linkedin.com/in/miguelcastroe/" target="_blank" rel="noopener" class="nav-linkedin nav-link">LinkedIn &nearr;</a>
+  </div>
+</header>
+<main class="case-page sprint-page scholarship-page">
+  <section class="case-hero" aria-labelledby="scholarship-title">
+    <h1 class="case-hero-title" id="scholarship-title">Beca</h1>
+    <div class="case-hero-copy">
+      <div><p class="case-kicker">Sprint de desarrollo de ideas / 4 becas del 50%</p></div>
+      <div><p class="case-intro">Cuéntame qué estás construyendo.</p><p class="scholarship-intro">Las becas están pensadas para estudiantes y personas que empiezan su carrera y para quienes el apoyo haga posible participar en esta edición.</p></div>
+    </div>
+  </section>
+
+  <form class="scholarship-form" action="https://formsubmit.co/miguel@miguelcastro.works" method="POST">
+    <input type="hidden" name="_subject" value="Nueva postulación | Beca Sprint de desarrollo de ideas">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://miguelcastro.works/sprint/beca/gracias/">
+    <input type="text" name="_honey" class="scholarship-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <div class="case-body">
+      <section class="case-section">
+        <h2 class="case-section-label">Sobre ti</h2>
+        <div class="case-section-copy scholarship-fields">
+          <div class="scholarship-field"><label for="fullName">Nombre y apellidos *</label><input id="fullName" name="Nombre y apellidos" type="text" autocomplete="name" required maxlength="100"></div>
+          <div class="scholarship-field"><label for="email">Correo *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="160"></div>
+          <div class="scholarship-field"><label for="location">Ciudad y país *</label><input id="location" name="Ciudad y país" type="text" autocomplete="address-level2" required maxlength="100"></div>
+          <div class="scholarship-field"><label for="stage">Etapa actual *</label><select id="stage" name="Etapa actual" required><option value="" selected disabled>Selecciona una opción</option><option>Estudiante</option><option>Profesional en mis primeros años</option><option>Independiente o emprendiendo</option><option>Otra</option></select></div>
+          <div class="scholarship-field"><label for="portfolio">Portafolio, LinkedIn o sitio <span>Opcional</span></label><input id="portfolio" name="Portafolio o LinkedIn" type="url" inputmode="url" autocomplete="url" placeholder="https://" maxlength="300"></div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-section-label">Tu postulación</h2>
+        <div class="case-section-copy scholarship-fields">
+          <div class="scholarship-field"><label for="application">¿Qué proyecto traerías y por qué postulas a una beca? *</label><p class="scholarship-hint">Cuéntame brevemente en qué punto está el proyecto y cómo la beca haría posible que participes ahora.</p><textarea id="application" name="Proyecto y motivo de la postulación" required minlength="100" maxlength="1000"></textarea></div>
+        </div>
+      </section>
+
+      <section class="case-section">
+        <h2 class="case-section-label">Confirmación</h2>
+        <div class="case-section-copy scholarship-checks">
+          <label class="scholarship-check"><input name="Confirma asistencia" type="checkbox" value="Sí" required><span>Puedo asistir a las 4 sesiones online, los martes 01, 08, 15 y 22 de septiembre, de 8:00 p. m. a 10:00 p. m. (GMT-5).</span></label>
+          <label class="scholarship-check"><input name="Acepta uso de datos" type="checkbox" value="Sí" required><span>Acepto que mis respuestas se utilicen para evaluar esta postulación y contactarme sobre el resultado.</span></label>
+          <p class="muted scholarship-privacy">La información no se utilizará para otros fines ni se compartirá con terceros.</p>
+          <button class="scholarship-submit" type="submit"><span>Enviar postulación</span><span aria-hidden="true">&nearr;</span></button>
+        </div>
+      </section>
+    </div>
+  </form>
+
+  <footer class="case-footer sprint-footer"><span>&copy; 2026 Miguel Castro</span><div class="sprint-footer-links"><a href="/sprint/">Volver al Sprint &nearr;</a><a href="/">Portafolio &nearr;</a><a href="https://www.linkedin.com/in/miguelcastroe/" target="_blank" rel="noopener">LinkedIn &nearr;</a></div></footer>
+</main>
+<script src="/portfolio.js?v=1"></script>
+</body>
+</html>
