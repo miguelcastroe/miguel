@@ -22,50 +22,55 @@ if (hamburger && panel && overlay) {
     panel.setAttribute("aria-hidden", opening ? "false" : "true");
     document.body.style.overflow = opening ? "hidden" : "";
   });
-
   overlay.addEventListener("click", closeNav);
-  document.querySelectorAll(".nav-link").forEach(function (link) {
-    link.addEventListener("click", closeNav);
-  });
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") closeNav();
-  });
+  document.querySelectorAll(".nav-link").forEach(function (link) { link.addEventListener("click", closeNav); });
+  document.addEventListener("keydown", function (event) { if (event.key === "Escape") closeNav(); });
 }
-
-/* Replace the internal-page ticker with a quiet home control. */
-(function () {
-  var homeControl = document.querySelector(".nav-ticker");
-  if (!homeControl) return;
-  homeControl.setAttribute("href", "/");
-  homeControl.setAttribute("aria-label", "Back to home");
-  homeControl.classList.add("nav-home");
-})();
 
 (function () {
   var nav = document.querySelector(".site-nav");
-  function setNavState() {
-    if (nav) nav.classList.toggle("scrolled", window.scrollY > 8);
-  }
+  function setNavState() { if (nav) nav.classList.toggle("scrolled", window.scrollY > 8); }
   setNavState();
   window.addEventListener("scroll", setNavState, { passive: true });
 })();
 
-/* Explicit accordion behavior: one movement open at a time. */
+(function () {
+  var intro = document.querySelector(".case-intro");
+  if (intro) intro.textContent = "Miguel Castro’s creative practice for developing big ideas.";
+
+  var meta = document.querySelector('meta[name="description"]');
+  if (meta) meta.setAttribute("content", "Method is Miguel Castro’s creative practice for developing big ideas through signal, perspective, idea and evidence.");
+
+  var labels = Array.prototype.slice.call(document.querySelectorAll(".case-section-label"));
+  labels.forEach(function (label) {
+    if (label.textContent.trim() === "AI inside Method") {
+      label.classList.add("method-ai-label");
+      label.closest(".case-section").classList.add("method-ai-section");
+    }
+    if (label.textContent.trim() === "A note on the names") label.textContent = "*A note on the names";
+  });
+
+  var style = document.createElement("style");
+  style.textContent = [
+    ".method-page .movement-name{display:flex;flex-direction:column;align-items:flex-start;gap:1px}",
+    ".method-page .movement-verb{line-height:1.35}",
+    ".method-page .movement-term{line-height:1.35}",
+    ".method-page .method-ai-label{font-family:Inter,-apple-system,BlinkMacSystemFont,\"Helvetica Neue\",Helvetica,Arial,sans-serif;font-size:13px;font-weight:500;line-height:1.5;letter-spacing:0}",
+    ".method-page .method-ai-section .method-statement{font-family:Inter,-apple-system,BlinkMacSystemFont,\"Helvetica Neue\",Helvetica,Arial,sans-serif;font-weight:500}",
+    ".method-page .method-note-section .case-section-copy p{font-size:13px;line-height:1.72}"
+  ].join("");
+  document.head.appendChild(style);
+})();
+
 (function () {
   var movements = Array.prototype.slice.call(document.querySelectorAll(".movement-item"));
-
   movements.forEach(function (item) {
     var summary = item.querySelector("summary");
     if (!summary) return;
-
     summary.addEventListener("click", function (event) {
       event.preventDefault();
       var shouldOpen = !item.hasAttribute("open");
-
-      movements.forEach(function (other) {
-        other.removeAttribute("open");
-      });
-
+      movements.forEach(function (other) { other.removeAttribute("open"); });
       if (shouldOpen) item.setAttribute("open", "");
     });
   });
@@ -75,9 +80,8 @@ if (hamburger && panel && overlay) {
   var items = document.querySelectorAll(".method-reveal");
   items.forEach(function (element, index) {
     element.classList.add("reveal");
-    element.style.setProperty("--reveal-delay", Math.min(index * 14, 120) + "ms");
+    element.style.setProperty("--reveal-delay", Math.min(index * 16, 140) + "ms");
   });
-
   if ("IntersectionObserver" in window) {
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -86,14 +90,9 @@ if (hamburger && panel && overlay) {
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1, rootMargin: "0px 0px -4% 0px" });
-
-    items.forEach(function (element) {
-      observer.observe(element);
-    });
+    }, { threshold: 0.1 });
+    items.forEach(function (element) { observer.observe(element); });
   } else {
-    items.forEach(function (element) {
-      element.classList.add("is-visible");
-    });
+    items.forEach(function (element) { element.classList.add("is-visible"); });
   }
 })();
