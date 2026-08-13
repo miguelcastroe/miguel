@@ -38,14 +38,32 @@ if (hamburger && panel && overlay) {
   var intro = document.querySelector(".case-intro");
   if (intro) intro.textContent = "Miguel Castro’s creative practice for developing big ideas.";
 
+  var description = "Method is Miguel Castro’s creative practice for developing big ideas through signal, perspective, idea and evidence.";
+  var socialDescription = "A creative practice for developing big ideas through signal, perspective, idea and evidence.";
+
   var meta = document.querySelector('meta[name="description"]');
-  if (meta) meta.setAttribute("content", "Method is Miguel Castro’s creative practice for developing big ideas through signal, perspective, idea and evidence.");
+  if (meta) meta.setAttribute("content", description);
+  var og = document.querySelector('meta[property="og:description"]');
+  if (og) og.setAttribute("content", socialDescription);
+  var twitter = document.querySelector('meta[name="twitter:description"]');
+  if (twitter) twitter.setAttribute("content", socialDescription);
+
+  var jsonLd = document.querySelector('script[type="application/ld+json"]');
+  if (jsonLd) {
+    try {
+      var data = JSON.parse(jsonLd.textContent);
+      data.description = description;
+      if (data.mainEntity) data.mainEntity.description = "Miguel Castro’s creative practice for developing big ideas.";
+      jsonLd.textContent = JSON.stringify(data);
+    } catch (e) {}
+  }
 
   var labels = Array.prototype.slice.call(document.querySelectorAll(".case-section-label"));
   labels.forEach(function (label) {
     if (label.textContent.trim() === "AI inside Method") {
       label.classList.add("method-ai-label");
-      label.closest(".case-section").classList.add("method-ai-section");
+      var section = label.closest(".case-section");
+      if (section) section.classList.add("method-ai-section");
     }
     if (label.textContent.trim() === "A note on the names") label.textContent = "*A note on the names";
   });
