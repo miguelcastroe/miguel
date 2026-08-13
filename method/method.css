@@ -10,6 +10,14 @@
   margin-bottom: 18px !important;
 }
 
+/* Keep the AI section title consistent with every other section title. */
+.method-page .method-ai-label {
+  font-family: var(--serif) !important;
+  font-size: 22px !important;
+  font-weight: 200 !important;
+  letter-spacing: -0.01em !important;
+}
+
 /* ---- Movements accordion ---- */
 .method-page .movement-accordion {
   border-top: 1px solid var(--line);
