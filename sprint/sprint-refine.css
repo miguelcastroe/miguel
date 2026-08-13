@@ -8,9 +8,11 @@
 .sprint-page .sprint-hero-intro p{font-size:13px;line-height:1.7;margin-bottom:12px}.sprint-page .sprint-hero-intro p:last-child{margin-bottom:0}.sprint-page .sprint-hero-intro strong{font-weight:500}
 .sprint-page .sprint-hero-portrait{display:none!important;background:none!important}
 .sprint-page .sprint-hero-portrait img{display:none}
-.sprint-page .sprint-hero-bottom{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.34fr);gap:28px;align-items:center;padding:17px 0 18px}
+.sprint-page .sprint-hero-bottom{display:grid;grid-template-columns:1fr;gap:28px;align-items:center;padding:17px 0 18px}
 .sprint-page .sprint-hero-facts{display:flex;align-items:center;flex-wrap:wrap;gap:10px 18px;font-size:11px;color:var(--ink)}
-.sprint-page .sprint-hero-facts span{display:inline-flex;align-items:center}.sprint-page .sprint-hero-facts span+span::before{content:"·";color:var(--muted);margin-right:18px}.sprint-page .sprint-hero-bottom .sprint-action{width:100%}
+.sprint-page .sprint-hero-facts span{display:inline-flex;align-items:center}.sprint-page .sprint-hero-facts span+span::before{content:"·";color:var(--muted);margin-right:18px}
+.sprint-page .sprint-hero-bottom .sprint-action{display:none}
+.sprint-page .sprint-meta{display:none}
 .sprint-page .sprint-profile-section{position:relative;display:grid;grid-template-columns:minmax(220px,.62fr) minmax(0,1.38fr);gap:clamp(36px,7vw,92px);align-items:center;padding:clamp(54px,7vw,86px) 0}
 .sprint-page .sprint-profile-section::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:100vw;height:1px;background:var(--line)}
 .sprint-page .sprint-profile-image{width:min(100%,330px);aspect-ratio:1;justify-self:center;background:url(https://raw.githubusercontent.com/miguelcastroe/ideasquecompiten/main/assets/miguel-castro.png) center/cover no-repeat;filter:grayscale(1);opacity:.88}.sprint-page .sprint-profile-image img{display:none}
