@@ -30,12 +30,24 @@ function featherHome() {
   }
 
   var linkedin = panel.querySelector(".nav-linkedin");
-  if (linkedin) linkedin.innerHTML = '<span>LinkedIn</span>' + featherLinkedIn();
+  if (linkedin) {
+    linkedin.innerHTML = '<span>LinkedIn</span>' + featherLinkedIn();
+    linkedin.style.transitionDelay = "200ms";
+  }
 
   var back = document.querySelector(".portfolio-back");
-  if (back) {
+  if (back && !back.querySelector("svg")) {
     back.innerHTML = featherHome() + '<span data-en="Back to Portfolio" data-es="Volver al Portfolio">Back to Portfolio</span>';
   }
+
+  document.querySelectorAll("footer a[href*='linkedin.com']").forEach(function (footerLinkedin) {
+    footerLinkedin.innerHTML = '<span>LinkedIn</span>' + featherLinkedIn();
+    footerLinkedin.style.display = "inline-flex";
+    footerLinkedin.style.alignItems = "center";
+    footerLinkedin.style.gap = "6px";
+    var icon = footerLinkedin.querySelector("svg");
+    if (icon) { icon.style.width = "13px"; icon.style.height = "13px"; }
+  });
 
   var style = document.createElement("style");
   style.textContent = [
@@ -142,6 +154,11 @@ if (hamburger && panel && overlay) {
     document.querySelectorAll("[data-en]").forEach(function (el) {
       el.textContent = el.getAttribute("data-" + lang);
     });
+    var whatsapp = document.querySelector(".nav-whatsapp");
+    if (whatsapp) {
+      var message = lang === "es" ? "Hola Miguel, encontré tu portafolio." : "Hi Miguel, I found you through your portfolio.";
+      whatsapp.href = "https://wa.me/51936646947?text=" + encodeURIComponent(message);
+    }
     document.documentElement.lang = lang === "en" ? "en" : "es";
   }
   engBtn.addEventListener("click", function () { setLanguage("en"); });
