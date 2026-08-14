@@ -35,6 +35,27 @@ if (hamburger && panel && overlay) {
 })();
 
 (function () {
+  var engBtn = document.getElementById("langEng");
+  var espBtn = document.getElementById("langEsp");
+  if (!engBtn || !espBtn) return;
+
+  function setLanguage(lang) {
+    engBtn.classList.toggle("active", lang === "en");
+    espBtn.classList.toggle("active", lang === "es");
+    engBtn.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+    espBtn.setAttribute("aria-pressed", lang === "es" ? "true" : "false");
+    document.querySelectorAll("[data-en]").forEach(function (el) {
+      var value = el.getAttribute("data-" + lang);
+      if (value) el.textContent = value;
+    });
+    document.documentElement.lang = lang === "en" ? "en" : "es";
+  }
+
+  engBtn.addEventListener("click", function () { setLanguage("en"); });
+  espBtn.addEventListener("click", function () { setLanguage("es"); });
+})();
+
+(function () {
   var intro = document.querySelector(".case-intro");
   if (intro) intro.textContent = "Miguel Castro’s creative practice for developing big ideas.";
 
@@ -64,19 +85,14 @@ if (hamburger && panel && overlay) {
       var section = label.closest(".case-section");
       if (section) section.classList.add("method-ai-section");
     }
-    if (label.textContent.trim() === "A note on the names") label.textContent = "*A note on the names";
   });
-
-  var actions = document.querySelectorAll(".method-actions a");
-  if (actions.length > 1) actions[1].remove();
 
   var style = document.createElement("style");
   style.textContent = [
     ".method-page .movement-name{display:flex;flex-direction:column;align-items:flex-start;gap:1px}",
     ".method-page .movement-verb{line-height:1.35}",
     ".method-page .movement-term{line-height:1.35}",
-    ".method-page .method-ai-section .method-statement{font-family:Inter,-apple-system,BlinkMacSystemFont,\"Helvetica Neue\",Helvetica,Arial,sans-serif;font-weight:500}",
-    ".method-page .method-note-section .case-section-copy p{font-size:13px;line-height:1.72}"
+    ".method-page .method-ai-section .method-statement{font-family:Inter,-apple-system,BlinkMacSystemFont,\"Helvetica Neue\",Helvetica,Arial,sans-serif;font-weight:500}"
   ].join("");
   document.head.appendChild(style);
 })();
