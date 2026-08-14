@@ -24,16 +24,6 @@ var hamburger = document.getElementById("hamburger");
   document.querySelectorAll(".nav-link").forEach(function (l) { l.addEventListener("click", closeNav); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeNav(); });
 
-  /* Internal pages use the left nav position as a quiet way back home. */
-  (function () {
-    if (!document.querySelector(".case-page")) return;
-    var homeControl = document.querySelector(".nav-ticker");
-    if (!homeControl) return;
-    homeControl.setAttribute("href", "/");
-    homeControl.setAttribute("aria-label", "Back to home");
-    homeControl.classList.add("nav-home");
-  })();
-
   /* On the portfolio home, Method in the menu points to the Method section first. */
   (function () {
     if (!document.getElementById("method")) return;
