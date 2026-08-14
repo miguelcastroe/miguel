@@ -2,6 +2,51 @@ var hamburger = document.getElementById("hamburger");
 var panel = document.getElementById("navPanel");
 var overlay = document.getElementById("navOverlay");
 
+function featherLinkedIn() {
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>';
+}
+
+function featherHome() {
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>';
+}
+
+(function enhanceNavigation() {
+  if (!panel) return;
+
+  var methodNav = panel.querySelector('a[data-en="Method"]');
+  if (methodNav) methodNav.setAttribute("href", "/method/");
+
+  var contactNav = panel.querySelector('a[data-en="Contact"]');
+  if (contactNav && !panel.querySelector(".nav-whatsapp")) {
+    var whatsapp = document.createElement("a");
+    whatsapp.className = "nav-whatsapp nav-link";
+    whatsapp.href = "https://wa.me/51936646947?text=Hi%20Miguel%2C%20I%20found%20you%20through%20your%20portfolio.";
+    whatsapp.target = "_blank";
+    whatsapp.rel = "noopener";
+    whatsapp.setAttribute("data-en", "Drop me a line");
+    whatsapp.setAttribute("data-es", "Escríbeme");
+    whatsapp.textContent = "Drop me a line";
+    contactNav.insertAdjacentElement("afterend", whatsapp);
+  }
+
+  var linkedin = panel.querySelector(".nav-linkedin");
+  if (linkedin) linkedin.innerHTML = '<span>LinkedIn</span>' + featherLinkedIn();
+
+  var back = document.querySelector(".portfolio-back");
+  if (back) {
+    back.innerHTML = featherHome() + '<span data-en="Back to Portfolio" data-es="Volver al Portfolio">Back to Portfolio</span>';
+  }
+
+  var style = document.createElement("style");
+  style.textContent = [
+    ".nav-panel .nav-whatsapp{font-size:11px;font-weight:400;letter-spacing:.06em;color:var(--muted);margin-top:-4px;margin-bottom:18px}",
+    ".nav-panel .nav-whatsapp:hover{color:var(--ink)}",
+    ".nav-panel .nav-linkedin{display:flex;align-items:center;gap:8px}",
+    ".nav-panel .nav-linkedin svg{width:15px;height:15px;flex:0 0 auto;stroke:currentColor}"
+  ].join("");
+  document.head.appendChild(style);
+})();
+
 function closeNav() {
   if (!hamburger || !panel || !overlay) return;
   hamburger.classList.remove("open");
