@@ -44,8 +44,8 @@ body{margin:0;background:var(--paper,#f5f3ee);color:var(--ink,#111);font-family:
 .sprint-hero-detail-featured span{display:block;margin-bottom:12px}
 .sprint-hero-detail-featured strong{display:block;font-size:var(--sprint-text);font-weight:500;line-height:1.4;letter-spacing:-.01em}
 .sprint-hero-detail-last{border-bottom:0}
-.sprint-hero-actions{margin-top:28px;padding:0 0 28px;display:grid;grid-template-columns:1fr;gap:10px;background:var(--paper,#f5f3ee)}
-.sprint-action{display:inline-flex;align-items:center;justify-content:space-between;gap:26px;min-height:46px;padding:14px 15px;border:1px solid var(--line,#d5d2ca);font-size:var(--sprint-meta);font-weight:500;line-height:1;text-decoration:none;color:var(--ink,#111);background:var(--paper,#f5f3ee);transition:background .2s ease,color .2s ease,border-color .2s ease}
+.sprint-hero-actions{margin-top:28px;padding:0 0 28px;display:flex;flex-direction:column;align-items:flex-start;gap:9px;background:var(--paper,#f5f3ee)}
+.sprint-action{display:inline-flex;align-items:center;justify-content:space-between;gap:18px;min-height:40px;width:auto;max-width:100%;padding:11px 13px;border:1px solid var(--line,#d5d2ca);font-size:var(--sprint-meta);font-weight:500;line-height:1;text-decoration:none;color:var(--ink,#111);background:var(--paper,#f5f3ee);transition:background .2s ease,color .2s ease,border-color .2s ease}
 .sprint-action:hover{background:var(--ink,#111);color:var(--paper,#f5f3ee);border-color:var(--ink,#111)}
 .sprint-action-primary{background:var(--ink,#111);color:var(--paper,#f5f3ee);border-color:var(--ink,#111)}
 
@@ -116,7 +116,7 @@ body{margin:0;background:var(--paper,#f5f3ee);color:var(--ink,#111);font-family:
 .sprint-profile-copy p{font-size:var(--sprint-text);font-weight:400;line-height:1.68;margin:0 0 16px}
 .sprint-profile-copy p:last-child{margin-bottom:0}
 
-/* ---------- Practical ---------- */
+/* ---------- Practical information ---------- */
 .sprint-practical{padding:clamp(76px,8vw,106px) 0 clamp(84px,9vw,120px)}
 .sprint-practical-content{max-width:900px}
 .sprint-info-list{border-top:1px solid var(--line,#d5d2ca)}
@@ -124,26 +124,55 @@ body{margin:0;background:var(--paper,#f5f3ee);color:var(--ink,#111);font-family:
 .sprint-info-row span{font-size:var(--sprint-meta);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted,#6e6c67)}
 .sprint-info-row strong{font-size:var(--sprint-text);font-weight:500;line-height:1.5}
 .sprint-closing{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end;padding-top:clamp(42px,5vw,62px)}
-.sprint-closing>p{font-size:18px;font-weight:400;line-height:1.4;letter-spacing:-.018em;margin:0}
-.sprint-actions{display:flex;gap:10px;flex-wrap:wrap}
+.sprint-closing>p{font-size:18px;font-weight:400;line-height:1.4;letter-spacing:-.018em;max-width:58ch;margin:0}
+.sprint-actions{display:flex;align-items:flex-start;gap:9px;flex-wrap:wrap}
 
 /* ---------- Standalone footer ---------- */
 .sprint-site-footer{border-top:1px solid var(--line,#d5d2ca);background:var(--paper,#f5f3ee)}
-.sprint-footer-inner{max-width:1440px;margin:0 auto;padding:30px 24px 34px;display:flex;justify-content:space-between;align-items:flex-start;gap:40px}
-.sprint-footer-title,.sprint-footer-nav{font-size:11px;font-weight:500;line-height:1.4;letter-spacing:.06em;text-transform:uppercase}
-.sprint-footer-title{display:flex;flex-direction:column;gap:7px}
-.sprint-footer-title span:last-child{font-weight:400;color:var(--muted,#6e6c67)}
-.sprint-footer-nav{display:flex;gap:24px;flex-wrap:wrap;justify-content:flex-end}
+.sprint-footer-inner{max-width:1440px;margin:0 auto;padding:34px 24px 40px;display:flex;justify-content:space-between;align-items:flex-start;gap:40px}
+.sprint-footer-title{display:flex;flex-direction:column;gap:7px;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:.06em;text-transform:uppercase}
+.sprint-footer-title span:last-child{color:var(--muted,#6e6c67);font-weight:400}
+.sprint-footer-nav{display:flex;gap:24px;flex-wrap:wrap;justify-content:flex-end;font-size:11px;font-weight:500;line-height:1.4;letter-spacing:.06em;text-transform:uppercase}
 .sprint-footer-nav a{color:var(--ink,#111);text-decoration:none}
 .sprint-footer-nav a:hover{text-decoration:underline;text-underline-offset:3px}
 
-/* ---------- Hotmart: widget styling may touch only rectangular in-page CTAs ---------- */
-a.hotmart-fb.hotmart__button-checkout.sprint-action,a.hotmart-fb.hotmart__button-checkout.sprint-action:hover,a.hotmart-fb.hotmart__button-checkout.sprint-action:focus,a.hotmart-fb.hotmart__button-checkout.sprint-action:focus-visible,a.hotmart-fb.hotmart__button-checkout.sprint-action:active{border-radius:0!important;box-shadow:none!important;filter:none!important;text-shadow:none!important;background-image:none!important;font-family:"Inter",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif!important}
-a.hotmart-fb.hotmart__button-checkout.sprint-action-primary,a.hotmart-fb.hotmart__button-checkout.sprint-action-primary:hover,a.hotmart-fb.hotmart__button-checkout.sprint-action-primary:focus,a.hotmart-fb.hotmart__button-checkout.sprint-action-primary:active{background:var(--ink,#111)!important;color:var(--paper,#f5f3ee)!important;border:1px solid var(--ink,#111)!important}
+/* ---------- Hotmart: widget behavior without widget sizing ---------- */
+a.hotmart-fb.hotmart__button-checkout.sprint-action,
+a.hotmart-fb.hotmart__button-checkout.sprint-action:hover,
+a.hotmart-fb.hotmart__button-checkout.sprint-action:focus,
+a.hotmart-fb.hotmart__button-checkout.sprint-action:focus-visible,
+a.hotmart-fb.hotmart__button-checkout.sprint-action:active{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  width:auto!important;
+  min-width:0!important;
+  max-width:100%!important;
+  min-height:40px!important;
+  height:auto!important;
+  margin:0!important;
+  padding:11px 13px!important;
+  gap:18px!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  filter:none!important;
+  text-shadow:none!important;
+  background-image:none!important;
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif!important;
+  font-size:11px!important;
+  font-weight:500!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+  text-transform:none!important;
+}
+a.hotmart-fb.hotmart__button-checkout.sprint-action-primary,
+a.hotmart-fb.hotmart__button-checkout.sprint-action-primary:hover,
+a.hotmart-fb.hotmart__button-checkout.sprint-action-primary:focus,
+a.hotmart-fb.hotmart__button-checkout.sprint-action-primary:active{background:var(--ink,#111)!important;color:var(--paper,#f5f3ee)!important;border:1px solid var(--ink,#111)!important}
 
 @media(max-width:1040px){
-  .sprint-header-inner{align-items:flex-start;padding-top:15px;padding-bottom:15px}
-  .sprint-site-nav{overflow-x:auto;max-width:70vw;justify-content:flex-start;scrollbar-width:none}
+  .sprint-header-inner{align-items:flex-start;padding-top:16px;padding-bottom:16px}
+  .sprint-site-nav{overflow-x:auto;max-width:68vw;justify-content:flex-start;scrollbar-width:none}
   .sprint-site-nav::-webkit-scrollbar{display:none}
   .sprint-hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr)}
   .sprint-hero-primary{padding-right:42px}
@@ -168,8 +197,8 @@ a.hotmart-fb.hotmart__button-checkout.sprint-action-primary,a.hotmart-fb.hotmart
   .sprint-hero-details{padding:0}
   .sprint-hero-detail{grid-template-columns:108px minmax(0,1fr);gap:18px;padding:16px 0}
   .sprint-hero-detail-featured{padding:28px 0 20px}
-  .sprint-hero-actions{margin-top:22px;padding:0 0 24px;grid-template-columns:1fr;gap:9px}
-  .sprint-action{width:100%;min-width:0;min-height:46px;padding:14px 13px}
+  .sprint-hero-actions{margin-top:22px;padding:0 0 24px;align-items:flex-start;gap:9px}
+  .sprint-action{min-width:0;min-height:42px;padding:12px 13px}
 
   .sprint-recognition,.sprint-change,.sprint-audience,.sprint-work,.sprint-practical{grid-template-columns:1fr;gap:30px}
   .sprint-section-marker{padding-top:0}
@@ -181,10 +210,11 @@ a.hotmart-fb.hotmart__button-checkout.sprint-action-primary,a.hotmart-fb.hotmart
   .sprint-change-row{grid-template-columns:40px minmax(0,1fr);gap:14px;padding:22px 0 24px}
   .sprint-change-row h2{max-width:24ch}
   .sprint-change-close{margin-top:36px;max-width:none}
-  .sprint-important-line{display:block;white-space:nowrap}
+  .sprint-important-line{display:block}
 
   .sprint-audience{padding:58px 0 70px}
   .sprint-audience-copy .sprint-emphasis{margin-top:28px}
+  .sprint-audience-copy .sprint-important-line,.sprint-closing .sprint-important-line{white-space:nowrap}
 
   .sprint-weeks-inner{padding:56px 16px 64px}
   .sprint-weeks-heading{padding-bottom:28px}
@@ -207,13 +237,13 @@ a.hotmart-fb.hotmart__button-checkout.sprint-action-primary,a.hotmart-fb.hotmart
   .sprint-practical{padding:60px 0 80px}
   .sprint-info-row{grid-template-columns:1fr;gap:8px;padding:15px 0}
   .sprint-closing{padding-top:36px;gap:28px}
-  .sprint-closing .sprint-actions{display:grid;grid-template-columns:1fr;width:100%;gap:9px}
+  .sprint-closing .sprint-actions{display:flex;flex-direction:column;align-items:flex-start;width:100%;gap:9px}
 
-  .sprint-footer-inner{padding:28px 16px 32px;display:block}
+  .sprint-footer-inner{padding:30px 16px 36px;display:block}
   .sprint-footer-title{margin-bottom:24px}
-  .sprint-footer-nav{justify-content:flex-start;gap:20px}
+  .sprint-footer-nav{justify-content:flex-start;gap:18px}
 }
 
 @media(max-width:360px){
-  .sprint-important-line{white-space:normal}
+  .sprint-audience-copy .sprint-important-line,.sprint-closing .sprint-important-line{white-space:normal}
 }
