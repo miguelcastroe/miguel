@@ -2,6 +2,28 @@
   padding-top: var(--nav-height);
 }
 
+/* ---- Shared internal navigation ---- */
+.nav-panel .nav-whatsapp {
+  color: var(--muted);
+}
+
+.nav-panel .nav-whatsapp:hover {
+  color: var(--ink);
+}
+
+.nav-panel .nav-linkedin {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-panel .nav-linkedin svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  stroke: currentColor;
+}
+
 /* ---- Deep-page return bar ---- */
 .case-page .portfolio-back {
   display: flex;
@@ -38,6 +60,7 @@
 }
 
 .case-page .case-hero {
+  padding-top: 20px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -48,7 +71,7 @@
   letter-spacing: -0.04em;
   line-height: 0.88;
   color: var(--ink);
-  padding: 34px 24px 22px;
+  padding: 24px 24px 22px;
 }
 
 .case-page .case-hero-copy {
@@ -255,6 +278,10 @@
     padding-right: 16px;
   }
 
+  .case-page .case-hero {
+    padding-top: 14px;
+  }
+
   .case-page .case-hero-copy,
   .case-page .case-section {
     grid-template-columns: 1fr;
@@ -263,7 +290,7 @@
 
   .case-page .case-hero-title {
     font-size: clamp(50px, 16vw, 76px);
-    padding: 28px 16px 18px;
+    padding: 20px 16px 18px;
   }
 
   .case-page .case-hero-copy,
