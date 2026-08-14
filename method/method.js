@@ -30,12 +30,24 @@ function featherHome() {
   }
 
   var linkedin = panel.querySelector(".nav-linkedin");
-  if (linkedin) linkedin.innerHTML = '<span>LinkedIn</span>' + featherLinkedIn();
+  if (linkedin) {
+    linkedin.innerHTML = '<span>LinkedIn</span>' + featherLinkedIn();
+    linkedin.style.transitionDelay = "200ms";
+  }
 
   var back = document.querySelector(".portfolio-back");
-  if (back) {
+  if (back && !back.querySelector("svg")) {
     back.innerHTML = featherHome() + '<span data-en="Back to Portfolio" data-es="Volver al Portfolio">Back to Portfolio</span>';
   }
+
+  document.querySelectorAll("footer a[href*='linkedin.com']").forEach(function (footerLinkedin) {
+    if (!footerLinkedin.querySelector("svg")) footerLinkedin.innerHTML = '<span>LinkedIn</span>' + featherLinkedIn();
+    footerLinkedin.style.display = "inline-flex";
+    footerLinkedin.style.alignItems = "center";
+    footerLinkedin.style.gap = "6px";
+    var icon = footerLinkedin.querySelector("svg");
+    if (icon) { icon.style.width = "13px"; icon.style.height = "13px"; }
+  });
 
   var style = document.createElement("style");
   style.textContent = [
@@ -93,6 +105,11 @@ if (hamburger && panel && overlay) {
       var value = el.getAttribute("data-" + lang);
       if (value) el.textContent = value;
     });
+    var whatsapp = document.querySelector(".nav-whatsapp");
+    if (whatsapp) {
+      var message = lang === "es" ? "Hola Miguel, encontré tu portafolio." : "Hi Miguel, I found you through your portfolio.";
+      whatsapp.href = "https://wa.me/51936646947?text=" + encodeURIComponent(message);
+    }
     document.documentElement.lang = lang === "en" ? "en" : "es";
   }
 
@@ -101,9 +118,6 @@ if (hamburger && panel && overlay) {
 })();
 
 (function () {
-  var intro = document.querySelector(".case-intro");
-  if (intro) intro.textContent = "Miguel Castro’s creative practice for developing big ideas.";
-
   var description = "Method is Miguel Castro’s creative practice for developing big ideas through signal, perspective, idea and evidence.";
   var socialDescription = "A creative practice for developing big ideas through signal, perspective, idea and evidence.";
 
@@ -126,7 +140,7 @@ if (hamburger && panel && overlay) {
 
   var labels = Array.prototype.slice.call(document.querySelectorAll(".case-section-label"));
   labels.forEach(function (label) {
-    if (label.textContent.trim() === "AI inside Method") {
+    if (label.getAttribute("data-en") === "AI inside Method" || label.textContent.trim() === "AI inside Method") {
       var section = label.closest(".case-section");
       if (section) section.classList.add("method-ai-section");
     }
