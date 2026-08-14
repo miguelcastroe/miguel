@@ -1,11 +1,13 @@
 (function () {
   var checkoutUrl = "https://pay.hotmart.com/L106815370Q?checkoutMode=2";
-  var checkoutLinks = document.querySelectorAll(".js-sprint-checkout");
+  var widgetLinks = document.querySelectorAll(".sprint-action.js-sprint-checkout");
 
-  checkoutLinks.forEach(function (link) {
+  widgetLinks.forEach(function (link) {
     link.href = checkoutUrl;
     link.classList.add("hotmart-fb", "hotmart__button-checkout");
   });
+
+  if (!widgetLinks.length) return;
 
   if (!document.querySelector('link[href="https://static.hotmart.com/css/hotmart-fb.min.css"]')) {
     var css = document.createElement("link");
