@@ -2,13 +2,6 @@
    Keep the page to the same core type hierarchy: display, section, body, utility.
    PP Editorial is reserved for the main identity moments and a few key statements. */
 
-/* Method is a deep page inside the portfolio, so its title should not compete
-   with the main Miguel identity moment on the home page. */
-.method-page .case-hero-title {
-  font-size: clamp(56px, 10vw, 104px);
-  padding-top: 20px;
-}
-
 .method-page .method-movements-copy {
   max-width: 50ch;
 }
@@ -230,10 +223,6 @@
 }
 
 @media (max-width: 720px) {
-  .method-page .case-hero-title {
-    font-size: clamp(50px, 16vw, 76px);
-  }
-
   .method-page .movement-item summary {
     grid-template-columns: 1fr 18px;
     gap: 5px 12px;
