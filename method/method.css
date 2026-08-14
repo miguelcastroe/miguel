@@ -222,7 +222,7 @@
   color: var(--ink);
 }
 
-@media (max-width: 720px) {
+@media (max-width: 760px) {
   .method-page .movement-item summary {
     grid-template-columns: 1fr 18px;
     gap: 5px 12px;

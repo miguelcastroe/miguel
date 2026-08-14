@@ -271,11 +271,11 @@
   text-decoration: none;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 760px) {
   .case-page .portfolio-back {
     min-height: 40px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .case-page .case-hero {
@@ -290,14 +290,14 @@
 
   .case-page .case-hero-title {
     font-size: clamp(50px, 16vw, 76px);
-    padding: 20px 16px 18px;
+    padding: 20px 20px 18px;
   }
 
   .case-page .case-hero-copy,
   .case-page .case-film-wrap,
   .case-page .case-body {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .case-page .case-film-wrap {
@@ -310,7 +310,7 @@
   }
 
   .case-page .case-footer {
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 }
