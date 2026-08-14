@@ -39,7 +39,7 @@ function featherHome() {
 
   var style = document.createElement("style");
   style.textContent = [
-    ".nav-panel .nav-whatsapp{font-size:11px;font-weight:400;letter-spacing:.06em;color:var(--muted);margin-top:-4px;margin-bottom:18px}",
+    ".nav-panel .nav-whatsapp{color:var(--muted)}",
     ".nav-panel .nav-whatsapp:hover{color:var(--ink)}",
     ".nav-panel .nav-linkedin{display:flex;align-items:center;gap:8px}",
     ".nav-panel .nav-linkedin svg{width:15px;height:15px;flex:0 0 auto;stroke:currentColor}"
