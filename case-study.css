@@ -48,7 +48,7 @@
   letter-spacing: -0.04em;
   line-height: 0.88;
   color: var(--ink);
-  padding: 20px 24px 22px;
+  padding: 34px 24px 22px;
 }
 
 .case-page .case-hero-copy {
@@ -263,8 +263,7 @@
 
   .case-page .case-hero-title {
     font-size: clamp(50px, 16vw, 76px);
-    padding-left: 16px;
-    padding-right: 16px;
+    padding: 28px 16px 18px;
   }
 
   .case-page .case-hero-copy,
