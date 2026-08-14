@@ -2,36 +2,39 @@
   padding-top: var(--nav-height);
 }
 
-/* ---- Deep-page return control ---- */
+/* ---- Deep-page return bar ---- */
 .case-page .portfolio-back {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 7px;
-  margin: 24px 24px 0;
+  gap: 8px;
+  width: 100%;
+  min-height: 42px;
+  margin: 0;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--line);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--ink);
-  transition: color var(--motion-fast) var(--motion-ease), transform var(--motion-fast) var(--motion-ease);
+  transition: color var(--motion-fast) var(--motion-ease);
 }
 
-.case-page .portfolio-back::before {
-  content: "⌂";
-  font-size: 14px;
-  line-height: 1;
-  transform: translateY(-1px);
+.case-page .portfolio-back svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  stroke: currentColor;
 }
 
 .case-page .portfolio-back:hover {
   color: var(--muted);
-  transform: translateX(-2px);
 }
 
 .case-page .portfolio-back:focus-visible {
   outline: 1px solid var(--ink);
-  outline-offset: 5px;
+  outline-offset: -5px;
 }
 
 .case-page .case-hero {
@@ -41,11 +44,11 @@
 .case-page .case-hero-title {
   font-family: var(--serif);
   font-weight: 200;
-  font-size: clamp(64px, 16vw, 148px);
+  font-size: clamp(56px, 10vw, 104px);
   letter-spacing: -0.04em;
   line-height: 0.88;
   color: var(--ink);
-  padding: 28px 24px 22px;
+  padding: 20px 24px 22px;
 }
 
 .case-page .case-hero-copy {
@@ -247,8 +250,9 @@
 
 @media (max-width: 720px) {
   .case-page .portfolio-back {
-    margin-left: 16px;
-    margin-right: 16px;
+    min-height: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .case-page .case-hero-copy,
@@ -258,7 +262,7 @@
   }
 
   .case-page .case-hero-title {
-    font-size: clamp(58px, 19vw, 92px);
+    font-size: clamp(50px, 16vw, 76px);
     padding-left: 16px;
     padding-right: 16px;
   }
