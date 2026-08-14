@@ -34,9 +34,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/fonts.css">
 <link rel="stylesheet" href="/portfolio.css">
-<link rel="stylesheet" href="/case-study.css">
-<link rel="stylesheet" href="/sprint/sprint.css?v=1">
-<link rel="stylesheet" href="/sprint/sprint-refine.css?v=5">
+<link rel="stylesheet" href="/sprint/sprint-refine.css?v=6">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -61,34 +59,30 @@
       "inLanguage": "es",
       "image": "https://miguelcastro.works/sprint/assets/og-sprint.jpg",
       "provider": {"@type":"Person","@id":"https://miguelcastro.works/#miguel-castro","name":"Miguel Castro","jobTitle":"Creative Director","url":"https://miguelcastro.works/","sameAs":["https://www.linkedin.com/in/miguelcastroe/"]}
-    },
-    {
-      "@type":"BreadcrumbList",
-      "@id":"https://miguelcastro.works/sprint/#breadcrumb",
-      "itemListElement":[{"@type":"ListItem","position":1,"name":"Miguel Castro","item":"https://miguelcastro.works/"},{"@type":"ListItem","position":2,"name":"Sprint de desarrollo de ideas","item":"https://miguelcastro.works/sprint/"}]
     }
   ]
 }
 </script>
 </head>
 <body>
-<header class="header-section">
-  <nav class="site-nav">
-    <a class="nav-ticker nav-home" href="/" aria-label="Volver al inicio"></a>
-    <div class="nav-right"><button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false" aria-controls="navPanel" type="button"><span></span><span></span><span></span></button></div>
-  </nav>
-  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
-  <div class="nav-panel" id="navPanel" aria-hidden="true">
-    <a href="/" class="nav-link">Inicio</a><a href="/#work" class="nav-link">Trabajo</a><a href="/method/" class="nav-link">Method</a><a href="/sprint/" class="nav-link" aria-current="page">Sprint</a><a href="/#contact" class="nav-link">Contacto</a><a href="https://www.linkedin.com/in/miguelcastroe/" target="_blank" rel="noopener" class="nav-linkedin nav-link">LinkedIn &nearr;</a>
+<header class="sprint-site-header" id="top">
+  <div class="sprint-header-inner">
+    <a class="sprint-brand" href="/sprint/">Sprint de desarrollo de ideas</a>
+    <nav class="sprint-site-nav" aria-label="Navegación de Sprint">
+      <a href="#programa">Programa</a>
+      <a href="#como-se-trabaja">Cómo se trabaja</a>
+      <a href="#miguel">Miguel</a>
+      <a href="#informacion">Información</a>
+      <a class="sprint-nav-cta js-sprint-checkout" href="https://pay.hotmart.com/L106815370Q?checkoutMode=2">Reserva tu plaza ↗</a>
+    </nav>
   </div>
 </header>
 
-<main class="case-page sprint-page">
+<main class="sprint-page">
   <section class="sprint-hero" aria-labelledby="sprint-title">
-    <div class="sprint-hero-topline"><span>Miguel Castro</span><span>Sprint de desarrollo de ideas</span></div>
     <div class="sprint-hero-grid">
       <div class="sprint-hero-primary">
-        <p class="sprint-course-type">Curso online · 4 semanas</p>
+        <p class="sprint-course-type">Miguel Castro · Curso online · 4 semanas</p>
         <h1 id="sprint-title"><span class="sprint-title-line">El trabajo detrás de</span><span class="sprint-title-line">las grandes ideas</span></h1>
         <p class="sprint-hero-subhead">Un sprint de 4 semanas para aprender a detectar qué vale la pena perseguir, descubrir qué cambia cuando lo miras desde otra perspectiva y cómo convertir esa nueva mirada en una idea que puedes poner a prueba.</p>
       </div>
@@ -100,24 +94,14 @@
         <div class="sprint-hero-detail"><span>Inversión</span><strong>S/ 280 · US$83</strong></div>
         <div class="sprint-hero-detail sprint-hero-detail-last"><span>Cupos</span><strong>16 participantes</strong></div>
         <div class="sprint-hero-actions">
-          <a class="sprint-action sprint-action-primary js-sprint-checkout" href="https://pay.hotmart.com/L106815370Q?checkoutMode=2"><span>Reserva tu plaza</span><span aria-hidden="true">&nearr;</span></a>
-          <a class="sprint-action" href="/sprint/beca/"><span>Postula a una beca</span><span aria-hidden="true">&nearr;</span></a>
+          <a class="sprint-action sprint-action-primary js-sprint-checkout" href="https://pay.hotmart.com/L106815370Q?checkoutMode=2"><span>Reserva tu plaza</span><span aria-hidden="true">↗</span></a>
+          <a class="sprint-action" href="/sprint/beca/"><span>Postula a una beca</span><span aria-hidden="true">↗</span></a>
         </div>
       </aside>
     </div>
   </section>
 
-  <nav class="sprint-index" aria-label="Contenido del curso">
-    <span>En esta página</span>
-    <a href="#resultado">Qué cambia</a>
-    <a href="#para-quien">Para quién es</a>
-    <a href="#programa">Programa</a>
-    <a href="#como-se-trabaja">Cómo se trabaja</a>
-    <a href="#miguel">Miguel</a>
-    <a href="#informacion">Información</a>
-  </nav>
-
-  <div class="case-body sprint-editorial-body">
+  <div class="sprint-body">
     <section class="sprint-recognition" aria-label="El punto de partida">
       <div class="sprint-section-marker">El punto de partida</div>
       <div class="sprint-recognition-copy">
@@ -153,28 +137,28 @@
         <article class="sprint-week">
           <div class="sprint-week-index"><span>Semana 1</span><i aria-hidden="true"></i></div>
           <div class="sprint-week-title"><span>Find / Signal</span><h3>¿Qué merece atención?</h3></div>
-          <div class="sprint-week-copy"><p>Investigas y sigues pistas hasta encontrar algo que merece atención.</p><p>Puede ser una contradicción, un comportamiento, una fricción, una capacidad que nadie está aprovechando o algo que no termina de encajar.</p><p class="sprint-week-outcome">Sales con una señal para seguir investigando.</p></div>
+          <div class="sprint-week-copy"><p>Investigas y sigues pistas hasta encontrar algo que merece atención.</p><p>Puede ser una contradicción, un comportamiento, una fricción, una capacidad que nadie está aprovechando o algo que no termina de encajar.</p><p class="sprint-week-outcome"><span class="sprint-output-icon" aria-hidden="true"></span><span>Sales con una señal para seguir investigando.</span></p></div>
         </article>
         <article class="sprint-week">
           <div class="sprint-week-index"><span>Semana 2</span><i aria-hidden="true"></i></div>
           <div class="sprint-week-title"><span>Shift / Perspective</span><h3>¿Qué cambia si miramos el problema desde otro lugar?</h3></div>
-          <div class="sprint-week-copy"><p>Partes de esa señal y exploras otras maneras de entender lo que está pasando.</p><p>A veces mirar cómo trabaja otra disciplina ayuda a ver algo que normalmente se nos escapa.</p><p class="sprint-week-outcome">Sales con una perspectiva que cambia lo que puedes hacer con el proyecto.</p></div>
+          <div class="sprint-week-copy"><p>Partes de esa señal y exploras otras maneras de entender lo que está pasando.</p><p>A veces mirar cómo trabaja otra disciplina ayuda a ver algo que normalmente se nos escapa.</p><p class="sprint-week-outcome"><span class="sprint-output-icon" aria-hidden="true"></span><span>Sales con una perspectiva que cambia lo que puedes hacer con el proyecto.</span></p></div>
         </article>
         <article class="sprint-week">
           <div class="sprint-week-index"><span>Semana 3</span><i aria-hidden="true"></i></div>
           <div class="sprint-week-title"><span>Shape / Idea</span><h3>¿Qué podemos hacer desde esta nueva perspectiva?</h3></div>
-          <div class="sprint-week-copy"><p>Exploras distintas posibilidades y desarrollas las que vale la pena seguir.</p><p>A medida que avanzas, la idea se vuelve más clara y descubres hasta dónde puede crecer.</p><p class="sprint-week-outcome">Sales con una idea que merece hacerse real.</p></div>
+          <div class="sprint-week-copy"><p>Exploras distintas posibilidades y desarrollas las que vale la pena seguir.</p><p>A medida que avanzas, la idea se vuelve más clara y descubres hasta dónde puede crecer.</p><p class="sprint-week-outcome"><span class="sprint-output-icon" aria-hidden="true"></span><span>Sales con una idea que merece hacerse real.</span></p></div>
         </article>
         <article class="sprint-week">
           <div class="sprint-week-index"><span>Semana 4</span><i aria-hidden="true"></i></div>
           <div class="sprint-week-title"><span>Prove / Evidence</span><h3>¿Qué pasa cuando ponemos la idea a prueba?</h3></div>
-          <div class="sprint-week-copy"><p>Haces una primera versión para ver qué funciona y qué falla.</p><p>La prueba puede confirmar una decisión, revelar algo que necesita trabajo o hacerte volver atrás.</p><p class="sprint-week-outcome">Sales reconociendo qué parte de la idea sobrevivió y qué necesita cambiar.</p></div>
+          <div class="sprint-week-copy"><p>Haces una primera versión para ver qué funciona y qué falla.</p><p>La prueba puede confirmar una decisión, revelar algo que necesita trabajo o hacerte volver atrás.</p><p class="sprint-week-outcome"><span class="sprint-output-icon" aria-hidden="true"></span><span>Sales reconociendo qué parte de la idea sobrevivió y qué necesita cambiar.</span></p></div>
         </article>
       </div>
     </div>
   </section>
 
-  <div class="case-body sprint-editorial-body">
+  <div class="sprint-body">
     <section class="sprint-work" id="como-se-trabaja">
       <div class="sprint-section-marker">Cómo se trabaja</div>
       <div class="sprint-work-grid">
@@ -186,7 +170,7 @@
 
     <section class="sprint-profile-section" id="miguel">
       <figure class="sprint-profile-image"><img src="/sprint/assets/miguel-castro-profile.webp" alt="Miguel Castro" width="515" height="745" loading="lazy" decoding="async"></figure>
-      <div class="sprint-profile-copy"><p class="case-kicker">Miguel Castro</p><h2><span class="sprint-phrase-line">20+ años</span><span class="sprint-phrase-line">desarrollando ideas</span></h2><p>Soy Miguel Castro, director creativo.</p><p>Durante más de veinte años he desarrollado ideas para marcas, productos y experiencias en agencias como <strong>VML, Wunderman Thompson, DDB, AKQA y CP+B</strong>.</p><p>Ese trabajo ha sido reconocido internacionalmente, incluyendo un <strong>Grand Prix en Innovación en Cannes Lions</strong> y premios en esa misma categoría durante dos años consecutivos.</p><p>Desde 2021 investigo y trabajo con inteligencia artificial dentro del proceso creativo.</p><p>El Sprint nace de esa experiencia y de una manera de trabajar que he construido con los años.</p></div>
+      <div class="sprint-profile-copy"><p class="sprint-section-marker">Miguel Castro</p><h2><span class="sprint-phrase-line">20+ años</span><span class="sprint-phrase-line">desarrollando ideas</span></h2><p>Soy Miguel Castro, director creativo.</p><p>Durante más de veinte años he desarrollado ideas para marcas, productos y experiencias en agencias como <strong>VML, Wunderman Thompson, DDB, AKQA y CP+B</strong>.</p><p>Ese trabajo ha sido reconocido internacionalmente, incluyendo un <strong>Grand Prix en Innovación en Cannes Lions</strong> y premios en esa misma categoría durante dos años consecutivos.</p><p>Desde 2021 investigo y trabajo con inteligencia artificial dentro del proceso creativo.</p><p>El Sprint nace de esa experiencia y de una manera de trabajar que he construido con los años.</p></div>
     </section>
 
     <section class="sprint-practical" id="informacion">
@@ -200,13 +184,24 @@
           <div class="sprint-info-row"><span>Cupos</span><strong>16 participantes</strong></div>
           <div class="sprint-info-row"><span>Becas</span><strong>4 del 50% para estudiantes y personas que empiezan su carrera.</strong></div>
         </div>
-        <div class="sprint-closing"><p><span class="sprint-important-line">Trae un proyecto en desarrollo.</span> <span class="sprint-important-line">No necesitas tenerlo resuelto.</span></p><div class="sprint-actions"><a class="sprint-action sprint-action-primary js-sprint-checkout" href="https://pay.hotmart.com/L106815370Q?checkoutMode=2"><span>Reserva tu plaza</span><span aria-hidden="true">&nearr;</span></a><a class="sprint-action" href="/sprint/beca/"><span>Postula a una beca</span><span aria-hidden="true">&nearr;</span></a></div></div>
+        <div class="sprint-closing"><p><span class="sprint-important-line">Trae un proyecto en desarrollo.</span> <span class="sprint-important-line">No necesitas tenerlo resuelto.</span></p><div class="sprint-actions"><a class="sprint-action sprint-action-primary js-sprint-checkout" href="https://pay.hotmart.com/L106815370Q?checkoutMode=2"><span>Reserva tu plaza</span><span aria-hidden="true">↗</span></a><a class="sprint-action" href="/sprint/beca/"><span>Postula a una beca</span><span aria-hidden="true">↗</span></a></div></div>
       </div>
     </section>
   </div>
-
-  <footer class="case-footer sprint-footer"><span>&copy; 2026 Miguel Castro</span><div class="sprint-footer-links"><a href="/">Portafolio &nearr;</a><a href="/method/">Method &nearr;</a><a href="https://www.linkedin.com/in/miguelcastroe/" target="_blank" rel="noopener">LinkedIn &nearr;</a></div></footer>
 </main>
-<script src="/portfolio.js?v=1"></script><script src="/sprint/sprint.js?v=1"></script>
+
+<footer class="sprint-site-footer">
+  <div class="sprint-footer-inner">
+    <div class="sprint-footer-title"><span>Sprint de desarrollo de ideas</span><span>Miguel Castro · 2026</span></div>
+    <nav class="sprint-footer-nav" aria-label="Navegación de cierre">
+      <a href="#programa">Programa</a>
+      <a href="#informacion">Información</a>
+      <a href="#top">Volver arriba ↑</a>
+      <a class="js-sprint-checkout" href="https://pay.hotmart.com/L106815370Q?checkoutMode=2">Reserva tu plaza ↗</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/sprint/sprint.js?v=1"></script>
 </body>
 </html>
