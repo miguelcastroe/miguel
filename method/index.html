@@ -36,7 +36,7 @@
 <link rel="stylesheet" href="/fonts.css">
 <link rel="stylesheet" href="/portfolio.css">
 <link rel="stylesheet" href="/case-study.css">
-<link rel="stylesheet" href="/method/method.css?v=6">
+<link rel="stylesheet" href="/method/method.css?v=7">
 
 <script type="application/ld+json">
 {
@@ -76,8 +76,20 @@
 
 <header class="header-section">
   <nav class="site-nav">
-    <a class="nav-ticker nav-home" href="/" aria-label="Back to home"></a>
+    <a class="nav-ticker" href="mailto:miguel@miguelcastro.cc" aria-label="Get in touch">
+      <div class="nav-ticker-track" aria-hidden="true">
+        <span>Get in touch <svg viewBox="0 0 12 9" fill="none" stroke="#111" stroke-width="1"><rect x="0.5" y="0.5" width="11" height="8" rx="0.5"/><polyline points="0.5,0.5 6,5.5 11.5,0.5"/></svg></span>
+        <span>Get in touch <svg viewBox="0 0 12 9" fill="none" stroke="#111" stroke-width="1"><rect x="0.5" y="0.5" width="11" height="8" rx="0.5"/><polyline points="0.5,0.5 6,5.5 11.5,0.5"/></svg></span>
+        <span>Get in touch <svg viewBox="0 0 12 9" fill="none" stroke="#111" stroke-width="1"><rect x="0.5" y="0.5" width="11" height="8" rx="0.5"/><polyline points="0.5,0.5 6,5.5 11.5,0.5"/></svg></span>
+        <span>Get in touch <svg viewBox="0 0 12 9" fill="none" stroke="#111" stroke-width="1"><rect x="0.5" y="0.5" width="11" height="8" rx="0.5"/><polyline points="0.5,0.5 6,5.5 11.5,0.5"/></svg></span>
+      </div>
+    </a>
     <div class="nav-right">
+      <div class="lang-toggle" aria-label="Language">
+        <button id="langEng" class="active" type="button" aria-pressed="true">ENG</button>
+        <span>|</span>
+        <button id="langEsp" type="button" aria-pressed="false">ESP</button>
+      </div>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navPanel" type="button">
         <span></span><span></span><span></span>
       </button>
@@ -86,15 +98,16 @@
 
   <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
   <div class="nav-panel" id="navPanel" aria-hidden="true">
-    <a href="/" class="nav-link">Home</a>
-    <a href="/#work" class="nav-link">Work</a>
-    <a href="/method/" class="nav-link" aria-current="page">Method</a>
-    <a href="/#contact" class="nav-link">Contact</a>
+    <a href="/#work" class="nav-link" data-en="Work" data-es="Trabajo">Work</a>
+    <a href="/method/" class="nav-link" aria-current="page" data-en="Method" data-es="Method">Method</a>
+    <a href="/#contact" class="nav-link" data-en="Contact" data-es="Contacto">Contact</a>
     <a href="https://www.linkedin.com/in/miguelcastroe/" target="_blank" rel="noopener" class="nav-linkedin nav-link">LinkedIn &nearr;</a>
   </div>
 </header>
 
 <main class="case-page method-page">
+  <a class="portfolio-back method-reveal" href="/" data-en="Back to Portfolio" data-es="Volver al Portfolio">Back to Portfolio</a>
+
   <section class="case-hero" aria-labelledby="method-title">
     <h1 class="case-hero-title method-reveal" id="method-title">Method</h1>
     <div class="case-hero-copy">
@@ -201,10 +214,6 @@
         <p class="method-reveal muted">You may be working on your own, inside an agency, within a brand, or building something in a completely different field. What matters is having something worth developing.</p>
 
         <div class="method-actions method-reveal">
-          <a href="mailto:miguel@miguelcastro.cc?subject=Explore%20the%20Sprint">
-            <span>Explore the Sprint</span>
-            <span>An intensive way to work Method on a real project. &rarr;</span>
-          </a>
           <a href="mailto:miguel@miguelcastro.cc?subject=Work%20with%20Method">
             <span>Work with Method</span>
             <span>Independent projects, agencies, brands or teams. &rarr;</span>
@@ -212,22 +221,14 @@
         </div>
       </div>
     </section>
-
-    <section class="case-section method-note-section">
-      <h2 class="case-section-label method-reveal">A note on the names</h2>
-      <div class="case-section-copy">
-        <p class="method-reveal">Method and Sprint are called that because that is what they are.</p>
-        <p class="method-reveal muted">They do not need proprietary-sounding names to have value. The IP is in how they are built, the decisions they contain and how they are used, not in the name.</p>
-      </div>
-    </section>
   </div>
 
-  <footer class="case-footer method-footer">
+  <footer class="case-footer">
     <span>&copy; 2026 Miguel Castro</span>
     <a href="https://www.linkedin.com/in/miguelcastroe/" target="_blank" rel="noopener">LinkedIn &nearr;</a>
   </footer>
 </main>
 
-<script src="/method/method.js?v=6"></script>
+<script src="/method/method.js?v=7"></script>
 </body>
 </html>
