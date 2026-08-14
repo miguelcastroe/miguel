@@ -2,29 +2,34 @@
   padding-top: var(--nav-height);
 }
 
-/* ---- Internal-page home control ---- */
-.nav-ticker.nav-home {
-  width: 24px;
-  height: 24px;
-  overflow: visible;
-  flex-shrink: 0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 16px 16px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 7.25 8 2.5l5.5 4.75v6.25H9.75V9.75h-3.5v3.75H2.5V7.25Z' fill='none' stroke='%23111' stroke-width='1' stroke-linejoin='round'/%3E%3C/svg%3E");
-  transition: opacity var(--motion-fast) var(--motion-ease), transform var(--motion-fast) var(--motion-ease);
+/* ---- Deep-page return control ---- */
+.case-page .portfolio-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 24px 24px 0;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+  transition: color var(--motion-fast) var(--motion-ease), transform var(--motion-fast) var(--motion-ease);
 }
 
-.nav-ticker.nav-home .nav-ticker-track {
-  display: none;
-}
-
-.nav-ticker.nav-home:hover {
-  opacity: 0.58;
+.case-page .portfolio-back::before {
+  content: "⌂";
+  font-size: 14px;
+  line-height: 1;
   transform: translateY(-1px);
 }
 
-.nav-ticker.nav-home:focus-visible {
+.case-page .portfolio-back:hover {
+  color: var(--muted);
+  transform: translateX(-2px);
+}
+
+.case-page .portfolio-back:focus-visible {
   outline: 1px solid var(--ink);
   outline-offset: 5px;
 }
@@ -241,6 +246,11 @@
 }
 
 @media (max-width: 720px) {
+  .case-page .portfolio-back {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
   .case-page .case-hero-copy,
   .case-page .case-section {
     grid-template-columns: 1fr;
